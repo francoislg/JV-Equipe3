@@ -31,8 +31,8 @@ public class KeyboardMovement : MonoBehaviour
 
 	void moveXY(float x, float y){
 		Vector3 position = this.transform.position;
-		position.z += y;
 		position.x += x;
+		position.z += y;
 		this.transform.position = position;
 	}
 }
