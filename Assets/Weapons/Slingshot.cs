@@ -5,14 +5,13 @@ public class Slingshot : Weapon {
 	private GameObject projectile;
 	private float speed = 10.0f;
 	public Slingshot(GameObject weaponHolder) : base(weaponHolder){
-		projectile = (GameObject)Resources.Load("bullet", typeof(GameObject));
-		projectile.renderer.material.color = Color.yellow;
+		projectile = this.LoadBullet("bullet");
 	}
 
 	public override void shootAt(Vector3 target){
 		GameObject newProjectile = (GameObject)MonoBehaviour.Instantiate(projectile, weaponHolder.transform.position, Quaternion.identity);
 		newProjectile.transform.LookAt(target);
-		Debug.Log ("Target : " + target + " / Movement : " + newProjectile.transform.forward);
+		newProjectile.renderer.material.color = Color.red;
 		newProjectile.rigidbody.velocity = (newProjectile.transform.forward * speed);
 	}
 

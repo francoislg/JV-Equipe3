@@ -12,6 +12,10 @@ public abstract class Weapon {
 	public float getCooldown(){
 		return cooldown;
 	}
+
+	protected GameObject LoadBullet(string name){
+		return (GameObject)Resources.Load("Bullets/" + name, typeof(GameObject));
+	}
 	
 	public abstract void shootAt(Vector3 target);
 	public abstract void remove();
