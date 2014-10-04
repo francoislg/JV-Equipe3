@@ -74,44 +74,27 @@ NavMeshSettings:
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
   m_NavMesh: {fileID: 0}
-<<<<<<< Updated upstream
 --- !u!1 &32347202
-=======
---- !u!1 &14399858
->>>>>>> Stashed changes
 GameObject:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   serializedVersion: 4
   m_Component:
-<<<<<<< Updated upstream
   - 4: {fileID: 32347204}
   - 114: {fileID: 32347203}
   m_Layer: 0
   m_Name: Spawner
   m_TagString: Spawner
-=======
-  - 4: {fileID: 14399860}
-  - 114: {fileID: 14399859}
-  m_Layer: 0
-  m_Name: engine
-  m_TagString: Untagged
->>>>>>> Stashed changes
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< Updated upstream
 --- !u!114 &32347203
-=======
---- !u!114 &14399859
->>>>>>> Stashed changes
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-<<<<<<< Updated upstream
   m_GameObject: {fileID: 32347202}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -120,30 +103,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   copyUnit: {fileID: 100000, guid: 25bc468eedb3a5846bcb4c9fa2bf8294, type: 2}
 --- !u!4 &32347204
-=======
-  m_GameObject: {fileID: 14399858}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ed6876481f9447788e79053c7c2e6c5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPause: 0
-  pauseWindow:
-    serializedVersion: 2
-    x: 0
-    y: 0
-    width: 0
-    height: 0
-  weaponIcon: {fileID: 0}
-  powerUpIcon: {fileID: 0}
-  healthIcon: {fileID: 0}
---- !u!4 &14399860
->>>>>>> Stashed changes
 Transform:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-<<<<<<< Updated upstream
   m_GameObject: {fileID: 32347202}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1000.6665, y: 0, z: 1030.12866}
@@ -151,15 +114,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-=======
-  m_GameObject: {fileID: 14399858}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 3
->>>>>>> Stashed changes
 --- !u!1 &33233259
 GameObject:
   m_ObjectHideFlags: 0
@@ -541,7 +495,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a1b5f532eee79dd4e963d297f7fdf92a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
   target: {fileID: 146464754}
 --- !u!114 &1537268898
 MonoBehaviour:
@@ -554,8 +507,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 282aa762eea0e304eb10523e4ee28e6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-=======
->>>>>>> Stashed changes
 --- !u!1 &2018697950
 GameObject:
   m_ObjectHideFlags: 0
