@@ -4,7 +4,7 @@ using System.Collections;
 public class CameraBindToPlayer : MonoBehaviour {
 
 	public Transform target;
-	float depthOffset = 25f;
+	float depthOffset = 20f;
 	// Use this for initialization
 	void Start () {
 	
