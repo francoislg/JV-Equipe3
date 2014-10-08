@@ -13,9 +13,9 @@ public class GUIscript : MonoBehaviour
     {
         pauseWindow = new Rect(200, 50, 200, 100);
         // on pourra loader dynamiquement l'icone d'arme.
-        weaponIcon = (Texture2D)Resources.Load("slingshotIcon");
-        powerUpIcon = (Texture2D)Resources.Load("candyIcon");
-        healthIcon = (Texture2D)Resources.Load("orangeJuiceIcon");
+        weaponIcon = (Texture2D)Resources.Load("Sprites/slingshotIcon");
+        powerUpIcon = (Texture2D)Resources.Load("Sprites/candyIcon");
+        healthIcon = (Texture2D)Resources.Load("Sprites/orangeJuiceIcon");
     }
 
     void Update()

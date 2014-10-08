@@ -10,7 +10,7 @@ public class BaloonShooter : Weapon
         : base(weaponHolder)
     {
         this.cooldown = 0.5f;
-        projectile = this.LoadBullet("bullet");
+        projectile = this.LoadBullet("Bullet");
     }
 
     public override void shootAt(Vector3 target)
@@ -25,6 +25,5 @@ public class BaloonShooter : Weapon
 
     public override void remove()
     {
-
     }
 }

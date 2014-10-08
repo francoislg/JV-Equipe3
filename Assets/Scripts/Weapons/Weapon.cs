@@ -18,7 +18,7 @@ public abstract class Weapon
 
     protected GameObject LoadBullet(string name)
     {
-        return (GameObject)Resources.Load("Bullets/" + name, typeof(GameObject));
+        return (GameObject)Resources.Load("Prefabs/Bullets/" + name, typeof(GameObject));
     }
 
     public abstract void shootAt(Vector3 target);
