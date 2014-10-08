@@ -25,6 +25,5 @@ public class BaloonShooter : Weapon
 
     public override void remove()
     {
-
     }
 }
