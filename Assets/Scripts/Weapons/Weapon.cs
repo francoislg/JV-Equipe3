@@ -3,17 +3,14 @@ using System.Collections;
 
 public abstract class Weapon
 {
+    public float Cooldown { get ; protected set ;}
+
     protected GameObject weaponHolder;
-    protected float cooldown = 1.0f;
 
     public Weapon(GameObject weaponHolder)
     {
         this.weaponHolder = weaponHolder;
-    }
-
-    public float getCooldown()
-    {
-        return cooldown;
+        Cooldown = 1.0f;
     }
 
     protected GameObject LoadBullet(string name)

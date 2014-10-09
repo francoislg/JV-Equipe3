@@ -9,7 +9,7 @@ public class BaloonShooter : Weapon
     public BaloonShooter(GameObject weaponHolder)
         : base(weaponHolder)
     {
-        this.cooldown = 0.5f;
+        Cooldown = 0.5f;
         projectile = this.LoadBullet("Bullet");
     }
 

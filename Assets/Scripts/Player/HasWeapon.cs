@@ -28,12 +28,12 @@ public class HasWeapon : MonoBehaviour
                     if (Input.GetMouseButton(0))
                     {
                         weapon.shootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
-                        setCooldown(weapon.getCooldown());
+                        setCooldown(weapon.Cooldown);
                     }
                     else
                     {
                         rightWeapon.shootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
-                        setCooldown(rightWeapon.getCooldown());
+                        setCooldown(rightWeapon.Cooldown);
                     }
                 }
             }
