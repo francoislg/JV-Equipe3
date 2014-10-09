@@ -3,7 +3,7 @@ using System.Collections;
 
 public class HUD : MonoBehaviour
 {
-    public bool isPause;
+    public bool isPaused;
     public Rect pauseWindow;
     public Texture2D weaponIcon;
     public Texture2D powerUpIcon;
@@ -22,33 +22,25 @@ public class HUD : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            isPause = !isPause;
+            isPaused = !isPaused;
 
-            if (isPause)
-                Time.timeScale = 0;
-            else
-                Time.timeScale = 1;
+            Time.timeScale = isPaused ? 0 : 1;
         }
     }
-
+    
     void OnGUI()
     {
-        if (!isPause)
+        if (!isPaused)
         {
             GUI.Box(new Rect(20, 20, 70, 70), "Level 1");
             GUI.Button(new Rect(30, 40, 50, 40), "Quit..."); //inside case 1
 
-            //GUI.Box(new Rect(Screen.width - 90,20,70,70), "Case 2");
             GUI.Box(new Rect(Screen.width - 90, 20, 70, 70), weaponIcon);
-
-            //GUI.Box(new Rect(20,Screen.height - 90,70,70), "Case 3");
             GUI.Box(new Rect(20, Screen.height - 90, 70, 70), powerUpIcon);
-
-            //GUI.Box(new Rect(Screen.width - 90,Screen.height - 90,70,70), "Case 4");
             GUI.Box(new Rect(Screen.width - 90, Screen.height - 90, 70, 70), healthIcon);
         }
 
-        if (isPause)
+        if (isPaused)
         {
             pauseWindow = GUI.Window(0, pauseWindow, renderWindow, "GAME PAUSED");
         }
@@ -59,7 +51,7 @@ public class HUD : MonoBehaviour
     {
         if (GUILayout.Button("Resume"))
         {
-            isPause = !isPause;
+            isPaused = !isPaused;
             Time.timeScale = 1;
         }
     }
