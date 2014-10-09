@@ -9,7 +9,7 @@ public class Slingshot : Weapon
     public Slingshot(GameObject weaponHolder)
         : base(weaponHolder)
     {
-        projectile = this.LoadBullet("bullet");
+        projectile = LoadBullet("bullet");
     }
 
     public override void shootAt(Vector3 target)
@@ -18,9 +18,5 @@ public class Slingshot : Weapon
         newProjectile.transform.LookAt(target);
         newProjectile.renderer.material.color = Color.red;
         newProjectile.rigidbody.velocity = (newProjectile.transform.forward * speed);
-    }
-
-    public override void remove()
-    {
     }
 }

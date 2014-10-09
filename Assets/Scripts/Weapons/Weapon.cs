@@ -19,5 +19,4 @@ public abstract class Weapon
     }
 
     public abstract void shootAt(Vector3 target);
-    public abstract void remove();
 }
