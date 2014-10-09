@@ -9,8 +9,8 @@ public class BaloonShooter : Weapon
     public BaloonShooter(GameObject weaponHolder)
         : base(weaponHolder)
     {
-        this.cooldown = 0.5f;
-        projectile = this.LoadBullet("Bullet");
+        CooldownDuration = 0.5f;
+        projectile = LoadBullet("Bullet");
     }
 
     public override void shootAt(Vector3 target)
@@ -21,9 +21,5 @@ public class BaloonShooter : Weapon
         newProjectile.transform.LookAt(target);
         Vector3 fwd = newProjectile.transform.forward;
         newProjectile.rigidbody.velocity = new Vector3(fwd.x * speed, (10 * fwd.y) + 15, fwd.z * speed);
-    }
-
-    public override void remove()
-    {
     }
 }

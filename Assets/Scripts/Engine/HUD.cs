@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class GUIscript : MonoBehaviour
+public class HUD : MonoBehaviour
 {
     public bool isPause;
     public Rect pauseWindow;

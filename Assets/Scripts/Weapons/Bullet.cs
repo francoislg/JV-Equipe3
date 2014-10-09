@@ -11,6 +11,7 @@ public class Bullet : MonoBehaviour
         {
             Instantiate(explosion, col.gameObject.transform.position, Quaternion.identity);
             Destroy(col.gameObject, 0.1f);
+            Destroy(gameObject);
         }
     }
 

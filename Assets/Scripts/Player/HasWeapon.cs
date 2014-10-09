@@ -6,7 +6,6 @@ public class HasWeapon : MonoBehaviour
     private Weapon weapon;
     private Weapon rightWeapon;
     private float cooldownUntil;
-    private bool onCooldown;
 
     void Start()
     {
@@ -16,44 +15,26 @@ public class HasWeapon : MonoBehaviour
 
     void Update()
     {
-        checkCooldown();
-        if (!onCooldown)
+        cooldownUntil -= Time.deltaTime;
+
+        RaycastHit mouseRayHit;
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out mouseRayHit))
         {
-            if (Input.GetMouseButton(0) || Input.GetMouseButton(1))
-            {
-                Ray mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-                RaycastHit mouseRayHit;
-                if (Physics.Raycast(mouseRay, out mouseRayHit))
-                {
-                    if (Input.GetMouseButton(0))
-                    {
-                        weapon.shootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
-                        setCooldown(weapon.getCooldown());
-                    }
-                    else
-                    {
-                        rightWeapon.shootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
-                        setCooldown(rightWeapon.getCooldown());
-                    }
-                }
-            }
+            HandleFire(mouseRayHit);
         }
     }
 
-    private void checkCooldown()
+    private void HandleFire(RaycastHit mouseRayHit)
     {
-        if (onCooldown)
+        if (Input.GetMouseButton(0) && cooldownUntil <= 0)
         {
-            if (Time.time > cooldownUntil)
-            {
-                onCooldown = false;
-            }
+            weapon.shootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
+            cooldownUntil = weapon.CooldownDuration;
         }
-    }
-
-    private void setCooldown(float cooldown)
-    {
-        onCooldown = true;
-        cooldownUntil = Time.time + cooldown;
+        else if (Input.GetMouseButton(1) && cooldownUntil <= 0)
+        {
+            rightWeapon.shootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
+            cooldownUntil = rightWeapon.CooldownDuration;
+        }
     }
 }

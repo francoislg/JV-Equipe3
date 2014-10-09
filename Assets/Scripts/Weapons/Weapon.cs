@@ -3,17 +3,14 @@ using System.Collections;
 
 public abstract class Weapon
 {
+    public float CooldownDuration { get ; protected set ;}
+
     protected GameObject weaponHolder;
-    protected float cooldown = 1.0f;
 
     public Weapon(GameObject weaponHolder)
     {
         this.weaponHolder = weaponHolder;
-    }
-
-    public float getCooldown()
-    {
-        return cooldown;
+        CooldownDuration = 1.0f;
     }
 
     protected GameObject LoadBullet(string name)
@@ -22,5 +19,4 @@ public abstract class Weapon
     }
 
     public abstract void shootAt(Vector3 target);
-    public abstract void remove();
 }
