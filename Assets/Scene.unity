@@ -498,8 +498,8 @@ GameObject:
   - 4: {fileID: 1779315576}
   - 114: {fileID: 1779315575}
   m_Layer: 0
-  m_Name: GameEngine
-  m_TagString: Untagged
+  m_Name: MainGameController
+  m_TagString: GameController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

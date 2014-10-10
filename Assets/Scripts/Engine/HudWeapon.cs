@@ -1,26 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HUD : MonoBehaviour
+public class HudWeapon : MonoBehaviour
 {
     public Texture2D weaponIcon;
     public Texture2D powerUpIcon;
-    public Texture2D healthIcon;
 
     private const int ICON_SIZE = 70;
     private const int SCREEN_MARGIN = 20;
     private Rect pauseWindow;
     private Rect powerUpPosition;
-    private Rect weaponPosition;
-    private Rect healthPosition;
+    private Rect weaponPosition;   
 
     void Start()
-    {
-        InitSprites();
-        InitAttributes();
-    }
-
-    void InitAttributes()
     {
         int pauseW = 250;
         int pauseH = 100;
@@ -33,22 +25,14 @@ public class HUD : MonoBehaviour
             ICON_SIZE);
         powerUpPosition = new Rect(
             SCREEN_MARGIN + ICON_SIZE + 20,
-            Screen.height - ICON_SIZE - SCREEN_MARGIN, 
-            ICON_SIZE, 
+            Screen.height - ICON_SIZE - SCREEN_MARGIN,
+            ICON_SIZE,
             ICON_SIZE);
-        healthPosition = new Rect(
-            Screen.width - ICON_SIZE - SCREEN_MARGIN,
-            Screen.height - ICON_SIZE - SCREEN_MARGIN, 
-            ICON_SIZE, 
-            ICON_SIZE);
-    }
+        
 
-    void InitSprites()
-    {
         // on pourra loader dynamiquement l'icone d'arme.
         weaponIcon = (Texture2D)Resources.Load("Sprites/slingshotIcon");
         powerUpIcon = (Texture2D)Resources.Load("Sprites/candyIcon");
-        healthIcon = (Texture2D)Resources.Load("Sprites/orangeJuiceIcon");
     }
 
     void Update()
@@ -65,7 +49,6 @@ public class HUD : MonoBehaviour
         {
             GUI.Box(weaponPosition, weaponIcon);
             GUI.Box(powerUpPosition, powerUpIcon);
-            GUI.Box(healthPosition, healthIcon);
         }
         else
         {

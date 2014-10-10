@@ -5,13 +5,17 @@ public class Bullet : MonoBehaviour
 {
     public GameObject explosion;
 
-    void OnCollisionEnter(Collision col)
+    void OnCollisionEnter(Collision other)
     {
-        if (col.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy")
         {
-            Instantiate(explosion, col.gameObject.transform.position, Quaternion.identity);
-            Destroy(col.gameObject, 0.1f);
+            Instantiate(explosion, other.gameObject.transform.position, Quaternion.identity);
+            Destroy(other.gameObject, 0.1f);
             Destroy(gameObject);
+        }
+        else if (other.gameObject.tag == "Player")
+        {
+            Physics2D.IgnoreCollision(other.gameObject.collider2D, this.collider2D);
         }
     }
 
