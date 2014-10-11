@@ -37,14 +37,10 @@ public class HudLife : MonoBehaviour
     }
 
     public void UpdateLifeBar(float life)
-    {
-        // Check new value
-        if (life > 100.0f) life = 100.0f;
-        if (life < 0.0f) life = 0.0f;
-        
+    {       
         // Compute new yMin value
         // It a small math formula that make percentage to pixel conversion
-        hudLifeBarPosition.yMin = hudLifeBarPosition.yMax - life * (hudLifeBarMaxHeight / 100.0f);
+        hudLifeBarPosition.yMin = hudLifeBarPosition.yMax - Mathf.Clamp(life, 0, 100) * (hudLifeBarMaxHeight / 100.0f);
     }
 
     void OnGUI()

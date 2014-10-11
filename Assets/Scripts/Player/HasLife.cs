@@ -19,8 +19,30 @@ public class HasLife : MonoBehaviour
     {
         if (other.gameObject.tag == "Enemy")
         {
-            life -= Random.Range(1, 15);
+            // Si l'objet est en colision avec un objet tagué Enemy
+            // Alors on descent sa vie
+            DecreaseLife(other.gameObject);
+            
+            // Puis on met a jour le HUD
             hudLife.UpdateLifeBar(life);
+        }
+    }
+
+    private void DecreaseLife(GameObject enemy)
+    {
+        // On regarde si l'enemy a un composant MakeDamage
+        MakeDamange makeDamageComponent = enemy.GetComponent<MakeDamange>();
+        if (makeDamageComponent != null)
+        {
+            // Si oui, alors on regarde directement la valeur assigné à l'ennemi
+            life -= makeDamageComponent.damageCount;
+            Debug.Log("Decrease life of : " + makeDamageComponent.damageCount);
+        }
+        else
+        {
+            // Si non on baisse les PV au hasard
+            life -= Random.Range(1, 15);
+            Debug.Log("Decrease life of random value.");
         }
     }
 }
