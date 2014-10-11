@@ -1,8 +1,8 @@
 fileFormatVersion: 2
-guid: 2de68fbae55ed4136bff6965f2eb0dd5
+guid: 286dee0024bb567408cab59d55395bdf
 TextureImporter:
   fileIDToRecycleName:
-    21300000: slingshotIcon
+    21300000: hudLifeEmpty
   serializedVersion: 2
   mipmaps:
     mipMapMode: 0
