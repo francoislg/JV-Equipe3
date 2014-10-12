@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class BaloonShooter : Weapon
+public class BalloonShooter : Weapon
 {
     private GameObject projectile;
     private float speed = 3f;
 
-    public BaloonShooter(GameObject weaponHolder)
+    public BalloonShooter(GameObject weaponHolder)
         : base(weaponHolder)
     {
         CooldownDuration = 0.5f;
@@ -16,7 +16,7 @@ public class BaloonShooter : Weapon
     public override void shootAt(Vector3 target)
     {
         GameObject newProjectile = (GameObject)MonoBehaviour.Instantiate(projectile, weaponHolder.transform.position, Quaternion.identity);
-        newProjectile.renderer.material.color = Color.white;
+        newProjectile.renderer.material.color = Color.blue;
         newProjectile.rigidbody.useGravity = true;
         newProjectile.transform.LookAt(target);
         Vector3 fwd = newProjectile.transform.forward;

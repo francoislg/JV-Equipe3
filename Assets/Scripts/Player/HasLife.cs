@@ -3,15 +3,13 @@ using System.Collections;
 
 public class HasLife : MonoBehaviour {
     public GameObject deathExplosion;
-    protected int life = 100;
+    protected float life = 10;
 
-    public virtual void receiveDamage(int damage) {
+    public virtual void receiveDamage(float damage) {
         life -= damage;
-        Instantiate(deathExplosion, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
-        Destroy(gameObject, 0.1f);
-    }
-
-    public bool isDead() {
-        return life <= 0;
+        if (life <= 0) {
+            Instantiate(deathExplosion, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
+            Destroy(gameObject, 0.1f);
+        }
     }
 }

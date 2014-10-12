@@ -10,7 +10,7 @@ public class HasWeapon : MonoBehaviour
     void Start()
     {
         weapon = new Slingshot(this.gameObject);
-        rightWeapon = new BaloonShooter(this.gameObject);
+        rightWeapon = new BalloonShooter(this.gameObject);
     }
 
     void Update()

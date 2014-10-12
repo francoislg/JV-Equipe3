@@ -4,6 +4,7 @@ using System.Collections;
 public class PlayerHasLife : HasLife
 {
     private HudLife hudLife;
+    private float maximumLife = 100; 
 
     void Start()
     {
@@ -12,13 +13,19 @@ public class PlayerHasLife : HasLife
         {
             hudLife = gameControllerObject.GetComponent<HudLife>();
         }
+        life = maximumLife;
     }
 
-    public override void receiveDamage(int damage) {
+    public override void receiveDamage(float damage) {
         life -= damage;
-        hudLife.UpdateLifeBar(life);
         if (life <= 0) {
-            // Do something
+            respawn();
         }
+
+        hudLife.UpdateLifeBar(life / maximumLife);
+    }
+
+    public void respawn() {
+        life = maximumLife;
     }
 }
