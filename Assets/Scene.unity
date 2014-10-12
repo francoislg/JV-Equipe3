@@ -343,6 +343,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathExplosion: {fileID: 0}
+  life: 10
 --- !u!1 &329517730
 GameObject:
   m_ObjectHideFlags: 0

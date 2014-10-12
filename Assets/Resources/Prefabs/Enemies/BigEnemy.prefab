@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathExplosion: {fileID: 100000, guid: 0a77083323e2f40218cf828c52d4a132, type: 2}
+  life: 15
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

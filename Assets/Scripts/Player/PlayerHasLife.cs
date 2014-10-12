@@ -17,12 +17,12 @@ public class PlayerHasLife : HasLife
     }
 
     public override void receiveDamage(float damage) {
-        life -= damage;
-        if (life <= 0) {
-            respawn();
-        }
-
+        base.receiveDamage(damage);
         hudLife.UpdateLifeBar(life / maximumLife);
+    }
+
+    public override void onDeath() {
+        respawn();
     }
 
     public void respawn() {
