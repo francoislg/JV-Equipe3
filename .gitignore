@@ -31,3 +31,8 @@ ExportedObj/
 Icon?
 ehthumbs.db
 Thumbs.db
+/obj/Debug/Assembly-CSharp.dll
+/obj/Debug/Assembly-CSharp.pdb
+/obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
+/obj/Debug/UnityVS.JV-Equipe3.CSharp.csproj.FileListAbsolute.txt
+/obj/Debug/UnityVS.JV-Equipe3.CSharp.csprojResolveAssemblyReference.cache
