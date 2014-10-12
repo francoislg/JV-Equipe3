@@ -7,7 +7,7 @@ public class DealsDamageToPlayerOnHit : MonoBehaviour {
     void OnTriggerEnter(Collider other) {
         if (other.tag == "Player") {
             PlayerHasLife playerLife = other.GetComponent<PlayerHasLife>() as PlayerHasLife;
-            playerLife.ReceiveDamage(damageCount);
+            playerLife.receiveDamage(damageCount);
         }
     }
 }

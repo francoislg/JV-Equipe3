@@ -10,7 +10,7 @@ public class BaloonShooter : Weapon
         : base(weaponHolder)
     {
         CooldownDuration = 0.5f;
-        projectile = LoadBullet("Bullet");
+        projectile = LoadBullet("Balloon");
     }
 
     public override void shootAt(Vector3 target)

@@ -1,10 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerHasLife : MonoBehaviour
+public class PlayerHasLife : HasLife
 {
     private HudLife hudLife;
-    private int life = 100;
 
     void Start()
     {
@@ -15,7 +14,7 @@ public class PlayerHasLife : MonoBehaviour
         }
     }
 
-    public void ReceiveDamage(int damage) {
+    public override void receiveDamage(int damage) {
         life -= damage;
         hudLife.UpdateLifeBar(life);
         if (life <= 0) {
