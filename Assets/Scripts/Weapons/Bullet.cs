@@ -7,7 +7,7 @@ public class Bullet : MonoBehaviour
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Spawner")
         {
             HasLife enemyWithLife = other.gameObject.GetComponent<HasLife>() as HasLife;
             enemyWithLife.receiveDamage(baseDamage);

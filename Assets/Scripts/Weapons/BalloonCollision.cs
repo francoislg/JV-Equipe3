@@ -15,7 +15,7 @@ public class BalloonCollision : MonoBehaviour {
 
         Collider[] nearObjects = Physics.OverlapSphere(contact.point, 3);
         foreach (Collider collide in nearObjects) {
-            if (collide.tag == "Enemy") {
+            if (collide.tag == "Enemy" || collide.tag == "Spawner") {
                 HasLife enemyWithLife = collide.GetComponent<HasLife>() as HasLife;
                 enemyWithLife.receiveDamage(baseDamage);
             }

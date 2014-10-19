@@ -19,7 +19,9 @@ public class HasLife : MonoBehaviour {
     }
 
     public virtual void onDeath() {
-        Instantiate(deathExplosion, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
+        if (deathExplosion) {
+            Instantiate(deathExplosion, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
+        }
         Destroy(gameObject, 0.1f);
     }
 }
