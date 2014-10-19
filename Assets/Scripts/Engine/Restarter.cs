@@ -3,8 +3,7 @@ using System.Collections;
 
 public class Restarter : MonoBehaviour {
     public void restartGame() {
-        destroyEnemies();
-        respawnPlayer();
+        Application.LoadLevel("Scene");
     }
 
     private void destroyEnemies() {
