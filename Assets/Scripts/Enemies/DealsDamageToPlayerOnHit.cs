@@ -8,6 +8,7 @@ public class DealsDamageToPlayerOnHit : MonoBehaviour {
         if (other.tag == "Player") {
             PlayerHasLife playerLife = other.GetComponent<PlayerHasLife>() as PlayerHasLife;
             playerLife.receiveDamage(damageCount);
+            playerLife.pushFromSource(transform.position, damageCount * 100);
         }
     }
 }

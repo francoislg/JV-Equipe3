@@ -12,6 +12,12 @@ public class HasLife : MonoBehaviour {
         }
     }
 
+    public virtual void pushFromSource(Vector3 source, float force) {
+        Vector3 direction = transform.position - source;
+        direction.Normalize();
+        rigidbody.AddForce(direction * force);
+    }
+
     public virtual void onDeath() {
         Instantiate(deathExplosion, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
         Destroy(gameObject, 0.1f);
