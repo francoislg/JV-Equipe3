@@ -128,7 +128,7 @@ GameObject:
   - 23: {fileID: 33233263}
   m_Layer: 0
   m_Name: Terrain
-  m_TagString: Untagged
+  m_TagString: Terrain
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
@@ -342,6 +342,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514799e98c01c8046a7859b14cfe948a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathExplosion: {fileID: 0}
+  life: 10
 --- !u!1 &329517730
 GameObject:
   m_ObjectHideFlags: 0
@@ -623,7 +625,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
-  Mute: 0
+  Mute: 1
   Priority: 128
   DopplerLevel: 0
   MinDistance: 1

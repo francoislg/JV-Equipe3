@@ -1,48 +1,19 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HasLife : MonoBehaviour
-{
-    private HudLife hudLife;
-    private int life = 100;
+public class HasLife : MonoBehaviour {
+    public GameObject deathExplosion;
+    public float life = 10;
 
-    void Start()
-    {
-        GameObject gameControllerObject = GameObject.FindWithTag("GameController");
-        if (gameControllerObject != null)
-        {
-            hudLife = gameControllerObject.GetComponent<HudLife>();
+    public virtual void receiveDamage(float damage) {
+        life -= damage;
+        if (life <= 0) {
+            onDeath();
         }
     }
 
-    void OnTriggerEnter(Collider other)
-    {
-        if (other.gameObject.tag == "Enemy")
-        {
-            // Si l'objet est en colision avec un objet tagué Enemy
-            // Alors on descent sa vie
-            DecreaseLife(other.gameObject);
-            
-            // Puis on met a jour le HUD
-            hudLife.UpdateLifeBar(life);
-        }
-    }
-
-    private void DecreaseLife(GameObject enemy)
-    {
-        // On regarde si l'enemy a un composant MakeDamage
-        MakeDamange makeDamageComponent = enemy.GetComponent<MakeDamange>();
-        if (makeDamageComponent != null)
-        {
-            // Si oui, alors on regarde directement la valeur assigné à l'ennemi
-            life -= makeDamageComponent.damageCount;
-            Debug.Log("Decrease life of : " + makeDamageComponent.damageCount);
-        }
-        else
-        {
-            // Si non on baisse les PV au hasard
-            life -= Random.Range(1, 15);
-            Debug.Log("Decrease life of random value.");
-        }
+    public virtual void onDeath() {
+        Instantiate(deathExplosion, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
+        Destroy(gameObject, 0.1f);
     }
 }
