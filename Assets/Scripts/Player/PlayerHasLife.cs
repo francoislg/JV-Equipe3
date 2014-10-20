@@ -5,46 +5,40 @@ public class PlayerHasLife : HasLife
 {
     private GameObject gameControllerObject;
     private HudLife hudLife;
-    private float maximumLife = 100; 
+    private float maximumLife = 100;
 
     void Start()
     {
         gameControllerObject = GameObject.FindWithTag("GameController");
-        if (gameControllerObject != null) {
+        if (gameControllerObject != null)
+        {
             hudLife = gameControllerObject.GetComponent<HudLife>();
         }
         life = maximumLife;
     }
 
-    public override void receiveDamage(float damage) {
-        base.receiveDamage(damage);
+    public override void ReceiveDamage(float damage)
+    {
+        base.ReceiveDamage(damage);
         hudLife.UpdateLifeBar(life / maximumLife);
     }
 
-    public override void onDeath() {
-        restart();
+    public override void OnDeath()
+    {
+        Restart();
     }
 
-    private void setLife(float life) {
-        this.life = life;
-        hudLife.UpdateLifeBar(this.life / maximumLife);
-    }
-
-    private void OnTriggerEnter(Collider other) {
-        if (other.tag == "EndPoint") {
-            restart();
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "EndPoint")
+        {
+            Restart();
         }
     }
 
-    private void restart() {
+    private void Restart()
+    {
         Restarter restart = gameControllerObject.GetComponent<Restarter>();
-        restart.restartGame();
-    }
-
-
-    public void respawn() {
-        GameObject spawnPoint = GameObject.FindGameObjectWithTag("SpawnPoint");
-        transform.position = spawnPoint.transform.position;
-        setLife(maximumLife);
+        restart.RestartGame();
     }
 }
