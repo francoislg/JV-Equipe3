@@ -3,12 +3,13 @@ using System.Collections;
 
 public class PlayerHasLife : HasLife
 {
+    private GameObject gameControllerObject;
     private HudLife hudLife;
-    private float maximumLife = 100; 
+    private float maximumLife = 100;
 
     void Start()
     {
-        GameObject gameControllerObject = GameObject.FindWithTag("GameController");
+        gameControllerObject = GameObject.FindWithTag("GameController");
         if (gameControllerObject != null)
         {
             hudLife = gameControllerObject.GetComponent<HudLife>();
@@ -16,16 +17,28 @@ public class PlayerHasLife : HasLife
         life = maximumLife;
     }
 
-    public override void receiveDamage(float damage) {
-        base.receiveDamage(damage);
+    public override void ReceiveDamage(float damage)
+    {
+        base.ReceiveDamage(damage);
         hudLife.UpdateLifeBar(life / maximumLife);
     }
 
-    public override void onDeath() {
-        respawn();
+    public override void OnDeath()
+    {
+        Restart();
     }
 
-    public void respawn() {
-        life = maximumLife;
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "EndPoint")
+        {
+            Restart();
+        }
+    }
+
+    private void Restart()
+    {
+        Restarter restart = gameControllerObject.GetComponent<Restarter>();
+        restart.RestartGame();
     }
 }

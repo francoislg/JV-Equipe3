@@ -13,7 +13,7 @@ public class BalloonShooter : Weapon
         projectile = LoadBullet("Balloon");
     }
 
-    public override void shootAt(Vector3 target)
+    public override void ShootAt(Vector3 target)
     {
         GameObject newProjectile = (GameObject)MonoBehaviour.Instantiate(projectile, weaponHolder.transform.position, Quaternion.identity);
         newProjectile.renderer.material.color = Color.blue;

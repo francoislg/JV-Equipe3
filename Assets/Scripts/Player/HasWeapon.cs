@@ -28,12 +28,12 @@ public class HasWeapon : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && cooldownUntil <= 0)
         {
-            weapon.shootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
+            weapon.ShootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
             cooldownUntil = weapon.CooldownDuration;
         }
         else if (Input.GetMouseButton(1) && cooldownUntil <= 0)
         {
-            rightWeapon.shootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
+            rightWeapon.ShootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
             cooldownUntil = rightWeapon.CooldownDuration;
         }
     }

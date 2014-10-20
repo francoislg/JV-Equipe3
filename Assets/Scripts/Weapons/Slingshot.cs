@@ -12,7 +12,7 @@ public class Slingshot : Weapon
         projectile = LoadBullet("bullet");
     }
 
-    public override void shootAt(Vector3 target)
+    public override void ShootAt(Vector3 target)
     {
         GameObject newProjectile = (GameObject)MonoBehaviour.Instantiate(projectile, weaponHolder.transform.position, Quaternion.identity);
         newProjectile.transform.LookAt(target);
