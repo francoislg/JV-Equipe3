@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
         if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Spawner")
         {
             HasLife enemyWithLife = other.gameObject.GetComponent<HasLife>() as HasLife;
-            enemyWithLife.receiveDamage(baseDamage);
+            enemyWithLife.ReceiveDamage(baseDamage);
             Destroy(gameObject);
         }
         else if (other.gameObject.tag == "Player")
