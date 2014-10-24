@@ -3,7 +3,7 @@ using System.Collections;
 
 public abstract class Weapon
 {
-    public float CooldownDuration { get ; protected set ;}
+    public float CooldownDuration { get; protected set; }
 
     protected GameObject weaponHolder;
 
@@ -18,5 +18,5 @@ public abstract class Weapon
         return (GameObject)Resources.Load("Prefabs/Bullets/" + name, typeof(GameObject));
     }
 
-    public abstract void shootAt(Vector3 target);
+    public abstract void ShootAt(Vector3 target);
 }

@@ -3,14 +3,14 @@ using System.Collections;
 
 public class Bullet : MonoBehaviour
 {
-    public GameObject explosion;
+    public int baseDamage = 10;
 
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Enemy")
+        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Spawner")
         {
-            Instantiate(explosion, other.gameObject.transform.position, Quaternion.identity);
-            Destroy(other.gameObject, 0.1f);
+            HasLife enemyWithLife = other.gameObject.GetComponent<HasLife>() as HasLife;
+            enemyWithLife.ReceiveDamage(baseDamage);
             Destroy(gameObject);
         }
         else if (other.gameObject.tag == "Player")

@@ -14,7 +14,7 @@ GameObject:
   - 136: {fileID: 13600000}
   - 114: {fileID: 11400002}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: BigEnemySpawner
   m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -27,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1004.9693, y: 0, z: 1030.12866}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6958970b796b34f47808eca1a29396aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyUnit: {fileID: 100000, guid: 25bc468eedb3a5846bcb4c9fa2bf8294, type: 2}
+  copyUnit: {fileID: 100000, guid: f1b6c3da40efa744e9d417aae5b8c2d2, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -83,7 +83,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   deathExplosion: {fileID: 0}
-  life: 25
+  life: 50
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
