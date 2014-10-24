@@ -3,46 +3,53 @@ using System.Collections;
 
 public class HasLife : MonoBehaviour
 {
-    private HudLife hudLife;
-    private int life = 100;
+    public GameObject deathExplosion;
+    public float life = 10;
+    
+    public bool zombi;
+    ZombiAnimator animator;
 
     void Start()
     {
-        GameObject gameControllerObject = GameObject.FindWithTag("GameController");
-        if (gameControllerObject != null)
+        if (zombi)
         {
-            hudLife = gameControllerObject.GetComponent<HudLife>();
+            animator = (ZombiAnimator)GetComponent(typeof(ZombiAnimator));
+            Debug.Log(animator);
         }
     }
 
-    void OnTriggerEnter(Collider other)
+
+    public virtual void ReceiveDamage(float damage)
     {
-        if (other.gameObject.tag == "Enemy")
+        life -= damage;
+        if (life <= 0)
         {
-            // Si l'objet est en colision avec un objet tagué Enemy
-            // Alors on descent sa vie
-            DecreaseLife(other.gameObject);
-            
-            // Puis on met a jour le HUD
-            hudLife.UpdateLifeBar(life);
+            OnDeath();
         }
     }
 
-    private void DecreaseLife(GameObject enemy)
+    public virtual void PushFromSource(Vector3 source, float force)
     {
-        // On regarde si l'enemy a un composant MakeDamage
-        MakeDamange makeDamageComponent = enemy.GetComponent<MakeDamange>();
-        if (makeDamageComponent != null)
+        Vector3 direction = transform.position - source;
+        direction.Normalize();
+        rigidbody.AddForce(direction * force);
+    }
+
+    public virtual void OnDeath()
+    {
+        if (deathExplosion)
         {
-            // Si oui, alors on regarde directement la valeur assigné à l'ennemi
-            life -= makeDamageComponent.damageCount;
-            Debug.Log("Decrease life of : " + makeDamageComponent.damageCount);
+            Instantiate(deathExplosion, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
         }
+
+        if (zombi)
+        {
+            animator.state = ZombiAnimator.State.Dying;
+        }
+
         else
         {
-            // Si non on baisse les PV au hasard
-            life -= Random.Range(1, 15);
-            Debug.Log("Decrease life of random value.");
+            Destroy(gameObject, 0.1f);
         }
     }
 }
