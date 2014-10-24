@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6958970b796b34f47808eca1a29396aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyUnit: {fileID: 0}
+  copyUnit: {fileID: 100122, guid: 7454bae9bc2964f438c21dcc49bdd855, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,32 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathExplosion: {fileID: 0}
   life: 25
---- !u!136 &13600000
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: .5
-  m_Height: 1
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100000}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 557241ba050d8a6459821acd68ea8d07, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathExplosion: {fileID: 0}
-  life: 25
+  zombi: 0
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
