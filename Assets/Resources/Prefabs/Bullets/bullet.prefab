@@ -85,7 +85,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9969e7e4004ce37409bb9260f2c65ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 100000, guid: 325740d2d46a82a418b10560265bff8c, type: 2}
+  baseDamage: 10
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

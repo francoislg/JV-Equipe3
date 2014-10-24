@@ -6,15 +6,20 @@ public class EnemyMoving : MonoBehaviour
     public float speed = 1.0f;
 
     private GameObject target;
+    ZombiAnimator animator;
 
     void Start()
     {
         target = GameObject.FindGameObjectWithTag("Player");
+        animator = (ZombiAnimator)GetComponent(typeof(ZombiAnimator));
     }
 
     void Update()
     {
-        transform.LookAt(target.transform.position);
-        transform.position += transform.forward * speed * Time.deltaTime;
+        if (animator.state != ZombiAnimator.State.Dying)
+        {
+            transform.LookAt(target.transform.position);
+            transform.position += transform.forward * speed * Time.deltaTime;
+        }
     }
 }

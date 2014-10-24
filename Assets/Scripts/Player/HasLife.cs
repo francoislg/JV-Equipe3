@@ -5,6 +5,19 @@ public class HasLife : MonoBehaviour
 {
     public GameObject deathExplosion;
     public float life = 10;
+    
+    public bool zombi;
+    ZombiAnimator animator;
+
+    void Start()
+    {
+        if (zombi)
+        {
+            animator = (ZombiAnimator)GetComponent(typeof(ZombiAnimator));
+            Debug.Log(animator);
+        }
+    }
+
 
     public virtual void ReceiveDamage(float damage)
     {
@@ -28,6 +41,15 @@ public class HasLife : MonoBehaviour
         {
             Instantiate(deathExplosion, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
         }
-        Destroy(gameObject, 0.1f);
+
+        if (zombi)
+        {
+            animator.state = ZombiAnimator.State.Dying;
+        }
+
+        else
+        {
+            Destroy(gameObject, 0.1f);
+        }
     }
 }

@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6958970b796b34f47808eca1a29396aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyUnit: {fileID: 100000, guid: 25bc468eedb3a5846bcb4c9fa2bf8294, type: 2}
+  copyUnit: {fileID: 100122, guid: 7454bae9bc2964f438c21dcc49bdd855, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -84,6 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   deathExplosion: {fileID: 0}
   life: 25
+  zombi: 0
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
