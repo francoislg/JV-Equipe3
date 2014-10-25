@@ -17,7 +17,6 @@ public class SpawnEnemy : MonoBehaviour
             randomPos.z = randomPos.y;
             randomPos.y = 0;
             MonoBehaviour.Instantiate(copyUnit, transform.position + randomPos, Quaternion.identity);
-
         }
     }
 }

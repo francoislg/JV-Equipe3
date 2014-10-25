@@ -13,10 +13,5 @@ public class Bullet : MonoBehaviour
             enemyWithLife.ReceiveDamage(baseDamage);
             Destroy(gameObject);
         }
-        else if (other.gameObject.tag == "Player")
-        {
-            Physics2D.IgnoreCollision(other.gameObject.collider2D, this.collider2D);
-        }
     }
-
 }

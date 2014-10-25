@@ -4,9 +4,9 @@ using System.Collections;
 public class DealsDamageToPlayerOnHit : MonoBehaviour
 {
     public int damageCount = 10;
-    ZombiAnimator animator;
+    private ZombiAnimator animator;
 
-    float DebutAttaque;
+    private float DebutAttaque;
     public double TempsAnimationAttaque;
 
     void Start()
@@ -16,32 +16,24 @@ public class DealsDamageToPlayerOnHit : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-
-        if (other.tag == "Player")
+        if (other.tag == "Player" &&
+            animator.state != ZombiAnimator.State.Dying)
         {
-            if (animator.state != ZombiAnimator.State.Dying)
-            {
-                Debug.Log("Entrer dans la collision");
-                animator.state = ZombiAnimator.State.Attacking;
-                DebutAttaque = Time.time;
-            }
+            animator.state = ZombiAnimator.State.Attacking;
+            DebutAttaque = Time.time;
         }
     }
 
     void OnTriggerStay(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" &&
+            animator.state != ZombiAnimator.State.Dying &&
+            Time.time - DebutAttaque > TempsAnimationAttaque)
         {
-            if (animator.state != ZombiAnimator.State.Dying)
-            {
-                if (Time.time - DebutAttaque > TempsAnimationAttaque)
-                {
-                    PlayerHasLife playerLife = other.GetComponent<PlayerHasLife>() as PlayerHasLife;
-                    playerLife.ReceiveDamage(damageCount);
-                    playerLife.PushFromSource(transform.position, damageCount * 100);
-                    DebutAttaque = Time.time;
-                }
-            }
+            PlayerHasLife playerLife = other.GetComponent<PlayerHasLife>() as PlayerHasLife;
+            playerLife.ReceiveDamage(damageCount);
+            playerLife.PushFromSource(transform.position, damageCount * 100);
+            DebutAttaque = Time.time;
         }
     }
 
@@ -49,7 +41,6 @@ public class DealsDamageToPlayerOnHit : MonoBehaviour
     {
         if (animator.state != ZombiAnimator.State.Dying)
         {
-            Debug.Log("Sortie de collision");
             animator.state = ZombiAnimator.State.Walking;
         }
     }
