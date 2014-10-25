@@ -1,0 +1,36 @@
+# Fichier terrain numéro 1
+# ===============
+#
+# Remarque préliminaire
+# ----------------------
+# Tant qu'il y a des # sur les premieres lignes du fichier
+# le moteur comprend que ce sont des commentaires 
+# Les lignes vides sont ignorés
+#
+# Données du terrain
+# --------------------
+
+# Section de configuration du terrain
+CONFIG_BEGIN
+	# Taille du tileset (nombre de tile possible)
+	10
+	# Offset (taille des cases)
+	20
+END
+
+# Data (séparé par des espaces ou tabulations)
+DATA_BEGIN
+	1 4 4 4 4 4 7
+	2 5 5 6 5 5 8
+	2 5 8 5 2 5 8
+	3 6 9 5 3 6 9
+END
+
+# Prefabs a instancier sur la scene
+# Format
+# 	fichier:x:y:z
+PREFABS_BEGIN
+	Prefabs/Objects/Bouteille:0:-1:15
+	Prefabs/Enemies/Spawner:4:0:4
+	Prefabs/Enemies/BigEnemySpawner:0:0:10
+END
