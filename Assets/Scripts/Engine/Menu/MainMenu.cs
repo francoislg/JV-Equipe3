@@ -3,8 +3,8 @@
 
 public class MainMenu : MonoBehaviour
 {
-    private const int buttonWidth = 150;
-    private const int buttonHeight = 60;
+    private const int buttonWidth = 200;
+    private const int buttonHeight = 80;
     private const int margin = 10;
 
     private Rect playButton;
@@ -17,8 +17,8 @@ public class MainMenu : MonoBehaviour
         fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
 
         playButton = new Rect(
-            20,
-            (Screen.height / 3) - (buttonHeight / 2),
+            (Screen.width / 2) - (buttonWidth / 2),
+            (Screen.height / 2) - (buttonHeight / 2),
             buttonWidth,
             buttonHeight
         );
