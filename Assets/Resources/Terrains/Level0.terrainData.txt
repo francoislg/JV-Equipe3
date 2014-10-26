@@ -31,6 +31,6 @@ END
 # 	fichier:x:y:z
 PREFABS_BEGIN
 	Prefabs/Objects/Bouteille:0:0:15
-	Prefabs/Enemies/Spawner:4:1:4
-	Prefabs/Enemies/BigEnemySpawner:0:1:10
+	Prefabs/Enemies/ZombiSpawner:4:1:4
+	Prefabs/Enemies/BigZombiSpawner:0:1:10
 END
