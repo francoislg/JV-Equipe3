@@ -443,7 +443,7 @@ AudioListener:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1866875898}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!124 &1866875900
 Behaviour:
   m_ObjectHideFlags: 0
@@ -590,6 +590,7 @@ GameObject:
   - 114: {fileID: 2062626179}
   - 114: {fileID: 2062626178}
   - 114: {fileID: 2062626177}
+  - 81: {fileID: 2062626182}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -678,3 +679,10 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!81 &2062626182
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2062626175}
+  m_Enabled: 1
