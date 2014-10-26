@@ -13,9 +13,9 @@ public class TerrainGenerator : MonoBehaviour
         PREFABS
     }
 
-    public Transform Player;
     public TextAsset TerrainData;
 
+    private Transform player;
     private GameObject[] Tileset = new GameObject[0];
     private int offset = 0;
     private SectionType parserMode = SectionType.NONE;
@@ -23,6 +23,8 @@ public class TerrainGenerator : MonoBehaviour
 
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+
         foreach (string untrimedLine in TerrainData.text.Split(new Char[] { '\n' }))
         {
             string line = untrimedLine.Trim();
@@ -132,12 +134,13 @@ public class TerrainGenerator : MonoBehaviour
     {
         if (tileID < Tileset.Length)
         {
-            Instantiate(Tileset[tileID],
+            GameObject tile = Instantiate(Tileset[tileID],
                 new Vector3(
-                    Player.position.x + (xPos * offset),
+                    player.position.x + (xPos * offset),
                     0.0f,
-                    Player.position.z + (zPos * offset)),
-                Quaternion.identity);
+                    player.position.z + (zPos * offset)),
+                Quaternion.identity) as GameObject;
+            tile.transform.parent = transform;
         }
     }
 }
