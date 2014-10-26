@@ -30,7 +30,7 @@ END
 # Format
 # 	fichier:x:y:z
 PREFABS_BEGIN
-	Prefabs/Objects/Bouteille:0:0:15
-	Prefabs/Enemies/ZombiSpawner:4:1:4
-	Prefabs/Enemies/BigZombiSpawner:0:1:10
+	Prefabs/Objects/Bouteille:100:0:38
+	Prefabs/Enemies/ZombiSpawner:75:1:4
+	Prefabs/Enemies/BigZombiSpawner:0:1:35
 END
