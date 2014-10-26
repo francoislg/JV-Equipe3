@@ -25,20 +25,14 @@ public class PlayerHasLife : HasLife
 
     public override void OnDeath()
     {
-        Restart();
+        gameControllerObject.GetComponent<Restarter>().RestartGame();
     }
 
-    private void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
-        if (other.tag == "EndPoint")
+        if (other.gameObject.tag == "EndPoint")
         {
-            Restart();
+            gameControllerObject.GetComponent<Restarter>().RestartGame();
         }
-    }
-
-    private void Restart()
-    {
-        Restarter restart = gameControllerObject.GetComponent<Restarter>();
-        restart.RestartGame();
     }
 }

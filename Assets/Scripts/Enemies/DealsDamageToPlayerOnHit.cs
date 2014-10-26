@@ -14,9 +14,9 @@ public class DealsDamageToPlayerOnHit : MonoBehaviour
         animator = (ZombiAnimator)GetComponent(typeof(ZombiAnimator));
     }
 
-    void OnTriggerEnter(Collider other)
+    void OnCollisionEnter(Collision other)
     {
-        if (other.tag == "Player" &&
+        if (other.gameObject.tag == "Player" &&
             animator.state != ZombiAnimator.State.Dying)
         {
             animator.state = ZombiAnimator.State.Attacking;
@@ -24,20 +24,20 @@ public class DealsDamageToPlayerOnHit : MonoBehaviour
         }
     }
 
-    void OnTriggerStay(Collider other)
+    void OnCollisionStay(Collision other)
     {
-        if (other.tag == "Player" &&
+        if (other.gameObject.tag == "Player" &&
             animator.state != ZombiAnimator.State.Dying &&
             Time.time - DebutAttaque > TempsAnimationAttaque)
         {
-            PlayerHasLife playerLife = other.GetComponent<PlayerHasLife>() as PlayerHasLife;
+            PlayerHasLife playerLife = other.gameObject.GetComponent<PlayerHasLife>() as PlayerHasLife;
             playerLife.ReceiveDamage(damageCount);
             playerLife.PushFromSource(transform.position, damageCount * 100);
             DebutAttaque = Time.time;
         }
     }
 
-    void OnTriggerExit(Collider other)
+    void OnCollisionExit(Collision other)
     {
         if (animator.state != ZombiAnimator.State.Dying)
         {
