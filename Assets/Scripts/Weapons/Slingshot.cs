@@ -4,7 +4,7 @@ using System.Collections;
 public class Slingshot : Weapon
 {
     private GameObject projectile;
-    private float speed = 10.0f;
+    private float speed = 20.0f;
 
     public Slingshot(GameObject weaponHolder)
         : base(weaponHolder)
