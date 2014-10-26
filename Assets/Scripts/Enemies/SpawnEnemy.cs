@@ -5,7 +5,7 @@ public class SpawnEnemy : MonoBehaviour
 {
     public GameObject copyUnit;
     protected float nextSpawn;
-    protected float cooldown = 2f;
+    protected float cooldown = 5f;
     protected float range = 25;
 
     void Update()

@@ -5,7 +5,7 @@ public class HasLife : MonoBehaviour
 {
     public GameObject deathExplosion;
     public float life = 10;
-    
+
     public bool zombi;
     ZombiAnimator animator;
 
@@ -14,10 +14,8 @@ public class HasLife : MonoBehaviour
         if (zombi)
         {
             animator = (ZombiAnimator)GetComponent(typeof(ZombiAnimator));
-            Debug.Log(animator);
         }
     }
-
 
     public virtual void ReceiveDamage(float damage)
     {
