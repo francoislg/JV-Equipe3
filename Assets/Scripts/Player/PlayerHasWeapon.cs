@@ -1,16 +1,16 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class HasWeapon : MonoBehaviour
+public class PlayerHasWeapon : MonoBehaviour
 {
-    private Weapon weapon;
+    private Weapon leftWeapon;
     private Weapon rightWeapon;
     private float cooldownUntil;
 
     void Start()
     {
-        weapon = new Slingshot(this.gameObject);
-        rightWeapon = new BalloonShooter(this.gameObject);
+        leftWeapon = new Slingshot(gameObject);
+        rightWeapon = new BalloonShooter(gameObject);
     }
 
     void Update()
@@ -28,8 +28,8 @@ public class HasWeapon : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && cooldownUntil <= 0)
         {
-            weapon.ShootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
-            cooldownUntil = weapon.CooldownDuration;
+            leftWeapon.ShootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
+            cooldownUntil = leftWeapon.CooldownDuration;
         }
         else if (Input.GetMouseButton(1) && cooldownUntil <= 0)
         {
