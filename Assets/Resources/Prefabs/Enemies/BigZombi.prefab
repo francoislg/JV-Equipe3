@@ -926,11 +926,11 @@ GameObject:
   - 4: {fileID: 400122}
   - 111: {fileID: 11100000}
   - 65: {fileID: 6500000}
+  - 54: {fileID: 5400000}
   - 114: {fileID: 11400006}
-  - 114: {fileID: 11400004}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
-  - 54: {fileID: 5400000}
+  - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: BigZombi
   m_TagString: Enemy
@@ -1826,12 +1826,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100122}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 557241ba050d8a6459821acd68ea8d07, type: 3}
+  m_Script: {fileID: 11500000, guid: 49dd08fcd4b033446b2140809dd90a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathExplosion: {fileID: 100000, guid: 0a77083323e2f40218cf828c52d4a132, type: 2}
   life: 20
-  zombi: 1
+  deathExplosion: {fileID: 100000, guid: 325740d2d46a82a418b10560265bff8c, type: 2}
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

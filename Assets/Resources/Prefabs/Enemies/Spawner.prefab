@@ -79,12 +79,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 557241ba050d8a6459821acd68ea8d07, type: 3}
+  m_Script: {fileID: 11500000, guid: 49dd08fcd4b033446b2140809dd90a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathExplosion: {fileID: 0}
-  life: 25
-  zombi: 0
+  life: 30
+  deathExplosion: {fileID: 100000, guid: 0a77083323e2f40218cf828c52d4a132, type: 2}
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
