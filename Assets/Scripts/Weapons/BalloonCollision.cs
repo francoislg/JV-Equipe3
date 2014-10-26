@@ -8,7 +8,15 @@ public class BalloonCollision : MonoBehaviour
 
     void Start()
     {
-        renderer.material.color = Color.blue;
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+        foreach (GameObject p in players)
+        {
+            Collider pc = p.GetComponent<Collider>();
+            if (pc)
+            {
+                Physics.IgnoreCollision(pc, collider);
+            }
+        }
     }
 
     void OnCollisionEnter(Collision other)
@@ -17,20 +25,15 @@ public class BalloonCollision : MonoBehaviour
         ContactPoint contact = other.contacts[0];
 
         Collider[] nearObjects = Physics.OverlapSphere(contact.point, 3);
-        bool hasCollideEnemy = false;
         foreach (Collider collide in nearObjects)
         {
             if (collide.tag == "Enemy" || collide.tag == "Spawner")
             {
                 HasLife enemyWithLife = collide.GetComponent<HasLife>() as HasLife;
                 enemyWithLife.ReceiveDamage(baseDamage);
-                hasCollideEnemy = true;
             }
         }
-        if (hasCollideEnemy)
-        {
-            Instantiate(explosion, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
-            Destroy(gameObject);
-        }
+        Instantiate(explosion, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
+        Destroy(gameObject);
     }
 }

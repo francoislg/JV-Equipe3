@@ -16,7 +16,8 @@ public class SpawnEnemy : MonoBehaviour
             Vector3 randomPos = Random.insideUnitCircle * range;
             randomPos.z = randomPos.y;
             randomPos.y = 0;
-            MonoBehaviour.Instantiate(copyUnit, transform.position + randomPos, Quaternion.identity);
+
+            Instantiate(copyUnit, transform.position + randomPos, Quaternion.identity);
         }
     }
 }
