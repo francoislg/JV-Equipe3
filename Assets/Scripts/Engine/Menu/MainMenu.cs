@@ -37,13 +37,11 @@ public class MainMenu : MonoBehaviour
         {
             if (GUI.Button(playButton, "Jouer !"))
             {
-                fader.destinationSceneName = "GameScene";
-                fader.EndCurrentScene();
+                fader.GotoScene("GameScene");
             }
             else if (GUI.Button(helpButton, "A propos ..."))
             {
-                fader.destinationSceneName = "AboutScene";
-                fader.EndCurrentScene();
+                fader.GotoScene("AboutScene");
             }
         }
     }

@@ -29,8 +29,7 @@ public class AboutMenu : MonoBehaviour {
         {
             if (GUI.Button(backButton, "Retour au menu principal"))
             {
-                fader.destinationSceneName = "MenuScene";
-                fader.EndCurrentScene();
+                fader.GotoScene("MenuScene");
             }
         }
     }

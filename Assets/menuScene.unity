@@ -103,7 +103,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fadeSpeed: 1
-  destinationSceneName: 
 --- !u!131 &336173693
 GUITexture:
   m_ObjectHideFlags: 0
