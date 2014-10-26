@@ -5,6 +5,6 @@ public class Restarter : MonoBehaviour
 {
     public void RestartGame()
     {
-        Application.LoadLevel("Scene");
+        Application.LoadLevel("GenTerrain");
     }
 }
