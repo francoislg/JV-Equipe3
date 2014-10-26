@@ -14,7 +14,7 @@ GameObject:
   - 136: {fileID: 13600000}
   - 114: {fileID: 11400002}
   m_Layer: 0
-  m_Name: Spawner
+  m_Name: BigZombiSpawner
   m_TagString: Spawner
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6958970b796b34f47808eca1a29396aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  copyUnit: {fileID: 100122, guid: 7454bae9bc2964f438c21dcc49bdd855, type: 2}
+  copyUnit: {fileID: 100122, guid: ea256796aec996e4ca56a6dfd65be48b, type: 2}
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -82,7 +82,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49dd08fcd4b033446b2140809dd90a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 30
+  life: 40
   deathExplosion: {fileID: 100000, guid: 0a77083323e2f40218cf828c52d4a132, type: 2}
 --- !u!136 &13600000
 CapsuleCollider:
