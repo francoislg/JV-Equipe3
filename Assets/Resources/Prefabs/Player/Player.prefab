@@ -13,6 +13,7 @@ GameObject:
   - 114: {fileID: 11400004}
   - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
+  - 81: {fileID: 8100000}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -161,6 +162,13 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 116
   m_CollisionDetection: 0
+--- !u!81 &8100000
+AudioListener:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100000}
+  m_Enabled: 1
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -172,9 +180,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 514799e98c01c8046a7859b14cfe948a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  deathExplosion: {fileID: 0}
   life: 100
-  zombi: 0
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1

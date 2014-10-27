@@ -4,7 +4,7 @@
 public class MainMenu : MonoBehaviour
 {
     private const int buttonWidth = 200;
-    private const int buttonHeight = 80;
+    private const int buttonHeight = 60;
     private const int margin = 10;
 
     private Rect playButton;
