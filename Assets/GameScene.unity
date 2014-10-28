@@ -590,6 +590,7 @@ GameObject:
   - 114: {fileID: 2062626179}
   - 114: {fileID: 2062626178}
   - 114: {fileID: 2062626177}
+  - 81: {fileID: 2062626183}
   - 81: {fileID: 2062626182}
   m_Layer: 0
   m_Name: Player
@@ -684,5 +685,13 @@ AudioListener:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2062626175}
+  m_Enabled: 1
+--- !u!81 &2062626183
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 8100000, guid: 6f1ceaa3c0186db4d8b362ece76254b5,
+    type: 2}
+  m_PrefabInternal: {fileID: 494095444}
   m_GameObject: {fileID: 2062626175}
   m_Enabled: 1
