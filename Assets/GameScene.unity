@@ -182,7 +182,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17a60063c63f124e86a2d2715d163b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainData: {fileID: 4900000, guid: 78354e80b423833438b62e68eed4fa93, type: 3}
+  TerrainData: {fileID: 4900000, guid: ef775c35e5eee4244b0ac08d8b9e12ae, type: 3}
 --- !u!82 &788141538
 AudioSource:
   m_ObjectHideFlags: 0
