@@ -3,8 +3,8 @@ using System.Collections;
 
 public class BalloonShooter : Weapon
 {
-    private GameObject projectile;
-    private float speed = 6f;
+    GameObject  projectile;
+    float       speed = 6f;
 
     public BalloonShooter(GameObject weaponHolder)
         : base(weaponHolder)

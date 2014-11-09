@@ -5,7 +5,7 @@ public class ZombiHasLife : HasLife
 {
     public GameObject deathExplosion;
 
-    private ZombiAnimator animator;
+    ZombiAnimator animator;
 
     void Start()
     {

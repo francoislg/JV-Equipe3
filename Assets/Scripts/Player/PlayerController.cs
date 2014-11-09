@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerController : MonoBehaviour {
-
+public class PlayerController : MonoBehaviour
+{
     public float speed;
+
     float camRayLength = 100f;
     Rigidbody playerRigidbody;
 
@@ -11,11 +12,12 @@ public class PlayerController : MonoBehaviour {
     {
         playerRigidbody = GetComponent<Rigidbody>();
     }
-    
-    void FixedUpdate () {
+
+    void FixedUpdate()
+    {
         Move();
         Turn();
-	}
+    }
 
     void Move()
     {
@@ -25,11 +27,11 @@ public class PlayerController : MonoBehaviour {
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
         rigidbody.velocity = movement * speed;
     }
+
     void Turn()
     {
         //rayon de la souris à l'écran en direction de la camera.
         Ray camRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-
 
         RaycastHit floorHit;
 

@@ -3,23 +3,22 @@ using System.Collections;
 
 public class HudLife : MonoBehaviour
 {
-    private const int ICON_SIZE = 70;
-    private const int SCREEN_MARGIN = 20;
+    const int iconSize = 70;
+    const int screenMargin = 20;
 
-    private Texture2D hudLifeBackground;
-    private Rect hudLifeBackgroundPosition;
-
-    private Texture2D hudLifeBar;
-    private Rect hudLifeBarPosition;
-    private float hudLifeBarMaxHeight;
+    Texture2D hudLifeBackground;
+    Texture2D hudLifeBar;
+    Rect hudLifeBackgroundPosition;
+    Rect hudLifeBarPosition;
+    float hudLifeBarMaxHeight;
 
     void Start()
     {
         // Load and positionate hud life background
         hudLifeBackground = (Texture2D)Resources.Load("Sprites/hudLifeEmpty");
         hudLifeBackgroundPosition = new Rect(
-            Screen.width - ICON_SIZE - SCREEN_MARGIN,   // LEFT
-            Screen.height - ICON_SIZE - SCREEN_MARGIN,  // TOP
+            Screen.width - iconSize - screenMargin,   // LEFT
+            Screen.height - iconSize - screenMargin,  // TOP
             hudLifeBackground.width,                    // WIDTH
             hudLifeBackground.height                    // HEIGHT
         );

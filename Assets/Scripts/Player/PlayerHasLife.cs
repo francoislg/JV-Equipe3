@@ -3,9 +3,9 @@ using System.Collections;
 
 public class PlayerHasLife : HasLife
 {
-    private GameObject gameControllerObject;
-    private HudLife hudLife;
-    private float maximumLife = 100;
+    GameObject gameControllerObject;
+    HudLife hudLife;
+    float maximumLife = 100;
 
     void Start()
     {

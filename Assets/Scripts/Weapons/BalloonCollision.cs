@@ -3,8 +3,8 @@ using System.Collections;
 
 public class BalloonCollision : MonoBehaviour
 {
-    public GameObject explosion;
-    public int baseDamage = 10;
+    public GameObject   explosion;
+    public int          baseDamage = 10;
 
     void Start()
     {

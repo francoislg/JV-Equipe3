@@ -4,11 +4,11 @@ using System.Collections;
 public class ScreenFader : MonoBehaviour
 {
     public float fadeSpeed = 0.5f;
-    
+
     public bool SceneStarting { get; private set; }
     public bool SceneEnding { get; private set; }
 
-    private string destinationSceneName;
+    string destinationSceneName;
 
     void Awake()
     {

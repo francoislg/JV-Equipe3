@@ -5,7 +5,7 @@ public class EnemyMoving : MonoBehaviour
 {
     public float speed = 1.0f;
 
-    private GameObject target;
+    GameObject target;
     ZombiAnimator animator;
 
     void Start()

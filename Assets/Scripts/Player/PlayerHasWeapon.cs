@@ -3,9 +3,9 @@ using System.Collections;
 
 public class PlayerHasWeapon : MonoBehaviour
 {
-    private Weapon leftWeapon;
-    private Weapon rightWeapon;
-    private float cooldownUntil;
+    Weapon leftWeapon;
+    Weapon rightWeapon;
+    float cooldownUntil;
 
     void Start()
     {
@@ -24,7 +24,7 @@ public class PlayerHasWeapon : MonoBehaviour
         }
     }
 
-    private void HandleFire(RaycastHit mouseRayHit)
+    void HandleFire(RaycastHit mouseRayHit)
     {
         if (Input.GetMouseButton(0) && cooldownUntil <= 0)
         {
