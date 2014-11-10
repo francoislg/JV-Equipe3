@@ -3,7 +3,7 @@ using System.Collections;
 
 public class SayRandomTalkToPlayer : TalkToPlayer
 {
-    protected override string GenerateMessage()
+    protected override string InteractWithPlayer()
     {
         string[] messages = {   
             "SALUT !", 
