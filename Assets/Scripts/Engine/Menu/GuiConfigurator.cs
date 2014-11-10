@@ -3,7 +3,6 @@ using System.Collections;
 
 public class GuiConfigurator : MonoBehaviour
 {
-
     void OnGUI()
     {
         GUI.skin.font = Resources.Load<Font>("Fonts/Petitinho");

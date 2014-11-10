@@ -4,10 +4,10 @@ using System.Collections;
 public class DealsDamageToPlayerOnHit : MonoBehaviour
 {
     public int damageCount = 10;
-    private ZombiAnimator animator;
+    public double attackAnnimationSpeed;
 
-    private float DebutAttaque;
-    public double TempsAnimationAttaque;
+    ZombiAnimator animator;
+    float attackStartTime;
 
     void Start()
     {
@@ -20,7 +20,7 @@ public class DealsDamageToPlayerOnHit : MonoBehaviour
             animator.state != ZombiAnimator.State.Dying)
         {
             animator.state = ZombiAnimator.State.Attacking;
-            DebutAttaque = Time.time;
+            attackStartTime = Time.time;
         }
     }
 
@@ -28,12 +28,12 @@ public class DealsDamageToPlayerOnHit : MonoBehaviour
     {
         if (other.gameObject.tag == "Player" &&
             animator.state != ZombiAnimator.State.Dying &&
-            Time.time - DebutAttaque > TempsAnimationAttaque)
+            Time.time - attackStartTime > attackAnnimationSpeed)
         {
             PlayerHasLife playerLife = other.gameObject.GetComponent<PlayerHasLife>() as PlayerHasLife;
             playerLife.ReceiveDamage(damageCount);
             playerLife.PushFromSource(transform.position, damageCount * 100);
-            DebutAttaque = Time.time;
+            attackStartTime = Time.time;
         }
     }
 
@@ -44,7 +44,4 @@ public class DealsDamageToPlayerOnHit : MonoBehaviour
             animator.state = ZombiAnimator.State.Walking;
         }
     }
-
-
-
 }

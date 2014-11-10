@@ -3,8 +3,8 @@ using System.Collections;
 
 public class CameraBindToPlayer : MonoBehaviour
 {
-    private Transform target;
-    private float initialOffset = 20f;
+    Transform target;
+    float initialOffset = 20f;
 
     void Start()
     {

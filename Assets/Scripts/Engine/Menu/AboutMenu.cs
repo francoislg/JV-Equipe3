@@ -1,15 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class AboutMenu : MonoBehaviour {
+public class AboutMenu : MonoBehaviour
+{
+    const int buttonWidth = 350;
+    const int buttonHeight = 60;
+    const int margin = 10;
 
-    private const int buttonWidth = 350;
-    private const int buttonHeight = 60;
-    private const int margin = 10;
-
-    private Rect backButton;
-
-    private ScreenFader fader;
+    Rect backButton;
+    ScreenFader fader;
 
     void Start()
     {

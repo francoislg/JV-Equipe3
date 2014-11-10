@@ -3,14 +3,13 @@
 
 public class MainMenu : MonoBehaviour
 {
-    private const int buttonWidth = 200;
-    private const int buttonHeight = 60;
-    private const int margin = 10;
+    const int buttonWidth = 200;
+    const int buttonHeight = 60;
+    const int margin = 10;
 
-    private Rect playButton;
-    private Rect helpButton;
-
-    private ScreenFader fader;
+    Rect playButton;
+    Rect helpButton;
+    ScreenFader fader;
 
     void Start()
     {

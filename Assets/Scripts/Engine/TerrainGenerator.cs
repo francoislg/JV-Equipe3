@@ -5,7 +5,7 @@ using System;
 
 public class TerrainGenerator : MonoBehaviour
 {
-    private enum SectionType
+    enum SectionType
     {
         NONE,
         CONFIG,
@@ -15,11 +15,12 @@ public class TerrainGenerator : MonoBehaviour
 
     public TextAsset TerrainData;
 
-    private Transform player;
-    private GameObject[] Tileset = new GameObject[0];
-    private int offset = 0;
-    private SectionType parserMode = SectionType.NONE;
-    private int currentLineNumber = 0;
+    Transform player;
+    GameObject[] Tileset = new GameObject[0];
+
+    int offset = 0;
+    SectionType parserMode = SectionType.NONE;
+    int currentLineNumber = 0;
 
     void Start()
     {

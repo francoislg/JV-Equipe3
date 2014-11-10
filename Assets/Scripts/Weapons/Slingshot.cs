@@ -3,18 +3,17 @@ using System.Collections;
 
 public class Slingshot : Weapon
 {
-    private GameObject projectile;
-    private float speed = 20.0f;
+    GameObject projectile;
+    float speed = 20.0f;
 
-    public Slingshot(GameObject weaponHolder)
-        : base(weaponHolder)
+    void Start()
     {
-        projectile = LoadBullet("bullet");
+        projectile = Resources.Load("Prefabs/Bullets/bullet") as GameObject;
     }
 
     public override void ShootAt(Vector3 target)
     {
-        GameObject newProjectile = (GameObject)MonoBehaviour.Instantiate(projectile, weaponHolder.transform.position, Quaternion.identity);
+        GameObject newProjectile = (GameObject)MonoBehaviour.Instantiate(projectile, transform.position, Quaternion.identity);
         newProjectile.transform.LookAt(target);
         newProjectile.renderer.material.color = Color.red;
         newProjectile.rigidbody.velocity = (newProjectile.transform.forward * speed);
