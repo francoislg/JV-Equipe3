@@ -23,6 +23,16 @@ public class PlayerHasLife : HasLife
         hudLife.UpdateLifeBar(life / maximumLife);
     }
 
+    public void ReceiveBonus(float bonus)
+    {
+        life += bonus;
+        if (life > maximumLife)
+        {
+            life = maximumLife;
+        }
+        hudLife.UpdateLifeBar(life / maximumLife);
+    }
+
     public override void OnDeath()
     {
         gameControllerObject.GetComponent<Restarter>().RestartGame();
