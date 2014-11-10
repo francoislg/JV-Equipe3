@@ -7,6 +7,7 @@ public class QuestObject : MessageDrawer
 
     GameObject player;
     PlayerHasInventory playerInventory;
+    bool pickedUp = false;
 
     protected override void Start()
     {
@@ -18,13 +19,24 @@ public class QuestObject : MessageDrawer
     protected override void Update()
     {
         base.Update();
-        // Si le joueur est proche
-        if (Vector3.Distance(player.transform.position, transform.position) < 3)
+
+        if (!pickedUp && Vector3.Distance(player.transform.position, transform.position) < 3)
         {
-            // Alors il ramasse l'objet
-            playerInventory.AddQuestObject(objectName);
-            ShowMessage("VOUS AVEZ RAMASSE : " + objectName);
+            // On rammase l'objet quand le joueur est proche
+            PickObject();
+        }
+        else if (pickedUp && !IsMessageVisible())
+        {
+            // On supprime l'objet quand il a été récupéré et que le message a été affiché
             Destroy(this.gameObject);
         }
+    }
+
+    void PickObject()
+    {
+        playerInventory.AddQuestObject(objectName);
+        ShowMessage("Vous avez trouve : " + objectName);
+        pickedUp = true;
+        renderer.enabled = false;
     }
 }
