@@ -3,14 +3,34 @@ using System.Collections;
 
 public class PlayerHasWeapon : MonoBehaviour
 {
-    Weapon leftWeapon;
-    Weapon rightWeapon;
+    Weapon[] weapons = new Weapon[2];
     float cooldownUntil;
+
+    public void GiveWeapon(string weaponName)
+    {
+        int num = FindFreeWeapon();
+        if (num >= 0)
+        {
+            GameObject.Destroy(weapons[num]);
+            weapons[num] = gameObject.AddComponent(weaponName) as Weapon;
+        }
+    }
+
+    int FindFreeWeapon()
+    {
+        for (int i = 0; i < weapons.Length; i++)
+        {
+            if (weapons[i] == null)
+            {
+                return i;
+            }
+        }
+        return -1;
+    }
 
     void Start()
     {
-        leftWeapon = gameObject.AddComponent<Slingshot>();
-        rightWeapon = null;
+        GiveWeapon("Slingshot");
     }
 
     void Update()
@@ -26,15 +46,15 @@ public class PlayerHasWeapon : MonoBehaviour
 
     void HandleFire(RaycastHit mouseRayHit)
     {
-        if (leftWeapon != null && Input.GetMouseButton(0) && cooldownUntil <= 0)
+        if (weapons[0] != null && Input.GetMouseButton(0) && cooldownUntil <= 0)
         {
-            leftWeapon.ShootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
-            cooldownUntil = leftWeapon.cooldownDuration;
+            weapons[0].ShootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
+            cooldownUntil = weapons[0].cooldownDuration;
         }
-        else if (rightWeapon != null && Input.GetMouseButton(1) && cooldownUntil <= 0)
+        else if (weapons[1] != null && Input.GetMouseButton(1) && cooldownUntil <= 0)
         {
-            rightWeapon.ShootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
-            cooldownUntil = rightWeapon.cooldownDuration;
+            weapons[1].ShootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
+            cooldownUntil = weapons[1].cooldownDuration;
         }
     }
 }
