@@ -37,4 +37,7 @@ PREFABS_BEGIN
 	Prefabs/Enemies/BigZombiSpawner:0:1:35
 	Prefabs/Objects/Farmhouse:40:0:70
 	Prefabs/Objects/ChineseHouse:-90:0:-20
+	Prefabs/NPC/SpeakerNPC:0:1:10
+	Prefabs/NPC/QuestWalletNPC:0:1:17
+	Prefabs/Quest/Wallet:0:1:-4
 END
