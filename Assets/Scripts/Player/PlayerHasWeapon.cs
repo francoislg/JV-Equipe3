@@ -9,8 +9,8 @@ public class PlayerHasWeapon : MonoBehaviour
 
     void Start()
     {
-        leftWeapon = new Slingshot(gameObject);
-        rightWeapon = new BalloonShooter(gameObject);
+        leftWeapon = gameObject.AddComponent<Slingshot>();
+        rightWeapon = null;
     }
 
     void Update()
@@ -26,15 +26,15 @@ public class PlayerHasWeapon : MonoBehaviour
 
     void HandleFire(RaycastHit mouseRayHit)
     {
-        if (Input.GetMouseButton(0) && cooldownUntil <= 0)
+        if (leftWeapon != null && Input.GetMouseButton(0) && cooldownUntil <= 0)
         {
             leftWeapon.ShootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
-            cooldownUntil = leftWeapon.CooldownDuration;
+            cooldownUntil = leftWeapon.cooldownDuration;
         }
-        else if (Input.GetMouseButton(1) && cooldownUntil <= 0)
+        else if (rightWeapon != null && Input.GetMouseButton(1) && cooldownUntil <= 0)
         {
             rightWeapon.ShootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
-            cooldownUntil = rightWeapon.CooldownDuration;
+            cooldownUntil = rightWeapon.cooldownDuration;
         }
     }
 }
