@@ -7,6 +7,7 @@ public class HudScore : MonoBehaviour
 	const int height = 25;
 	const int width = 200;
 	const int margin = 10;
+	int level = 1;
 
 	Rect scoreZone;
 
@@ -18,7 +19,14 @@ public class HudScore : MonoBehaviour
 
     void Update()
     {
-		
+		if (playerScore > 100 * level) {
+
+			GameObject go = GameObject.Find("GameController");
+			HudStatus status = (HudStatus) go.GetComponent(typeof(HudStatus));
+			status.levelUp();
+			level++;
+		}
+
     }
 
 	void OnGUI()
