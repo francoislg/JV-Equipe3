@@ -19,13 +19,6 @@ public class HudScore : MonoBehaviour
 
     void Update()
     {
-		if (playerScore > 100 * level) {
-
-			GameObject go = GameObject.Find("GameController");
-			HudStatus status = (HudStatus) go.GetComponent(typeof(HudStatus));
-			status.levelUp();
-			level++;
-		}
 
     }
 
@@ -34,7 +27,8 @@ public class HudScore : MonoBehaviour
 		GUI.TextArea(scoreZone, "Score : " + playerScore);
 	}
 
-	public void addToScore(int score) {
-		playerScore += score;
+	public void setPlayerScore(int score) {
+		playerScore = score;
 	}
+
 }

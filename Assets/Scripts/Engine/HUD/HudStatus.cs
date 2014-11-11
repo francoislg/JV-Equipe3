@@ -28,10 +28,17 @@ public class HudStatus : MonoBehaviour
 		GUI.TextArea(statusZone, "Level : " + playerLevel + "  Attack : " + attackBonus + "  Speed : " + speedBonus);
     }
 	
-	public void levelUp() {
-		playerLevel++;
-		attackBonus += 2;
-		speedBonus += 1;
+
+	public void setPlayerLevel(int level) {
+		playerLevel = level;
+	}
+
+	public void setAttackBonus(int attack) {
+		attackBonus = attack;
+	}
+
+	public void setSpeedBonus(int speed) {
+		speedBonus = speed;
 	}
 
 }
