@@ -9,6 +9,7 @@ public class Slingshot : Weapon
     void Start()
     {
         projectile = Resources.Load("Prefabs/Bullets/bullet") as GameObject;
+        icon = Resources.Load("Sprites/slingshotIcon") as Texture2D;
     }
 
     public override void ShootAt(Vector3 target)
