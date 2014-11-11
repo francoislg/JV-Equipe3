@@ -3,8 +3,52 @@ using System.Collections;
 
 public class PlayerHasWeapon : MonoBehaviour
 {
+    const int iconSize = 70;
+    const int screenMargin = 20;
+
     Weapon[] weapons = new Weapon[2];
+    Rect[] weaponRects = new Rect[2];
     float cooldownUntil;
+
+    void Start()
+    {
+        ConfigureHud();
+        GiveWeapon("Slingshot");
+    }
+
+    void Update()
+    {
+        cooldownUntil -= Time.deltaTime;
+
+        RaycastHit mouseRayHit;
+        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out mouseRayHit))
+        {
+            HandlePlayerInput(mouseRayHit);
+        }
+    }
+
+    void OnGUI()
+    {
+        for (int i = 0; i < weapons.Length; i++)
+        {
+            if (weapons[i] != null && weapons[i].icon != null)
+            {
+                GUI.Box(weaponRects[i], weapons[i].icon);
+            }
+        }
+    }
+
+    void ConfigureHud()
+    {
+        for (int i = 0; i < weapons.Length; i++)
+        {
+            weaponRects[i] = new Rect(
+                screenMargin + i * (iconSize + screenMargin),
+                Screen.height - (iconSize + screenMargin),
+                iconSize,
+                iconSize);
+        }
+    }
 
     public void GiveWeapon(string weaponName)
     {
@@ -28,33 +72,21 @@ public class PlayerHasWeapon : MonoBehaviour
         return -1;
     }
 
-    void Start()
-    {
-        GiveWeapon("Slingshot");
-    }
-
-    void Update()
-    {
-        cooldownUntil -= Time.deltaTime;
-
-        RaycastHit mouseRayHit;
-        if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out mouseRayHit))
-        {
-            HandleFire(mouseRayHit);
-        }
-    }
-
-    void HandleFire(RaycastHit mouseRayHit)
+    void HandlePlayerInput(RaycastHit mouseRayHit)
     {
         if (weapons[0] != null && Input.GetMouseButton(0) && cooldownUntil <= 0)
         {
-            weapons[0].ShootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
-            cooldownUntil = weapons[0].cooldownDuration;
+            FireWeapon(0, mouseRayHit);
         }
         else if (weapons[1] != null && Input.GetMouseButton(1) && cooldownUntil <= 0)
         {
-            weapons[1].ShootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
-            cooldownUntil = weapons[1].cooldownDuration;
+            FireWeapon(1, mouseRayHit);
         }
+    }
+
+    void FireWeapon(int id, RaycastHit mouseRayHit)
+    {
+        weapons[id].ShootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
+        cooldownUntil = weapons[id].cooldownDuration;
     }
 }
