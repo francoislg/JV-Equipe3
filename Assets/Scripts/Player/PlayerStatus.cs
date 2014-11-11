@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class PlayerStatus : MonoBehaviour
 {
-
 	int score = 0;
 	int level = 1;
 	int attackBonus = 0;
@@ -25,9 +24,9 @@ public class PlayerStatus : MonoBehaviour
 
 		if (score > 100 * level) {
 			levelUp();
-			hudStatus.setPlayerLevel(level);
-			hudStatus.setAttackBonus(attackBonus);
-			hudStatus.setSpeedBonus(speedBonus);
+			hudStatus.playerLevel = level;
+			hudStatus.attackBonus = attackBonus;
+			hudStatus.speedBonus = speedBonus;
 		}
 		
 	}
@@ -39,7 +38,7 @@ public class PlayerStatus : MonoBehaviour
 	}
 
 	public void addPointsToScore(int points) {
-		score += points;
-		hudScore.setPlayerScore (score);
+        score += points;
+        hudScore.playerScore = score;
 	}
 }
