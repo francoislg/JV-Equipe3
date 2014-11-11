@@ -10,6 +10,7 @@ public class BalloonShooter : Weapon
     {
         cooldownDuration = 0.5f;
         projectile = Resources.Load("Prefabs/Bullets/Balloon") as GameObject;
+        icon = Resources.Load("Sprites/balloon") as Texture2D;
     }
 
     public override void ShootAt(Vector3 target)

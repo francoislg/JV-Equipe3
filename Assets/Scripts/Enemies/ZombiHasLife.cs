@@ -14,9 +14,7 @@ public class ZombiHasLife : HasLife
 
     public override void OnDeath()
     {
-		GameObject go = GameObject.Find("Player");
-		PlayerStatus status = (PlayerStatus) go.GetComponent(typeof(PlayerStatus));
-		status.addPointsToScore(pointsForKill);
+		GameObject.FindObjectOfType<PlayerStatus>().addPointsToScore(pointsForKill);
 
         animator.state = ZombiAnimator.State.Dying;
     }
