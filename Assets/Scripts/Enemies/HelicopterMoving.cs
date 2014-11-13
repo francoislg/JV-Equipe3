@@ -7,7 +7,9 @@ public class HelicopterMoving : MonoBehaviour
 	float bombSpeed = 20f;
 
 	public bool isAttacking = true;
-	float height = 10.5f;
+	float height = 10f;
+	float distanceToHit = 12f;
+
 	float safeDistanceFromTarget = 50f;
 	Vector3 retreatDirection;
 
@@ -33,7 +35,7 @@ public class HelicopterMoving : MonoBehaviour
 		transform.LookAt (target.transform.position + new Vector3 (0, height, 0));
 		transform.position += transform.forward * speed * Time.deltaTime;
 		
-		if (calculateDistanceFromTarget() < height) {
+		if (calculateDistanceFromTarget() < distanceToHit) {
 			dropBomb();
 			calculateRetreatDirection();
 			isAttacking = false;
