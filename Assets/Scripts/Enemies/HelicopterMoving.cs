@@ -18,7 +18,7 @@ public class HelicopterMoving : MonoBehaviour
 
     void Start() {
         target = GameObject.FindGameObjectWithTag("Player");
-		projectile = Resources.Load("Prefabs/Bullets/bullet") as GameObject;
+		projectile = Resources.Load("Prefabs/Bullets/ennemyBullet") as GameObject;
     }
 
     void Update() {
@@ -50,7 +50,6 @@ public class HelicopterMoving : MonoBehaviour
 	}
 
 	void dropBomb() {
-		Debug.Log ("booombe !");
 		GameObject newProjectile = (GameObject)MonoBehaviour.Instantiate(projectile, transform.position, Quaternion.identity);
 		newProjectile.transform.LookAt(target.transform.position);
 		newProjectile.renderer.material.color = Color.yellow;
