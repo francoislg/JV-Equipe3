@@ -7,6 +7,11 @@ public class PlayerController : MonoBehaviour
 
     float camRayLength = 100f;
     Rigidbody playerRigidbody;
+	GameObject levelEnd;
+
+	void Start() {
+		levelEnd = GameObject.FindGameObjectWithTag("levelEnd");
+	}
 
     void Awake()
     {
@@ -17,6 +22,12 @@ public class PlayerController : MonoBehaviour
     {
         Move();
         Turn();
+
+		if (levelFinished()) {
+			// comportement à coder quand le niveau de boss sera prêt (passer en paramètre le prochain niveau à loader).
+			Application.LoadLevel("GameScene");
+		}
+
     }
 
     void Move()
@@ -47,4 +58,9 @@ public class PlayerController : MonoBehaviour
             playerRigidbody.MoveRotation(newRotation);
         }
     }
+
+	bool levelFinished() {
+		return( (playerRigidbody.transform.position - levelEnd.transform.position).magnitude < 1.0 );
+	}
+
 }

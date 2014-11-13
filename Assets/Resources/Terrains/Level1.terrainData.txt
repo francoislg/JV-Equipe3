@@ -39,4 +39,8 @@ PREFABS_BEGIN
 	Prefabs/NPC/SpeakerNPC:0:1:10
 	Prefabs/NPC/QuestWalletNPC:40:1:27
 	Prefabs/Quest/Wallet:0:1:-4
+	Prefabs/FX/levelEnd:0:1:14
+	Prefabs/Enemies/helicopter:0:10:10
+	Prefabs/Enemies/helicopter:30:10:10
+	Prefabs/Enemies/helicopter:50:10:10
 END
