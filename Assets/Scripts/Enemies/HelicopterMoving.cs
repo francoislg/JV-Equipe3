@@ -4,16 +4,21 @@ using System.Collections;
 public class HelicopterMoving : MonoBehaviour
 {
     float speed = 5.0f;
+	float bombSpeed = 20f;
+
 	public bool isAttacking = true;
 	float height = 10f;
 	float safeDistanceFromTarget = 60f;
 	float retreatDirectionX = 0;
 	float retreatDirectionZ = 0;
 
+	GameObject projectile;
+
     GameObject target;
 
     void Start() {
         target = GameObject.FindGameObjectWithTag("Player");
+		projectile = Resources.Load("Prefabs/Bullets/bullet") as GameObject;
     }
 
     void Update() {
@@ -46,6 +51,11 @@ public class HelicopterMoving : MonoBehaviour
 
 	void dropBomb() {
 		Debug.Log ("booombe !");
+		GameObject newProjectile = (GameObject)MonoBehaviour.Instantiate(projectile, transform.position, Quaternion.identity);
+		newProjectile.transform.LookAt(target.transform.position);
+		newProjectile.renderer.material.color = Color.yellow;
+		newProjectile.rigidbody.velocity = (newProjectile.transform.forward * bombSpeed);
+
 	}
 
 	float calculateDistanceFromTarget() {
