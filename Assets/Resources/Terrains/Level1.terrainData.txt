@@ -43,4 +43,5 @@ PREFABS_BEGIN
 	Prefabs/Enemies/helicopter:0:10:10
 	Prefabs/Enemies/helicopter:30:10:10
 	Prefabs/Enemies/helicopter:50:10:10
+	Prefabs/Enemies/Helibase:-3:1:3
 END
