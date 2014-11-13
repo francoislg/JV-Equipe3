@@ -343,6 +343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   life: 30
   childrenType: helicopter
+  deathExplosion: {fileID: 100000, guid: 0a77083323e2f40218cf828c52d4a132, type: 2}
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
