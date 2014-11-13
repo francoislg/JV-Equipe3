@@ -3,20 +3,20 @@ using System.Collections;
 
 public class HelicopterMoving : MonoBehaviour
 {
-    float speed = 5.0f;
+    float speed = 8.0f;
 	float bombSpeed = 20f;
 
 	public bool isAttacking = true;
-	float height = 10f;
-	float safeDistanceFromTarget = 60f;
-	float retreatDirectionX = 0;
-	float retreatDirectionZ = 0;
+	float height = 10.5f;
+	float safeDistanceFromTarget = 50f;
+	Vector3 retreatDirection;
 
 	GameObject projectile;
 
     GameObject target;
 
     void Start() {
+		retreatDirection = new Vector3 (0, 0, 0);
         target = GameObject.FindGameObjectWithTag("Player");
 		projectile = Resources.Load("Prefabs/Bullets/ennemyBullet") as GameObject;
     }
@@ -41,7 +41,7 @@ public class HelicopterMoving : MonoBehaviour
 	}
 
 	void retreat() {
-		transform.LookAt (new Vector3(retreatDirectionX, height, retreatDirectionZ));
+		transform.LookAt (retreatDirection);
 		transform.position += transform.forward * speed * Time.deltaTime;
 		
 		if (calculateDistanceFromTarget() > safeDistanceFromTarget) {
@@ -62,8 +62,7 @@ public class HelicopterMoving : MonoBehaviour
 	}
 
 	void calculateRetreatDirection() {
-		retreatDirectionX = Random.value;
-		retreatDirectionZ = Random.value;
+		retreatDirection = transform.position + new Vector3 (Random.Range (-1000f, 1000f), 0, Random.Range (-1000f, 1000f));
 	}
 
 }
