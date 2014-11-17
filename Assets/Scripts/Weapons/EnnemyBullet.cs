@@ -10,7 +10,7 @@ public class EnnemyBullet : MonoBehaviour
     {
 		if (other.gameObject.tag == "Player")
         {
-            HasLife playerWithLife = other.gameObject.GetComponent<HasLife>() as HasLife;
+			HasLife playerWithLife = other.gameObject.GetComponent("HasLife") as HasLife;
 			playerWithLife.ReceiveDamage(baseDamage);
             Destroy(gameObject);
         }

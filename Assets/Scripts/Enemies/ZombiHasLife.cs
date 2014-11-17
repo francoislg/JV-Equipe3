@@ -1,20 +1,20 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ZombiHasLife : HasLife
+public class ZombiHasLife : EnemyHasLife
 {
     ZombiAnimator animator;
 
-	const int pointsForKill = 10;
+	public const int pointsForKill = 10;
 
 	protected override void OnStart(){
+		base.OnStart();
 		animator = GetComponent<ZombiAnimator>();
 	}
 
-    public override void OnDeath()
+    protected override void OnDeath()
     {
-		GameObject.FindObjectOfType<PlayerStatus>().addPointsToScore(pointsForKill);
-
+		base.OnDeath();
         animator.state = ZombiAnimator.State.Dying;
     }
 

@@ -29,7 +29,7 @@ public class BalloonCollision : MonoBehaviour
         {
             if (collide.tag == "Enemy" || collide.tag == "Spawner")
             {
-                HasLife enemyWithLife = collide.GetComponent<HasLife>() as HasLife;
+				HasLife enemyWithLife = collide.GetComponent("HasLife") as HasLife;
                 enemyWithLife.ReceiveDamage(baseDamage);
             }
         }

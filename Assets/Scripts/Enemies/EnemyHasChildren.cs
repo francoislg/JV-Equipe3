@@ -1,13 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyHasChildren : HasLife
+public class EnemyHasChildren : EnemyHasLife
 {
-	public string childrenType;
 	public GameObject deathExplosion;
+	public string childrenType;
 
-    public override void OnDeath()
+    protected override void OnDeath()
     {
+		base.OnDeath();
 		GameObject[] go = GameObject.FindGameObjectsWithTag(childrenType);
 		for(int i=0; i<go.Length; i++)
         {
@@ -16,7 +17,6 @@ public class EnemyHasChildren : HasLife
         }
 		Instantiate(deathExplosion, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
         Destroy(gameObject);
-        
     }
 
 }

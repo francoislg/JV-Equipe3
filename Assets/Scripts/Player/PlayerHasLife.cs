@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerHasLife : HasLife
+public class PlayerHasLife : MonoBehaviour, HasLife
 {
     const int iconSize = 64;
     const int screenMargin = 20;
+
+	protected float life;
+	public float maximumLife = 10;
 
     Texture2D hudLifeBackground;
     Texture2D hudLifeBar;
@@ -12,7 +15,8 @@ public class PlayerHasLife : HasLife
     Rect hudLifeBarPosition;
     float hudLifeBarMaxHeight;
 
-	protected override void OnStart(){
+	void Start(){
+		life = maximumLife;
 		ConfigureLifeBar();
 	}
 
@@ -39,9 +43,13 @@ public class PlayerHasLife : HasLife
         hudLifeBarMaxHeight = hudLifeBarPosition.height;
     }
 
-    public override void ReceiveDamage(float damage)
+    public void ReceiveDamage(float damage)
     {
-        base.ReceiveDamage(damage);
+		life -= damage;
+		if (life <= 0)
+		{
+			OnDeath();
+		}
         UpdateLifeBar(life / maximumLife);
     }
 
@@ -55,7 +63,7 @@ public class PlayerHasLife : HasLife
         UpdateLifeBar(life / maximumLife);
     }
 
-    public override void OnDeath()
+    public void OnDeath()
     {
         GameObject.FindObjectOfType<Restarter>().RestartGame();
     }
@@ -74,6 +82,13 @@ public class PlayerHasLife : HasLife
         // Uses percent of life to fill life bar
         hudLifeBarPosition.yMin = hudLifeBarPosition.yMax - (Mathf.Clamp(pctLife, 0, 1) * hudLifeBarMaxHeight);
     }
+
+	public void PushFromSource(Vector3 source, float force)
+	{
+		Vector3 direction = transform.position - source;
+		direction.Normalize();
+		rigidbody.AddForce(direction * force);
+	}
 
     void OnGUI()
     {
