@@ -3,11 +3,17 @@ using System.Collections;
 
 public abstract class HasLife : MonoBehaviour
 {
-    public float life = 10;
+    protected float life;
+	public float maximumLife = 10;
+
+	void Start(){
+		life = maximumLife;
+	}
 
     public virtual void ReceiveDamage(float damage)
     {
         life -= damage;
+		OnReceiveDamage();
         if (life <= 0)
         {
             OnDeath();
@@ -21,6 +27,7 @@ public abstract class HasLife : MonoBehaviour
         rigidbody.AddForce(direction * force);
     }
 
+	public virtual void OnReceiveDamage() {}
     public abstract void OnDeath();
 
 }

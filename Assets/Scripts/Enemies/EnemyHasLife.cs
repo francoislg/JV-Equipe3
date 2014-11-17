@@ -4,6 +4,11 @@ using System.Collections;
 public class EnemyHasLife : HasLife
 {
     public GameObject deathExplosion;
+	public GameObject lifeBar;
+
+	public void Start(){
+
+	}
 
     public override void OnDeath()
     {

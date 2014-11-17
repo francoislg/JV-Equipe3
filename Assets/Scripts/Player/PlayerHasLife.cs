@@ -6,8 +6,6 @@ public class PlayerHasLife : HasLife
     const int iconSize = 64;
     const int screenMargin = 20;
 
-    const float maximumLife = 100;
-
     Texture2D hudLifeBackground;
     Texture2D hudLifeBar;
     Rect hudLifeBackgroundPosition;
@@ -16,7 +14,7 @@ public class PlayerHasLife : HasLife
 
     void Start()
     {
-        life = maximumLife;
+		life = maximumLife;
         ConfigureLifeBar();
     }
 

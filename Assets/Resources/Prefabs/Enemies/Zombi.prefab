@@ -1816,8 +1816,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0631364cd90353e4f90d60001e680b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 10
-  deathExplosion: {fileID: 100000, guid: 325740d2d46a82a418b10560265bff8c, type: 2}
+  maximumLife: 20
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1830,7 +1829,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageCount: 10
-  TempsAnimationAttaque: 1
+  attackAnnimationSpeed: 0
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

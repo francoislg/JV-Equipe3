@@ -82,8 +82,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49dd08fcd4b033446b2140809dd90a37, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 30
+  maximumLife: 60
   deathExplosion: {fileID: 100000, guid: 0a77083323e2f40218cf828c52d4a132, type: 2}
+  lifeBar: {fileID: 0}
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1
