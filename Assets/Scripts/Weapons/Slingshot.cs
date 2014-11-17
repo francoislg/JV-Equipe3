@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Slingshot : Weapon
+public class Slingshot : WeaponPool
 {
     public override void InitWeapon(GameObject weaponHolder, Transform bulletPool)
     {

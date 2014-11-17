@@ -15,7 +15,7 @@ GameObject:
   - 96: {fileID: 9600000}
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400002}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: balloon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
