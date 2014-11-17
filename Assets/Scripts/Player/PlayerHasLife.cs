@@ -12,13 +12,11 @@ public class PlayerHasLife : HasLife
     Rect hudLifeBarPosition;
     float hudLifeBarMaxHeight;
 
-    void Start()
-    {
-		life = maximumLife;
-        ConfigureLifeBar();
-    }
+	protected override void OnStart(){
+		ConfigureLifeBar();
+	}
 
-    void ConfigureLifeBar()
+	void ConfigureLifeBar()
     {
         // Load and positionate hud life background
         hudLifeBackground = (Texture2D)Resources.Load("Sprites/hudLifeEmpty");

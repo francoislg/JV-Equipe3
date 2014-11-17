@@ -8,7 +8,10 @@ public abstract class HasLife : MonoBehaviour
 
 	void Start(){
 		life = maximumLife;
+		OnStart();
 	}
+
+	protected virtual void OnStart(){}
 
     public virtual void ReceiveDamage(float damage)
     {

@@ -7,10 +7,9 @@ public class ZombiHasLife : HasLife
 
 	const int pointsForKill = 10;
 
-    void Start()
-    {
-        animator = GetComponent<ZombiAnimator>();
-    }
+	protected override void OnStart(){
+		animator = GetComponent<ZombiAnimator>();
+	}
 
     public override void OnDeath()
     {

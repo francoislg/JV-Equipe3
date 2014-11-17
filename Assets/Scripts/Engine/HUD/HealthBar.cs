@@ -13,13 +13,13 @@ public class HealthBar : MonoBehaviour {
 		healthBar = Resources.Load("Sprites/healthBarEmpty") as Texture2D;
 	}
 
-	public void update(){
+	public void Update(){
 		if(target){
 			HasLife hasLife = target.GetComponent("HasLife") as HasLife;
 		}
 	}
 
-	public void setTarget(GameObject target){
+	public void SetTarget(GameObject target){
 		this.target = target;
 	}
 }
