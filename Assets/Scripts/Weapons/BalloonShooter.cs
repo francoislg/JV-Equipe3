@@ -3,21 +3,22 @@ using System.Collections;
 
 public class BalloonShooter : Weapon
 {
-    GameObject projectile;
-    float speed = 6f;
-
-    void Start()
+    public override void InitWeapon(GameObject weaponHolder, Transform bulletPool)
     {
-        cooldownDuration = 0.5f;
-        projectile = Resources.Load("Prefabs/Bullets/Balloon") as GameObject;
-        icon = Resources.Load("Sprites/balloon") as Texture2D;
+        base.InitWeapon(weaponHolder, bulletPool);
+        this.poolSize = 20;
+        this.CooldownDuration = 0.5f;
+        this.speed = 5;
+        this.damage = 30;
+        this.duration = 10;
+        this.color = Color.blue;
+        this.joueur = true;
     }
 
-    public override void ShootAt(Vector3 target)
+    protected override void Start()
     {
-        GameObject newProjectile = (GameObject)MonoBehaviour.Instantiate(projectile, transform.position, Quaternion.identity);
-        newProjectile.transform.LookAt(target);
-        Vector3 fwd = newProjectile.transform.forward;
-        newProjectile.rigidbody.velocity = new Vector3(fwd.x * speed, (10 * fwd.y) + 7, fwd.z * speed);
+        imageProjectile = LoadBullet("balloon");
+        icon = Resources.Load("Sprites/balloon") as Texture2D;
+        base.Start();
     }
 }
