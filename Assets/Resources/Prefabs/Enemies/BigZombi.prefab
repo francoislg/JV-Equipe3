@@ -1829,7 +1829,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0631364cd90353e4f90d60001e680b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  floatingTextObject: {fileID: 100000, guid: 8a44aeef1489b7447bc946f6d9866d11, type: 2}
   maximumLife: 30
+  pointsOnDeath: 10
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1

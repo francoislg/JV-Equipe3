@@ -3,7 +3,6 @@ using System.Collections;
 
 public class SpawnerHasLife : EnemyHasLife {
 	public GameObject deathExplosion;
-	public const int pointsOnDeath = 10;
 
 	protected override void OnDeath()
 	{
