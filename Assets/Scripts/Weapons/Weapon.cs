@@ -4,15 +4,17 @@ using System.Collections.Generic;
 
 public abstract class Weapon : MonoBehaviour
 {
-    public float CooldownDuration { get; protected set; }
+    
     protected GameObject weaponHolder;
     public Texture2D icon { get; protected set; }
     protected Transform bulletPool;
-    protected int speed;
-    protected int damage;
-    protected int duration;
-    protected Color color;
-    protected bool joueur;
+
+    public float CooldownDuration { get; set; }
+    public int speed { get; set; }
+    public int damage { get; set; }
+    public int duration { get; set; }
+    public Color color { get; set; }
+    public bool joueur { get; set; }
 
 
     public virtual void InitWeapon(GameObject weaponHolder, Transform bulletPool)
