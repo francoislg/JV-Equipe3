@@ -1,22 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Slingshot : Weapon
+public class Slingshot : WeaponPool
 {
-    GameObject projectile;
-    float speed = 20.0f;
-
-    void Start()
+    public override void InitWeapon(GameObject weaponHolder, Transform bulletPool)
     {
-        projectile = Resources.Load("Prefabs/Bullets/bullet") as GameObject;
+        base.InitWeapon(weaponHolder, bulletPool);
+        this.poolSize = 20;
+        this.CooldownDuration = 0.5f;
+        this.speed = 10;
+        this.damage = 10;
+        this.duration = 10;
+        this.color = Color.red;
+        this.joueur = true;
+    }
+
+    protected override void Start()
+    {
+        imageProjectile = LoadBullet("bullet");
         icon = Resources.Load("Sprites/slingshotIcon") as Texture2D;
+        base.Start();
     }
 
-    public override void ShootAt(Vector3 target)
-    {
-        GameObject newProjectile = (GameObject)MonoBehaviour.Instantiate(projectile, transform.position, Quaternion.identity);
-        newProjectile.transform.LookAt(target);
-        newProjectile.renderer.material.color = Color.red;
-        newProjectile.rigidbody.velocity = (newProjectile.transform.forward * speed);
-    }
 }

@@ -14,7 +14,7 @@ GameObject:
   - 23: {fileID: 2300000}
   - 82: {fileID: 8200000}
   - 114: {fileID: 11400000}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -84,7 +84,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 965e7782745f44a219bad43bb2e73644, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -144,7 +144,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9969e7e4004ce37409bb9260f2c65ec6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseDamage: 10
+  Expirer: 0
+  Actif: 0
+  baseDamage: 0
+  Spawner: {fileID: 0}
+  speed: 0
+  duration: 0
+  joueur: 0
+  color: {r: 0, g: 0, b: 0, a: 0}
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

@@ -4,7 +4,6 @@ using System.Collections;
 public class HelicopterMoving : MonoBehaviour
 {
     float speed = 8.0f;
-	float bombSpeed = 20f;
 
 	public bool isAttacking = true;
 	float height = 10f;
@@ -13,14 +12,29 @@ public class HelicopterMoving : MonoBehaviour
 	float safeDistanceFromTarget = 50f;
 	Vector3 retreatDirection;
 
-	GameObject projectile;
+	//GameObject projectile;
+    //float bombSpeed = 20f;
 
     GameObject target;
+
+    /* CHANGEMENT */
+    Weapon arme;
+    Transform bulletPool;
+    /**/
 
     void Start() {
 		retreatDirection = new Vector3 (0, 0, 0);
         target = GameObject.FindGameObjectWithTag("Player");
-		projectile = Resources.Load("Prefabs/Bullets/ennemyBullet") as GameObject;
+		//projectile = Resources.Load("Prefabs/Bullets/ennemyBullet") as GameObject;
+
+        /*CHANGEMENT*/
+        GameObject obj = new GameObject("MunitionPool");
+        obj.transform.position = new Vector3(0, -10, 0);
+        bulletPool = obj.transform;
+        arme = gameObject.AddComponent("BalloonShooter") as Weapon;
+        arme.InitWeapon(gameObject, bulletPool, 1, 1, 10, 20, 10, Color.yellow, false);
+        /**/
+
     }
 
     void Update() {
@@ -52,11 +66,14 @@ public class HelicopterMoving : MonoBehaviour
 	}
 
 	void dropBomb() {
+
+        arme.ShootAt(target.transform.position);
+        /*
 		GameObject newProjectile = (GameObject)MonoBehaviour.Instantiate(projectile, transform.position, Quaternion.identity);
 		newProjectile.transform.LookAt(target.transform.position);
 		newProjectile.renderer.material.color = Color.yellow;
 		newProjectile.rigidbody.velocity = (newProjectile.transform.forward * bombSpeed);
-
+        */
 	}
 
 	float calculateDistanceFromTarget() {
