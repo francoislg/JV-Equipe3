@@ -19,7 +19,7 @@ public class PlayerHasWeapon : MonoBehaviour
         GameObject obj = new GameObject("MunitionPool");
         obj.transform.position = new Vector3(0, -10, 0);
         bulletPool = obj.transform;
-        GiveWeapon("Slingshot");
+        GiveWeapon("WeaponParticule");
     }
 
     void Update()
