@@ -4,29 +4,65 @@ using System.Collections.Generic;
 
 public class PlayerHasInventory : MonoBehaviour
 {
-    Dictionary<string, int> inventory = new Dictionary<string, int>();
+    public GUIStyle itemStyle;
 
-    public void AddQuestObject(string questObjectName)
-    {
-        if (!inventory.ContainsKey(questObjectName))
-        {
-            inventory[questObjectName] = 0;
-        }
-        inventory[questObjectName]++;
-    }
+    List<QuestItem> bag = new List<QuestItem>();
+    Rect windowRect = new Rect(50, 50, Screen.width - 100, Screen.height - 100);
+    bool isWindowVisible = false;
 
-    public void RemoveQuestObject(string questObjectName)
+    void Update()
     {
-        if (inventory.ContainsKey(questObjectName) ||
-            inventory[questObjectName] > 0)
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            inventory[questObjectName]--;
+            Time.timeScale = Time.timeScale > 0 ? 0 : 1;
+            isWindowVisible = !isWindowVisible;
         }
     }
 
-    public bool HaveQuestObject(string questObjectName)
+    void OnGUI()
     {
-        return inventory.ContainsKey(questObjectName) &&
-               inventory[questObjectName] > 0;
+        if (isWindowVisible)
+        {
+            GUI.Window(0, windowRect, InventoryWindowContent, "Inventaire");
+        }
+    }
+
+    void InventoryWindowContent(int windowID)
+    {
+        float itemMargin = 10;
+        float itemWidth = windowRect.width - 2 * itemMargin;
+        float itemHeight = 50;
+
+        for (int i = 0; i < bag.Count; i++)
+        {
+            QuestItem item = bag[i];
+
+            GUI.Box(new Rect(itemMargin, 25 + i * itemHeight, itemWidth, itemHeight), "<b>" + item.friendlyName + "</b>:\n" + item.description, itemStyle);
+        };
+    }
+
+    public void Add(QuestItem item)
+    {
+        if (item != null)
+        {
+            bag.Add(item);
+        }
+    }
+
+    public void Remove(QuestItem item)
+    {
+        if (item != null)
+        {
+            bag.Remove(item);
+        }
+    }
+
+    public bool Have(QuestItem item)
+    {
+        if (item == null)
+        {
+            return false;
+        }
+        return bag.Contains(item);
     }
 }
