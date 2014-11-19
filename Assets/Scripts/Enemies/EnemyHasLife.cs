@@ -3,46 +3,45 @@ using System.Collections;
 
 public class EnemyHasLife : MonoBehaviour, HasLife
 {
-	public GameObject floatingTextObject;
+	public GameObject floatingTextClass;
+	public GameObject floatingHealthClass;
+	protected GameObject floatingHealthObject;
+	protected FloatingHealth floatingHealthScript;
 
-	private Texture2D healthBarContainer;
-	private Texture2D healthBar;
 	protected float life;
 	public float maximumLife = 10;
 
 	public int pointsOnDeath = 5;
 
+	public bool isDead = false;
+
 	void Start(){
 		life = maximumLife;
-		healthBarContainer = Resources.Load("Sprites/healthBarContainer") as Texture2D;
-		healthBar = Resources.Load("Sprites/healthBar") as Texture2D;
-		//GUI.DrawTexture(new Rect(0,0, healthBar.width, healthBar.height), healthBarContainer);
+		floatingHealthObject = Instantiate(floatingHealthClass, transform.position, Quaternion.identity) as GameObject;
+		floatingHealthScript = floatingHealthObject.GetComponent<FloatingHealth>() as FloatingHealth;
+		floatingHealthScript.target = this.gameObject;
 		OnStart();
 	}
 
 	void Update(){
-		if(life != maximumLife){
-			/*Vector2 posOnScreen = getPositionOnScreen();
-			Rect position = new Rect(posOnScreen.x, posOnScreen.y, healthBarContainer.width, healthBarContainer.height);
-			GUI.DrawTexture(position, healthBar);
-			GUI.DrawTexture(position, healthBarContainer);*/
-		}
+
 	}
 
 	public void ReceiveDamage(float damage)
 	{
-		life -= damage;
-		createFloatingText(damage.ToString());
-		if (life <= 0)
-		{
-			die();
+		if(!isDead){
+			life -= damage;
+			floatingHealthScript.setPctLife(life / maximumLife);
+			createFloatingText(damage.ToString());
+			if (life <= 0){
+				die();
+			}
 		}
 	}
 
 	private void createFloatingText(string text){
-		GameObject floatingText = Instantiate(floatingTextObject, new Vector2(0,0), Quaternion.identity) as GameObject;
+		GameObject floatingText = Instantiate(floatingTextClass, transform.position, Quaternion.identity) as GameObject;
 		FloatingText floatComponent = floatingText.GetComponent("FloatingText") as FloatingText;
-		floatComponent.target = transform.position;
 		floatingText.guiText.text = text;
 	}
 
@@ -53,6 +52,8 @@ public class EnemyHasLife : MonoBehaviour, HasLife
 
 	private void die(){
 		GameObject.FindObjectOfType<PlayerStatus>().addPointsToScore(pointsOnDeath);
+		Destroy (floatingHealthObject);
+		isDead = true;
 		OnDeath ();
 	}
 

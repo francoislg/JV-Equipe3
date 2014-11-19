@@ -53,15 +53,15 @@ GUIText:
   m_GameObject: {fileID: 100000}
   m_Enabled: 1
   serializedVersion: 3
-  m_Text: TEST
+  m_Text: 
   m_Anchor: 0
   m_Alignment: 1
   m_PixelOffset: {x: 0, y: 0}
   m_LineSpacing: 1
   m_TabSize: 4
   m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-  m_Material: {fileID: 2100000, guid: aa6701d7207f0ba4fa618aad50af6d3a, type: 3}
-  m_FontSize: 10
+  m_Material: {fileID: 0}
+  m_FontSize: 20
   m_FontStyle: 0
   m_Color:
     serializedVersion: 2

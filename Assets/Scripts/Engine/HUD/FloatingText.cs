@@ -6,7 +6,7 @@ using System.Collections;
 public class FloatingText : MonoBehaviour {
 	public Color color = new Color(0.8f,0.8f,0f,1.0f);
 	public float scroll = 0.05f;  // scrolling velocity
-	public float duration = 25f; // time to die
+	public float duration = 10f; // time to die
 	public float alpha = 1;
 	public Vector3 target;
 	private float posy = 0;
@@ -14,6 +14,7 @@ public class FloatingText : MonoBehaviour {
 	void Start(){
 		guiText.material.color = color; // set text color
 		alpha = 1;
+		target = transform.position;
 	}
 	
 	void Update(){
