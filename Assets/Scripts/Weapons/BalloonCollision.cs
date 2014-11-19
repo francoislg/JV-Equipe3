@@ -39,7 +39,7 @@ public class BalloonCollision : Munition
             {
                 if (collide.gameObject.tag == "Enemy" || collide.gameObject.tag == "Spawner")
                 {
-                    HasLife enemyWithLife = collide.gameObject.GetComponent<HasLife>() as HasLife;
+                    HasLife enemyWithLife = collide.gameObject.GetComponent("HasLife") as HasLife;
                     enemyWithLife.ReceiveDamage(baseDamage);
                 }
             }
@@ -47,7 +47,7 @@ public class BalloonCollision : Munition
             {
                 if (collide.gameObject.tag == "Player")
                 {
-                    HasLife playerWithLife = collide.gameObject.GetComponent<HasLife>() as HasLife;
+					HasLife playerWithLife = collide.gameObject.GetComponent("HasLife") as HasLife;
                     playerWithLife.ReceiveDamage(baseDamage);
                 }
             }
