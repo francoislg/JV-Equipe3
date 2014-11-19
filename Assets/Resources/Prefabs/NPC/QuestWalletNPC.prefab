@@ -722,7 +722,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 965361ee248675d4386f0a0c7e28dc1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requestObject: wallet
+  requestItem: {fileID: 11400000, guid: 07e6e79d2a7996949b5cc9454b8e32b1, type: 2}
   questMessage: "J'ai perdu mon porte feuille ! Pourrais-tu m'aider \xE0 le retrouver
     ?"
   firstThanksMessage: Merci beaucoup ! Je n'arrete pas de le perdre. Voici quelques
