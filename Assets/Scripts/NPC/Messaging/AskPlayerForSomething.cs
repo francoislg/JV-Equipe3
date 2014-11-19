@@ -3,7 +3,7 @@ using System.Collections;
 
 public class AskPlayerForSomething : TalkToPlayer
 {
-    public string requestObject;
+    public QuestItem requestItem;
 
     public string questMessage;
     public string firstThanksMessage;
@@ -32,7 +32,7 @@ public class AskPlayerForSomething : TalkToPlayer
         {
             return thanksMessage;
         }
-        else if (playerInventory.HaveQuestObject(requestObject))
+        else if (playerInventory.Have(requestItem))
         {
             OnQuestCompleted();
             return firstThanksMessage;
@@ -46,7 +46,7 @@ public class AskPlayerForSomething : TalkToPlayer
     void OnQuestCompleted()
     {
         questCompleted = true;
-        playerInventory.RemoveQuestObject(requestObject);
+        playerInventory.Remove(requestItem);
 
         if (giveWeaponName.Length > 0)
         {

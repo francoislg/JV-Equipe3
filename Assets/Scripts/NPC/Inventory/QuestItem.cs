@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class QuestObject : MessageDrawer
+public class QuestItem : MessageDrawer
 {
-    public string objectName;
+    public string friendlyName;
+    public string description;
 
     GameObject player;
     PlayerHasInventory playerInventory;
@@ -34,9 +35,26 @@ public class QuestObject : MessageDrawer
 
     void PickObject()
     {
-        playerInventory.AddQuestObject(objectName);
-        ShowMessage("Vous avez trouve : " + objectName);
+        playerInventory.Add(this);
+        ShowMessage("Vous avez trouve : " + friendlyName);
+
         pickedUp = true;
         renderer.enabled = false;
+    }
+
+    public override bool Equals(object obj)
+    {
+        if (obj == null || GetType() != obj.GetType())
+        {
+            return false;
+        }
+
+        return (obj as QuestItem).friendlyName == friendlyName;
+    }
+
+    // override object.GetHashCode
+    public override int GetHashCode()
+    {
+        return base.GetHashCode();
     }
 }

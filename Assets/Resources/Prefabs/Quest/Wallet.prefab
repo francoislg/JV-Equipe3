@@ -81,7 +81,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4b6486185c6f82b41a75c9c979ea15f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectName: wallet
+  friendlyName: Porte feuille
+  description: Un petit porte feuille en cuir noir
+  image: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
