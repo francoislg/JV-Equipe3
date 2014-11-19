@@ -341,9 +341,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8792e76e0ab984c2698b6e7b43271ce0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 30
-  childrenType: helicopter
+  floatingTextClass: {fileID: 100000, guid: 8a44aeef1489b7447bc946f6d9866d11, type: 2}
+  floatingHealthClass: {fileID: 100004, guid: 4f0ad800f7f53f246983b30b204926b5, type: 2}
+  maximumLife: 50
+  pointsOnDeath: 10
   deathExplosion: {fileID: 100000, guid: 0a77083323e2f40218cf828c52d4a132, type: 2}
+  childrenType: helicopter
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

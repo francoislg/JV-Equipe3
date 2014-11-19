@@ -1817,7 +1817,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageCount: 20
-  TempsAnimationAttaque: 1
+  attackAnnimationSpeed: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1829,8 +1829,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0631364cd90353e4f90d60001e680b0e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  life: 30
-  deathExplosion: {fileID: 100000, guid: 325740d2d46a82a418b10560265bff8c, type: 2}
+  floatingTextClass: {fileID: 100000, guid: 8a44aeef1489b7447bc946f6d9866d11, type: 2}
+  floatingHealthClass: {fileID: 100004, guid: 4f0ad800f7f53f246983b30b204926b5, type: 2}
+  maximumLife: 30
+  pointsOnDeath: 10
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
