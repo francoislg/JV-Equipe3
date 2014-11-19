@@ -1,30 +1,52 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Bullet : MonoBehaviour
+public class Bullet : Munition
 {
-    public int baseDamage = 10;
-
-    void Start()
+    protected override void Start()
     {
-        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
-        foreach (GameObject p in players)
+        base.Start();
+    }
+
+    void FixedUpdate()
+    {
+        if (!Expirer && Actif)
+        {        
+            rigidbody.velocity = transform.forward * speed;
+        }
+
+        if (!Expirer && Time.time - creationTimeStamp > duration)
         {
-            Collider pc = p.GetComponent<Collider>();
-            if (pc)
+            Recyle();
+        }
+    }
+
+    public override void Fire(Vector3 target)
+    {
+        base.Fire(target);
+        renderer.material.color = color;
+        audio.Play();
+    }
+
+    public override void OnCollisionEnter(Collision other)
+    {
+        base.OnCollisionEnter(other);
+        if (joueur)
+        {
+            if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Spawner")
             {
-                Physics.IgnoreCollision(pc, collider);
+                HasLife enemyWithLife = other.gameObject.GetComponent<HasLife>() as HasLife;
+                enemyWithLife.ReceiveDamage(baseDamage);
+            }
+        }
+        else
+        {
+            if (other.gameObject.tag == "Player")
+            {
+                HasLife playerWithLife = other.gameObject.GetComponent<HasLife>() as HasLife;
+                playerWithLife.ReceiveDamage(baseDamage);
             }
         }
     }
-
-    void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "Enemy" || other.gameObject.tag == "Spawner")
-        {
-			HasLife enemyWithLife = other.gameObject.GetComponent("HasLife") as HasLife;
-            enemyWithLife.ReceiveDamage(baseDamage);
-            Destroy(gameObject);
-        }
-    }
 }
+

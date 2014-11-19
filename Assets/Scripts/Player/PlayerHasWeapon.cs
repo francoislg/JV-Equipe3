@@ -8,11 +8,17 @@ public class PlayerHasWeapon : MonoBehaviour
 
     Weapon[] weapons = new Weapon[2];
     Rect[] weaponRects = new Rect[2];
+
+    private Transform bulletPool;
     float cooldownUntil;
 
     void Start()
     {
         ConfigureHud();
+
+        GameObject obj = new GameObject("MunitionPool");
+        obj.transform.position = new Vector3(0, -10, 0);
+        bulletPool = obj.transform;
         GiveWeapon("Slingshot");
     }
 
@@ -57,6 +63,7 @@ public class PlayerHasWeapon : MonoBehaviour
         {
             GameObject.Destroy(weapons[num]);
             weapons[num] = gameObject.AddComponent(weaponName) as Weapon;
+            weapons[num].InitWeapon(gameObject, bulletPool);
         }
     }
 
@@ -87,6 +94,6 @@ public class PlayerHasWeapon : MonoBehaviour
     void FireWeapon(int id, RaycastHit mouseRayHit)
     {
         weapons[id].ShootAt(new Vector3(mouseRayHit.point.x, transform.position.y, mouseRayHit.point.z));
-        cooldownUntil = weapons[id].cooldownDuration;
+        cooldownUntil = weapons[id].CooldownDuration;
     }
 }
