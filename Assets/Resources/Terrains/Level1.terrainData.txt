@@ -30,18 +30,22 @@ END
 
 # Prefabs a instancier sur la scene
 # Format
-# 	fichier:x:y:z
+#   fichier:x:y:z
+# 	OU
+#   fichier:x:y:z:rotation
 PREFABS_BEGIN
-	Prefabs/Objects/Poubelle:16:3:27
 	Prefabs/Enemies/ZombiSpawner:75:1:4
 	Prefabs/Enemies/BigZombiSpawner:0:1:35
+	Prefabs/Enemies/FilletteSpawner:9.5:1:53:90
+	Prefabs/Enemies/Helibase:70:1:10
+	
 	Prefabs/Objects/Farmhouse:40:0:70
+	Prefabs/Objects/Poubelle:48:3:26
+	
 	Prefabs/NPC/SpeakerNPC:0:1:10
 	Prefabs/NPC/QuestWalletNPC:40:1:27
-	Prefabs/Quest/Wallet:0:1:-4
-	Prefabs/FX/levelEnd:0:1:14
-	Prefabs/Enemies/helicopter:0:10:10
-	Prefabs/Enemies/helicopter:30:10:10
-	Prefabs/Enemies/helicopter:50:10:10
-	Prefabs/Enemies/Helibase:-3:1:3
+	
+	Prefabs/Quest/Wallet:22:1:73
+	
+	Prefabs/FX/levelEnd:105:1:40
 END
