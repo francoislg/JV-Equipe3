@@ -22,7 +22,7 @@ public class BalloonCollision : Munition
     {
         base.Fire(target);
         renderer.material.color = color;
-        audio.Play();
+        //audio.Play();
         Vector3 fwd = transform.forward;
         rigidbody.velocity = new Vector3(fwd.x * speed, (10 * fwd.y) + 7, fwd.z * speed);
     }
