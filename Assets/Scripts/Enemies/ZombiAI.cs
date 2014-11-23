@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EnemyMoving : MonoBehaviour
+public class ZombiAI : MonoBehaviour
 {
     public float speed = 1.0f;
 

@@ -13,7 +13,7 @@ public class EnemyHasLife : MonoBehaviour, HasLife
 
 	public int pointsOnDeath = 5;
 
-	public bool isDead = false;
+	public bool alive = true;
 
 	void Start(){
 		life = maximumLife;
@@ -29,7 +29,7 @@ public class EnemyHasLife : MonoBehaviour, HasLife
 
 	public void ReceiveDamage(float damage)
 	{
-		if(!isDead){
+		if(alive){
 			life -= damage;
 			floatingHealthScript.setPctLife(life / maximumLife);
 			createFloatingText(damage.ToString());
@@ -39,9 +39,12 @@ public class EnemyHasLife : MonoBehaviour, HasLife
 		}
 	}
 
+	public bool isAlive(){
+		return alive;
+	}
+
 	private void createFloatingText(string text){
 		GameObject floatingText = Instantiate(floatingTextClass, transform.position, Quaternion.identity) as GameObject;
-		FloatingText floatComponent = floatingText.GetComponent("FloatingText") as FloatingText;
 		floatingText.guiText.text = text;
 	}
 
@@ -53,7 +56,7 @@ public class EnemyHasLife : MonoBehaviour, HasLife
 	private void die(){
 		GameObject.FindObjectOfType<PlayerStatus>().addPointsToScore(pointsOnDeath);
 		Destroy (floatingHealthObject);
-		isDead = true;
+		alive = false;
 		OnDeath ();
 	}
 

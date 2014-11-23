@@ -7,7 +7,9 @@ public class SpawnerHasLife : EnemyHasLife {
 	protected override void OnDeath()
 	{
 		base.OnDeath();
-		Instantiate(deathExplosion, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
+		if(deathExplosion){
+			Instantiate(deathExplosion, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
+		}
 		Destroy(gameObject);
 	}
 }

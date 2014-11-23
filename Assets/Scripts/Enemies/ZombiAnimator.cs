@@ -11,6 +11,8 @@ public class ZombiAnimator : MonoBehaviour
     };
 
     public State state;
+	public float attackStartTime = 10;
+	public float attackAnimationSpeed = 0;
 
     void Start()
     {
@@ -33,4 +35,32 @@ public class ZombiAnimator : MonoBehaviour
             Destroy(gameObject, 1.6f);
         }
     }
+
+	void OnCollisionEnter(Collision other)
+	{
+		if (other.gameObject.tag == "Player" &&
+		    state != ZombiAnimator.State.Dying)
+		{
+			state = ZombiAnimator.State.Attacking;
+			attackStartTime = Time.time;
+		}
+	}
+	
+	void OnCollisionStay(Collision other)
+	{
+		if (other.gameObject.tag == "Player" &&
+		    state != ZombiAnimator.State.Dying &&
+		    Time.time - attackStartTime > 0)
+		{
+			attackStartTime = Time.time;
+		}
+	}
+	
+	void OnCollisionExit(Collision other)
+	{
+		if (state != ZombiAnimator.State.Dying)
+		{
+			state = ZombiAnimator.State.Walking;
+		}
+	}
 }
