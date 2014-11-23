@@ -24,7 +24,10 @@ public class EnemyHasLife : MonoBehaviour, HasLife
 	}
 
 	void Update(){
-
+		Vector3 pos = transform.position;
+		pos.y = 1;
+		transform.position = pos;
+		OnUpdate ();
 	}
 
 	public void ReceiveDamage(float damage)
@@ -61,5 +64,6 @@ public class EnemyHasLife : MonoBehaviour, HasLife
 	}
 
 	protected virtual void OnStart(){}
+	protected virtual void OnUpdate(){}
 	protected virtual void OnDeath(){}
 }

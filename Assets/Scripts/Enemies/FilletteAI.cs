@@ -8,24 +8,24 @@ public class FilletteAI : EnemyHasLife {
 	protected float acceleration = 0.3f;
 
 	// Use this for initialization
-	void Start () {
+	protected override void OnStart () {
 		animator = GetComponentInChildren<Animator>();
 		target = GameObject.FindGameObjectWithTag("Player");
 	}
 	
 	// Update is called once per frame
-	void Update () {
+	protected override void OnUpdate () {
+		base.OnUpdate();
 		transform.LookAt(target.transform.position);
 
-		Quaternion rot = transform.rotation;
-		rot.x = 0;
-		transform.rotation = rot;
-
 		if(animator){
-			float distance = Vector3.Distance(transform.position, target.transform.position);
-			animator.SetBool("IsInRange", distance < range);
-			if(distance < range){
+			if(animator.GetBool("IsInRange")){
 				rigidbody.velocity += transform.forward * acceleration;
+			}else{
+				float distance = Vector3.Distance(transform.position, target.transform.position);
+				if(distance < range){
+					animator.SetBool("IsInRange", true);
+				}
 			}
 		}
 	}
