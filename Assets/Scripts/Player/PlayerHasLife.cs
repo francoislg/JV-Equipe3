@@ -86,8 +86,10 @@ public class PlayerHasLife : MonoBehaviour, HasLife
 	public void PushFromSource(Vector3 source, float force)
 	{
 		Vector3 direction = transform.position - source;
+		direction.y = 0;
 		direction.Normalize();
-		rigidbody.AddForce(direction * force);
+		direction *= force * 300;
+		rigidbody.AddForce(direction, ForceMode.Acceleration);
 	}
 
     void OnGUI()

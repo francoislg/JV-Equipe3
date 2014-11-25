@@ -345,8 +345,11 @@ MonoBehaviour:
   floatingHealthClass: {fileID: 100004, guid: 4f0ad800f7f53f246983b30b204926b5, type: 2}
   maximumLife: 50
   pointsOnDeath: 10
+  isDead: 0
   deathExplosion: {fileID: 100000, guid: 0a77083323e2f40218cf828c52d4a132, type: 2}
-  childrenType: helicopter
+  copyUnit: {fileID: 100006, guid: b2cdc808feac44ff3831a3ee9076ba3b, type: 2}
+  nbEnemies: 3
+  range: 5
 --- !u!136 &13600000
 CapsuleCollider:
   m_ObjectHideFlags: 1

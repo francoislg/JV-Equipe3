@@ -98,14 +98,23 @@ public class TerrainGenerator : MonoBehaviour
     private void ParsePrefabLine(string line)
     {
         String[] parameters = line.Split(new Char[] { ':' });
-        if (parameters.Length == 4)
+        if (parameters.Length >= 4)
         {
+			String goName = parameters[0];
+			GameObject res = Resources.Load(goName) as GameObject;
+			if(!res){
+				throw new Exception("Le préfab " + goName + " n'existe pas");
+			}
             Vector3 pos = new Vector3(
-                int.Parse(parameters[1]),
-                int.Parse(parameters[2]),
-                int.Parse(parameters[3])
+				parseNumber(parameters[1]),
+				parseNumber(parameters[2]),
+				parseNumber(parameters[3])
             );
-            Instantiate(Resources.Load(parameters[0]), pos, Quaternion.identity);
+			Quaternion rotation = Quaternion.identity;
+			if(parameters.Length >= 5){
+				rotation = Quaternion.AngleAxis(parseNumber (parameters[4]), Vector3.up);
+			}
+			Instantiate(res, pos, rotation);
         }
     }
 
@@ -130,6 +139,10 @@ public class TerrainGenerator : MonoBehaviour
             }
         }
     }
+
+	private float parseNumber(String num){
+		return float.Parse(num);
+	}
 
     private void BuildTile(int tileID, int xPos, int zPos)
     {
