@@ -10,6 +10,13 @@ public class PlayerHasInventory : MonoBehaviour
     Rect windowRect = new Rect(50, 50, Screen.width - 100, Screen.height - 100);
     bool isWindowVisible = false;
 
+	float speedBonus = 0;
+	public float speed {
+		get{
+			return speedBonus;
+		}
+	}
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
@@ -46,6 +53,7 @@ public class PlayerHasInventory : MonoBehaviour
         if (item != null)
         {
             bag.Add(item);
+			speedBonus += item.speedBonus;
         }
     }
 
@@ -54,6 +62,7 @@ public class PlayerHasInventory : MonoBehaviour
         if (item != null)
         {
             bag.Remove(item);
+			speedBonus -= item.speedBonus;
         }
     }
 

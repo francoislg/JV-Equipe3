@@ -3,14 +3,16 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    public float constantSpeed;
 
     float camRayLength = 100f;
     Rigidbody playerRigidbody;
 	GameObject levelEnd;
+	PlayerStatus status;
 
 	void Start() {
 		levelEnd = GameObject.FindGameObjectWithTag("levelEnd");
+		status = GetComponent<PlayerStatus>() as PlayerStatus;
 	}
 
     void Awake()
@@ -36,7 +38,7 @@ public class PlayerController : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        rigidbody.velocity = movement * speed;
+		rigidbody.velocity = movement * (constantSpeed + status.speed);
     }
 
     void Turn()

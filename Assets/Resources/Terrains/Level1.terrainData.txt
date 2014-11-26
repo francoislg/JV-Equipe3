@@ -42,6 +42,8 @@ PREFABS_BEGIN
 	Prefabs/Objects/Farmhouse:40:0:70
 	Prefabs/Objects/Poubelle:48:3:26
 	
+	Prefabs/Objects/Coffre:0:1:-3
+	
 	Prefabs/NPC/SpeakerNPC:0:1:10
 	Prefabs/NPC/QuestWalletNPC:40:1:27
 	
