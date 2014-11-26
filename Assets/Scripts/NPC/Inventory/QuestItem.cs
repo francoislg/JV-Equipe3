@@ -40,7 +40,8 @@ public class QuestItem : MessageDrawer
     void PickObject()
     {
 		if(spawnOnPickup){
-			Instantiate(spawnOnPickup, transform.position, Quaternion.identity);
+			float angle = Random.Range(0.0f, Mathf.PI*2);
+			Instantiate(spawnOnPickup, transform.position + (new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)) * 20), Quaternion.identity);
 		}
         playerInventory.Add(this);
 		ShowMessage("Vous avez trouve : " + friendlyName + "\n" + pickUpMessage);
@@ -50,7 +51,9 @@ public class QuestItem : MessageDrawer
 			renderer.enabled = false;
 		}else{
 			Renderer childRend = GetComponentInChildren<Renderer>() as Renderer;
-			childRend.enabled = false;
+			if(childRend){
+				childRend.enabled = false;
+			}
 		}
     }
 

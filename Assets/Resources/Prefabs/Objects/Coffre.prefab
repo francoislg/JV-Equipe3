@@ -115,6 +115,7 @@ MonoBehaviour:
   pickUpMessage: Mais il est malefique !
   distanceToPickUp: 2
   speedBonus: 2
+  spawnOnPickup: {fileID: 100000, guid: 6e0e8a8ce41f98244a91d50cf48e3704, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
