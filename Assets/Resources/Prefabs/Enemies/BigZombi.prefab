@@ -928,7 +928,6 @@ GameObject:
   - 65: {fileID: 6500000}
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400006}
-  - 114: {fileID: 11400002}
   - 114: {fileID: 11400000}
   - 114: {fileID: 11400004}
   m_Layer: 0
@@ -1804,20 +1803,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2810f3995bdf8439e7fe08f0fbddf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  state: 0
---- !u!114 &11400002
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05d763999e571c94bb9b69ae8df0d029, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
   damageCount: 20
-  attackAnnimationSpeed: 0
+  playerLife: {fileID: 0}
+  state: 0
+  attackStartTime: 10
+  attackAnimationSpeed: 1.04999995
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1833,6 +1823,7 @@ MonoBehaviour:
   floatingHealthClass: {fileID: 100004, guid: 4f0ad800f7f53f246983b30b204926b5, type: 2}
   maximumLife: 30
   pointsOnDeath: 10
+  alive: 1
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
