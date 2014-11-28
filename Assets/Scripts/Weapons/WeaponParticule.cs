@@ -25,7 +25,9 @@ public class WeaponParticule : Weapon
 
     protected void Start()
     {
-        icon = Resources.Load("Sprites/slingshotIcon") as Texture2D;
+        //icon = Resources.Load("Sprites/slingshotIcon") as Texture2D;
+		icon = Resources.Load("Sprites/bubble") as Texture2D;
+
         imageProjectile = LoadBullet("Bulle");
         projectile = MonoBehaviour.Instantiate(imageProjectile, transform.position, transform.rotation) as GameObject;
         projectile.transform.Translate(0, 0, 0, Space.Self);
