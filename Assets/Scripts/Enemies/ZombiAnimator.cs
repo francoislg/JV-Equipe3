@@ -32,6 +32,8 @@ public class ZombiAnimator : DealsDamageToPlayerOnHit
         else if (state == State.Dying)
         {
             transform.animation.Play("death");
+            BoxCollider collider = (BoxCollider) GetComponent(typeof (BoxCollider));
+            collider.enabled = false;
             Destroy(gameObject, 1.6f);
         }
     }
