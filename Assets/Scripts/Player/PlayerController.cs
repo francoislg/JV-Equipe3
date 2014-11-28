@@ -8,9 +8,11 @@ public class PlayerController : MonoBehaviour
     float camRayLength = 100f;
     Rigidbody playerRigidbody;
 	GameObject levelEnd;
+    GameObject playerModel;
 
 	void Start() {
 		levelEnd = GameObject.FindGameObjectWithTag("levelEnd");
+        playerModel = GameObject.FindGameObjectWithTag("PlayerModel");
 	}
 
     void Awake()
@@ -36,6 +38,12 @@ public class PlayerController : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+
+        if (movement.magnitude > 0)
+            playerModel.animation.Play("run");
+        else
+            playerModel.animation.Play("Idle");
+
         rigidbody.velocity = movement * speed;
     }
 

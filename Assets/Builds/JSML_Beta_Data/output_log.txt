@@ -1,0 +1,29 @@
+Initialize engine version: 4.6.0f3 (30840d631a27)
+GfxDevice: creating device client; threaded=1
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.0]
+    Renderer: NVIDIA GeForce GTX 660  (ID=0x11c0)
+    Vendor:   NVIDIA
+    VRAM:     1989 MB
+Begin MonoManager ReloadAssembly
+Platform assembly: D:\IFT2013\JV-Equipe3\Assets\Builds\JSML_Beta_Data\Managed\UnityEngine.dll (this message is harmless)
+Loading D:\IFT2013\JV-Equipe3\Assets\Builds\JSML_Beta_Data\Managed\UnityEngine.dll into Unity Child Domain
+Platform assembly: D:\IFT2013\JV-Equipe3\Assets\Builds\JSML_Beta_Data\Managed\Assembly-CSharp.dll (this message is harmless)
+Loading D:\IFT2013\JV-Equipe3\Assets\Builds\JSML_Beta_Data\Managed\Assembly-CSharp.dll into Unity Child Domain
+Platform assembly: D:\IFT2013\JV-Equipe3\Assets\Builds\JSML_Beta_Data\Managed\UnityEngine.UI.dll (this message is harmless)
+Loading D:\IFT2013\JV-Equipe3\Assets\Builds\JSML_Beta_Data\Managed\UnityEngine.UI.dll into Unity Child Domain
+- Completed reload, in  0.064 seconds
+desktop: 1920x1080 60Hz; virtual: 1920x1080 at 0,0
+<RI> Initializing input.
+<RI> Input initialized.
+Platform assembly: D:\IFT2013\JV-Equipe3\Assets\Builds\JSML_Beta_Data\Managed\System.Core.dll (this message is harmless)
+WARNING: Shader Unsupported: 'ToonDetail' - Pass 'BASE' shader state not supported
+WARNING: Shader Unsupported: 'ToonDetail' - Setting to default shader.
+UnloadTime: 0.210770 ms
+Unloading 3 Unused Serialized files (Serialized files now loaded: 0 / Dirty serialized files: 0)
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 389.
+Total: 6.297342 ms (FindLiveObjects: 0.012880 ms CreateObjectMapping: 0.010245 ms MarkObjects: 0.106263 ms  DeleteObjects: 5.912980 ms)
+
+WARNING: Shader Unsupported: 'Toon/Basic Outline' - Pass 'OUTLINE' shader state not supported
+Platform assembly: D:\IFT2013\JV-Equipe3\Assets\Builds\JSML_Beta_Data\Managed\System.dll (this message is harmless)
