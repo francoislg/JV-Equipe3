@@ -9,6 +9,8 @@ public class PlayerHasLife : MonoBehaviour, HasLife
 	protected float life;
 	public float maximumLife = 10;
 
+	public AudioClip sndOnDeath;
+
     Texture2D hudLifeBackground;
     Texture2D hudLifeBar;
     Rect hudLifeBackgroundPosition;
@@ -65,6 +67,8 @@ public class PlayerHasLife : MonoBehaviour, HasLife
 
     public void OnDeath()
     {
+		AudioSource.PlayClipAtPoint(sndOnDeath, Camera.main.transform.position);
+		System.Threading.Thread.Sleep(1300);
         GameObject.FindObjectOfType<Restarter>().RestartGame();
     }
 

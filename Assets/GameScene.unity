@@ -299,6 +299,10 @@ Prefab:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11400000, guid: 6f1ceaa3c0186db4d8b362ece76254b5, type: 2}
+      propertyPath: sndOnDeath
+      value: 
+      objectReference: {fileID: 8300000, guid: 55c82171bb03ec4479ae9d2e0565f8aa, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6f1ceaa3c0186db4d8b362ece76254b5, type: 2}
   m_RootGameObject: {fileID: 2062626175}
@@ -4037,6 +4041,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   maximumLife: 100
+  sndOnDeath: {fileID: 8300000, guid: 55c82171bb03ec4479ae9d2e0565f8aa, type: 3}
 --- !u!114 &2062626178
 MonoBehaviour:
   m_ObjectHideFlags: 0
