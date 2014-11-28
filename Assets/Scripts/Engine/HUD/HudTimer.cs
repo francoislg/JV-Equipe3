@@ -18,7 +18,7 @@ public class HudTimer : MonoBehaviour
 
 	void OnGUI()
 	{
-		GUI.TextArea(timerZone, "Time : " + Mathf.Round(Time.time));
+		GUI.TextArea(timerZone, "Time : " + Mathf.Round(Time.timeSinceLevelLoad));
 	}
 
 }
