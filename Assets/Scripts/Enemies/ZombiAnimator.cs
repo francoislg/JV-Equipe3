@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ZombiAnimator : DealsDamageToPlayerOnHit
+public class ZombiAnimator : MonoBehaviour
 {
     public enum State
     {
@@ -12,7 +12,7 @@ public class ZombiAnimator : DealsDamageToPlayerOnHit
 
     public State state;
 	public float attackStartTime = 10;
-	public float attackAnimationSpeed = 1.05f;
+	public float attackAnimationSpeed = 0;
 
     void Start()
     {
@@ -32,15 +32,12 @@ public class ZombiAnimator : DealsDamageToPlayerOnHit
         else if (state == State.Dying)
         {
             transform.animation.Play("death");
-            BoxCollider collider = (BoxCollider) GetComponent(typeof (BoxCollider));
-            collider.enabled = false;
             Destroy(gameObject, 1.6f);
         }
     }
 
-	protected override void OnCollisionEnter(Collision other)
+	void OnCollisionEnter(Collision other)
 	{
-        base.OnCollisionEnter(other);
 		if (other.gameObject.tag == "Player" &&
 		    state != ZombiAnimator.State.Dying)
 		{
@@ -53,9 +50,8 @@ public class ZombiAnimator : DealsDamageToPlayerOnHit
 	{
 		if (other.gameObject.tag == "Player" &&
 		    state != ZombiAnimator.State.Dying &&
-            Time.time - attackStartTime > attackAnimationSpeed)
+		    Time.time - attackStartTime > 0)
 		{
-            base.DealDamage();
 			attackStartTime = Time.time;
 		}
 	}
