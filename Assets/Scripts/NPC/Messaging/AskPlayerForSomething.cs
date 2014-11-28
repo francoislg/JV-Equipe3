@@ -6,6 +6,8 @@ public class AskPlayerForSomething : TalkToPlayer
     public QuestItem requestItem;
 
     public string questMessage;
+	int pointsForCompletedQuest = 25;
+
     public string firstThanksMessage;
     public string thanksMessage;
 
@@ -46,6 +48,8 @@ public class AskPlayerForSomething : TalkToPlayer
     void OnQuestCompleted()
     {
         questCompleted = true;
+		GameObject.FindObjectOfType<PlayerStatus>().addPointsToScore(pointsForCompletedQuest);
+
         playerInventory.Remove(requestItem);
 
         if (giveWeaponName.Length > 0)
