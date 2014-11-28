@@ -22,9 +22,7 @@ public class BalloonCollision : Munition
     {
         base.Fire(target);
         renderer.material.color = color;
-        TrailRenderer trail = (TrailRenderer)GetComponent(typeof(TrailRenderer));
-        trail.enabled = true;
-        audio.Play();
+        //audio.Play();
         Vector3 fwd = transform.forward;
         rigidbody.velocity = new Vector3(fwd.x * speed, (10 * fwd.y) + 7, fwd.z * speed);
     }
@@ -54,8 +52,6 @@ public class BalloonCollision : Munition
                 }
             }
         }
-        TrailRenderer trail = (TrailRenderer)GetComponent(typeof(TrailRenderer));
-        trail.enabled = false;
         Instantiate(explosion, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
     }
 }
