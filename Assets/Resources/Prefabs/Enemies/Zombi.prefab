@@ -928,7 +928,6 @@ GameObject:
   - 65: {fileID: 6500000}
   - 54: {fileID: 5400000}
   - 114: {fileID: 11400000}
-  - 114: {fileID: 11400004}
   - 114: {fileID: 11400006}
   - 114: {fileID: 11400002}
   m_Layer: 0
@@ -1736,7 +1735,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.5999999, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 50, y: 50, z: 50}
   m_Children:
   - {fileID: 400120}
@@ -1750,11 +1749,11 @@ Rigidbody:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100122}
   serializedVersion: 2
-  m_Mass: 1
+  m_Mass: 1e+09
   m_Drag: 0
   m_AngularDrag: .0500000007
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1769,7 +1768,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: .0299999993, y: .0599999987, z: .0500000007}
-  m_Center: {x: 0, y: .0299999993, z: 0}
+  m_Center: {x: 0, y: .0250000004, z: 0}
 --- !u!111 &11100000
 Animation:
   m_ObjectHideFlags: 1
@@ -1820,19 +1819,7 @@ MonoBehaviour:
   floatingHealthClass: {fileID: 100004, guid: 4f0ad800f7f53f246983b30b204926b5, type: 2}
   maximumLife: 20
   pointsOnDeath: 1
---- !u!114 &11400004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 100122}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05d763999e571c94bb9b69ae8df0d029, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damageCount: 10
-  attackAnnimationSpeed: 0
+  alive: 1
 --- !u!114 &11400006
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1844,7 +1831,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a2810f3995bdf8439e7fe08f0fbddf9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  damageCount: 10
+  playerLife: {fileID: 0}
   state: 0
+  attackStartTime: 10
+  attackAnimationSpeed: 1.04999995
 --- !u!137 &13700000
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1

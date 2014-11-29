@@ -4,15 +4,16 @@ using System.Collections;
 public class DealsDamageToPlayerOnHit : MonoBehaviour
 {
     public int damageCount = 10;
-	private EnemyHasLife enemyObject;
-	private bool isActive = true;
+	protected EnemyHasLife enemyObject;
+	protected bool isActive = true;
+    public PlayerHasLife playerLife;
 
     void Start()
     {
         enemyObject = GetComponent<EnemyHasLife>() as EnemyHasLife;
     }
 
-    void OnCollisionEnter(Collision other)
+    protected virtual void OnCollisionEnter(Collision other)
     {
 		if(enemyObject != null){
 			if(!enemyObject.isAlive()){
@@ -21,9 +22,14 @@ public class DealsDamageToPlayerOnHit : MonoBehaviour
 		}
 		if (isActive && other.gameObject.tag == "Player")
         {
-			PlayerHasLife playerLife = other.gameObject.GetComponent<PlayerHasLife>() as PlayerHasLife;
-			playerLife.ReceiveDamage(damageCount);
-			playerLife.PushFromSource(transform.position, damageCount);
+            playerLife = other.gameObject.GetComponent<PlayerHasLife>() as PlayerHasLife;
+            //DealDamage();
         }
+    }
+
+    public void DealDamage ()
+    {
+		playerLife.ReceiveDamage(damageCount);
+		playerLife.PushFromSource(transform.position, damageCount);
     }
 }
