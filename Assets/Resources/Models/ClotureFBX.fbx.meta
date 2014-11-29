@@ -1,56 +1,13 @@
 fileFormatVersion: 2
-guid: 13b7508426eef784b98c4fb0747c7832
+guid: f543a09173fd47f41bce6220a447dddc
 ModelImporter:
   serializedVersion: 16
   fileIDToRecycleName:
-    100000: BacFleur
-    100002: CadreGrandeFenetre
-    100004: Cheminee
-    100006: //RootNode
-    100008: FenetresPorte
-    100010: GrandeFenetre
-    100012: Marche
-    100014: Murs
-    100016: Porte
-    100018: Toit
-    400000: BacFleur
-    400002: CadreGrandeFenetre
-    400004: Cheminee
-    400006: //RootNode
-    400008: FenetresPorte
-    400010: GrandeFenetre
-    400012: Marche
-    400014: Murs
-    400016: Porte
-    400018: Toit
-    2300000: BacFleur
-    2300002: CadreGrandeFenetre
-    2300004: Cheminee
-    2300006: FenetresPorte
-    2300008: GrandeFenetre
-    2300010: Marche
-    2300012: Murs
-    2300014: Porte
-    2300016: Toit
-    3300000: BacFleur
-    3300002: CadreGrandeFenetre
-    3300004: Cheminee
-    3300006: FenetresPorte
-    3300008: GrandeFenetre
-    3300010: Marche
-    3300012: Murs
-    3300014: Porte
-    3300016: Toit
-    4300000: Cheminee
-    4300002: BacFleur
-    4300004: Marche
-    4300006: FenetresPorte
-    4300008: Porte
-    4300010: GrandeFenetre
-    4300012: CadreGrandeFenetre
-    4300014: Toit
-    4300016: Murs
-    7400000: Default Take
+    100000: //RootNode
+    400000: //RootNode
+    2300000: //RootNode
+    3300000: //RootNode
+    4300000: Cloture
     9500000: //RootNode
   materials:
     importMaterials: 1
@@ -71,7 +28,7 @@ ModelImporter:
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: 1
+    globalScale: .400000006
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
