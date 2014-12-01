@@ -1,0 +1,112 @@
+fileFormatVersion: 2
+guid: cbc1c874e620b7246ab8025c847fc9f4
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: Escalier
+    100002: FenetreEscalier
+    100004: FenetreEscalier.001
+    100006: Marches
+    100008: //RootNode
+    100010: Module
+    100012: Porte
+    100014: Solarium
+    100016: ToitSolarium
+    100018: VitrePorte
+    100020: VitreSalon
+    400000: Escalier
+    400002: FenetreEscalier
+    400004: FenetreEscalier.001
+    400006: Marches
+    400008: //RootNode
+    400010: Module
+    400012: Porte
+    400014: Solarium
+    400016: ToitSolarium
+    400018: VitrePorte
+    400020: VitreSalon
+    2300000: Escalier
+    2300002: FenetreEscalier
+    2300004: FenetreEscalier.001
+    2300006: Marches
+    2300008: Module
+    2300010: Porte
+    2300012: Solarium
+    2300014: ToitSolarium
+    2300016: VitrePorte
+    2300018: VitreSalon
+    3300000: Escalier
+    3300002: FenetreEscalier
+    3300004: FenetreEscalier.001
+    3300006: Marches
+    3300008: Module
+    3300010: Porte
+    3300012: Solarium
+    3300014: ToitSolarium
+    3300016: VitrePorte
+    3300018: VitreSalon
+    4300000: FenetreEscalier.001
+    4300002: VitrePorte
+    4300004: Escalier
+    4300006: ToitSolarium
+    4300008: Porte
+    4300010: FenetreEscalier
+    4300012: Marches
+    4300014: VitreSalon
+    4300016: Solarium
+    4300018: Module
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .400000006
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

@@ -1,0 +1,112 @@
+fileFormatVersion: 2
+guid: c44ab83609ce100469aa5532dd632f8e
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: ContourGrandeFenetre
+    100002: ContourPanneau
+    100004: Cube
+    100006: //RootNode
+    100008: FenetrePorte
+    100010: GrandeFenetre
+    100012: Marches
+    100014: Murs
+    100016: PanneauLumineux
+    100018: Porte
+    100020: Text
+    400000: ContourGrandeFenetre
+    400002: ContourPanneau
+    400004: Cube
+    400006: //RootNode
+    400008: FenetrePorte
+    400010: GrandeFenetre
+    400012: Marches
+    400014: Murs
+    400016: PanneauLumineux
+    400018: Porte
+    400020: Text
+    2300000: ContourGrandeFenetre
+    2300002: ContourPanneau
+    2300004: Cube
+    2300006: FenetrePorte
+    2300008: GrandeFenetre
+    2300010: Marches
+    2300012: Murs
+    2300014: PanneauLumineux
+    2300016: Porte
+    2300018: Text
+    3300000: ContourGrandeFenetre
+    3300002: ContourPanneau
+    3300004: Cube
+    3300006: FenetrePorte
+    3300008: GrandeFenetre
+    3300010: Marches
+    3300012: Murs
+    3300014: PanneauLumineux
+    3300016: Porte
+    3300018: Text
+    4300000: Cube
+    4300002: Marches
+    4300004: Text
+    4300006: ContourPanneau
+    4300008: ContourGrandeFenetre
+    4300010: PanneauLumineux
+    4300012: Porte
+    4300014: FenetrePorte
+    4300016: GrandeFenetre
+    4300018: Murs
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .400000006
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

@@ -1,0 +1,111 @@
+fileFormatVersion: 2
+guid: 7d4e0d5ba16730348bf00510ac70792e
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: BacFleur
+    100002: CadreGrandeFenetre
+    100004: Camera
+    100006: Cheminee
+    100008: //RootNode
+    100010: FenetresPorte
+    100012: GrandeFenetre
+    100014: Marche
+    100016: Murs
+    100018: Porte
+    100020: Sun
+    100022: Toit
+    400000: BacFleur
+    400002: CadreGrandeFenetre
+    400004: Camera
+    400006: Cheminee
+    400008: //RootNode
+    400010: FenetresPorte
+    400012: GrandeFenetre
+    400014: Marche
+    400016: Murs
+    400018: Porte
+    400020: Sun
+    400022: Toit
+    2300000: BacFleur
+    2300002: CadreGrandeFenetre
+    2300004: Cheminee
+    2300006: FenetresPorte
+    2300008: GrandeFenetre
+    2300010: Marche
+    2300012: Murs
+    2300014: Porte
+    2300016: Toit
+    3300000: BacFleur
+    3300002: CadreGrandeFenetre
+    3300004: Cheminee
+    3300006: FenetresPorte
+    3300008: GrandeFenetre
+    3300010: Marche
+    3300012: Murs
+    3300014: Porte
+    3300016: Toit
+    4300000: Cheminee
+    4300002: BacFleur
+    4300004: Marche
+    4300006: FenetresPorte
+    4300008: Porte
+    4300010: GrandeFenetre
+    4300012: CadreGrandeFenetre
+    4300014: Toit
+    4300016: Murs
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: .400000006
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 

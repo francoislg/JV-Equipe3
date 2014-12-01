@@ -9,10 +9,12 @@ public class PlayerController : MonoBehaviour
     Rigidbody playerRigidbody;
 	GameObject levelEnd;
 	PlayerStatus status;
+    GameObject playerModel;
 
 	void Start() {
 		levelEnd = GameObject.FindGameObjectWithTag("levelEnd");
 		status = GetComponent<PlayerStatus>() as PlayerStatus;
+        playerModel = GameObject.FindGameObjectWithTag("PlayerModel");
 	}
 
     void Awake()
@@ -39,6 +41,10 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
 		rigidbody.velocity = movement * (constantSpeed + status.speed);
+        if (movement.magnitude > 0)
+            playerModel.animation.Play("run");
+        else
+            playerModel.animation.Play("Idle");
     }
 
     void Turn()

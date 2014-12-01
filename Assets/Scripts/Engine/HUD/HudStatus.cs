@@ -20,7 +20,8 @@ public class HudStatus : MonoBehaviour
 
     void OnGUI()
     {
-		GUI.TextArea(statusZone, "Level : " + playerLevel + "  Attack : " + attackBonus + "  Speed : " + speedBonus);
+		//GUI.TextArea(statusZone, "Level : " + playerLevel + "  Attack : " + attackBonus + "  Speed : " + speedBonus);
+		GUI.TextArea(statusZone, "Level : " + playerLevel +  "  Speed : " + speedBonus);
     }
 
 }

@@ -1,4 +1,4 @@
-# Fichier terrain numéro 1
+﻿# Fichier terrain numéro 1
 # ===============
 #
 # Remarque préliminaire
@@ -22,9 +22,9 @@ END
 DATA_BEGIN
 	21 11 14 14 14 14 14 17
 	21 12 23 23 16 15 15 18
-	21 22 22 22 22 22 22 22 
-	21 12 15 18 15 12 15 8
-	21 13 16 19 15 13 16 9	
+	21 22 22 22 22 22 22 22
+	21 12 15 18 15 12 15 8 
+	21 13 16 19 15 13 16 9 	
 	21 15 15 15 15 15 15 15
 END
 
@@ -39,7 +39,6 @@ PREFABS_BEGIN
 	Prefabs/Enemies/FilletteSpawner:9.5:1:53:90
 	Prefabs/Enemies/Helibase:70:1:10
 	
-	Prefabs/Objects/Farmhouse:40:0:70
 	Prefabs/Objects/Poubelle:48:3:26
 	
 	Prefabs/Objects/Coffre:0:1:-3

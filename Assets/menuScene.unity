@@ -563,6 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fac2dfe385ad34144aaec4d6abd8e61c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  newGameVoice: {fileID: 8300000, guid: 19fa6c25bf3ce5b498347721828a09c6, type: 3}
 --- !u!82 &1021074101
 AudioSource:
   m_ObjectHideFlags: 0
@@ -573,7 +574,7 @@ AudioSource:
   serializedVersion: 3
   m_audioClip: {fileID: 8300000, guid: 67daadd929e9f4e7fad27ed9c01ecd9a, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: .354000002
   m_Pitch: 1
   Loop: 1
   Mute: 0

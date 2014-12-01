@@ -7,12 +7,15 @@ public class MainMenu : MonoBehaviour
     const int buttonHeight = 60;
     const int margin = 10;
 
+	public AudioClip newGameVoice;
+
     Rect playButton;
     Rect helpButton;
     ScreenFader fader;
 
     void Start()
     {
+
         fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
 
         playButton = new Rect(
@@ -36,12 +39,17 @@ public class MainMenu : MonoBehaviour
         {
             if (GUI.Button(playButton, "Jouer !"))
             {
-                fader.GotoScene("GameScene");
+				AudioSource.PlayClipAtPoint(newGameVoice, Camera.main.transform.position);
+				System.Threading.Thread.Sleep(2000);
+				fader.GotoScene("GameScene");
+                
             }
             else if (GUI.Button(helpButton, "A propos ..."))
             {
                 fader.GotoScene("AboutScene");
             }
         }
-    }
+    }	
 }
+	
+
