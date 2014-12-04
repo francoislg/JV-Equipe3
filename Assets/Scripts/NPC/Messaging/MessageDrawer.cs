@@ -3,9 +3,10 @@ using System.Collections;
 
 public abstract class MessageDrawer : MonoBehaviour
 {
-    const float messageDuration = 2;
+    const float messageDuration = 5;
     const float messageHeight = 100f;
-    const float messageMargin = 20f;
+    const float messageMargin = 100f;
+	const float messageBottomMargin = 20f;
 
     Rect messagePosition;
     string message;
@@ -16,7 +17,7 @@ public abstract class MessageDrawer : MonoBehaviour
     {
         messagePosition = new Rect(
             messageMargin,
-            Screen.height - messageHeight - messageMargin,
+			Screen.height - messageHeight - messageBottomMargin,
             Screen.width - 2 * messageMargin,
             messageHeight);
     }

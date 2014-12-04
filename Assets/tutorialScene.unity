@@ -427,7 +427,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 300, y: 20, z: 10}
+  m_Size: {x: 160, y: 20, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &298307719
 Transform:
@@ -436,7 +436,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 298307717}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 70, y: 0, z: 155}
+  m_LocalPosition: {x: 70, y: 0, z: 115}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1138,7 +1138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e17a60063c63f124e86a2d2715d163b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TerrainData: {fileID: 4900000, guid: ef775c35e5eee4244b0ac08d8b9e12ae, type: 3}
+  TerrainData: {fileID: 4900000, guid: bbf596aaf56b14f1a97766bba5089f6f, type: 3}
 --- !u!82 &788141538
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1248,7 +1248,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 20, z: 200}
+  m_Size: {x: 10, y: 20, z: 120}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &807952377
 Transform:
@@ -1403,7 +1403,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10, y: 20, z: 200}
+  m_Size: {x: 10, y: 20, z: 120}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &962291759
 Transform:
@@ -1412,7 +1412,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 962291757}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 195, y: 0, z: 50}
+  m_LocalPosition: {x: 155, y: 0, z: 50}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1752,7 +1752,7 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 300, y: 20, z: 10}
+  m_Size: {x: 160, y: 20, z: 10}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!4 &1288496977
 Transform:
