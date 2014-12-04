@@ -11,6 +11,7 @@ public class FilletteAI : EnemyHasLife {
 	protected override void OnStart () {
 		animator = GetComponentInChildren<Animator>();
 		target = GameObject.FindGameObjectWithTag("Player");
+		rigidbody.velocity = Vector3.zero;
 	}
 	
 	// Update is called once per frame
@@ -31,9 +32,7 @@ public class FilletteAI : EnemyHasLife {
 	}
 
 	void OnCollisionEnter(Collision other){
-		if(other.gameObject == target){
-			rigidbody.velocity = Vector3.zero;
-		}
+		rigidbody.velocity = Vector3.zero;
 	}
 
 	protected override void OnDeath ()

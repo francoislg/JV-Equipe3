@@ -3,15 +3,17 @@ using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
-    public float speed;
+    public float constantSpeed;
 
     float camRayLength = 100f;
     Rigidbody playerRigidbody;
 	GameObject levelEnd;
+	PlayerStatus status;
     GameObject playerModel;
 
 	void Start() {
 		levelEnd = GameObject.FindGameObjectWithTag("levelEnd");
+		status = GetComponent<PlayerStatus>() as PlayerStatus;
         playerModel = GameObject.FindGameObjectWithTag("PlayerModel");
 	}
 
@@ -38,13 +40,11 @@ public class PlayerController : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
 
         Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-
+		rigidbody.velocity = movement * (constantSpeed + status.speed);
         if (movement.magnitude > 0)
             playerModel.animation.Play("run");
         else
             playerModel.animation.Play("Idle");
-
-        rigidbody.velocity = movement * speed;
     }
 
     void Turn()

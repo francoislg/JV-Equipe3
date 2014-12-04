@@ -116,6 +116,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 400014}
   - 111: {fileID: 11100000}
+  - 114: {fileID: 11400004}
   m_Layer: 0
   m_Name: doors2
   m_TagString: Untagged
@@ -369,6 +370,18 @@ MonoBehaviour:
   copyUnit: {fileID: 100070, guid: 19338c73a022f7d49804504c946bdbbe, type: 2}
   cooldown: 10
   range: 1
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 435b9a5f05278c545919993c08c43bfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: .992089331, g: .426470578, b: 1, a: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
