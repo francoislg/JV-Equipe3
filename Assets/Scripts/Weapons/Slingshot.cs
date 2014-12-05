@@ -13,6 +13,8 @@ public class Slingshot : WeaponPool
         this.duration = 10;
         this.color = Color.red;
         this.joueur = true;
+        this.nbCollision = 3;
+        this.nom = "Slingshot";
     }
 
     protected override void Start()

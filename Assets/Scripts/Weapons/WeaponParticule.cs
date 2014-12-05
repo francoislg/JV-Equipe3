@@ -16,16 +16,16 @@ public class WeaponParticule : Weapon
         this.duration = 10;
         this.color = Color.red;
         this.joueur = true;
+        this.nom = "Bulle";
     }
 
-    public override void InitWeapon(GameObject weaponHolder, Transform bulletPool, int poolSize, float CoolDown, int speed, int dmg, int duration, Color color, bool joueur)
+    public override void InitWeapon(GameObject weaponHolder, Transform bulletPool, int poolSize, float CoolDown, int speed, int dmg, int duration, int collision, Color color, bool joueur)
     {
-        base.InitWeapon(weaponHolder, bulletPool, poolSize, CoolDown, speed, dmg, duration, color, joueur);
+        base.InitWeapon(weaponHolder, bulletPool, poolSize, CoolDown, speed, dmg, duration, collision, color, joueur);
     }
 
     protected void Start()
     {
-        //icon = Resources.Load("Sprites/slingshotIcon") as Texture2D;
 		icon = Resources.Load("Sprites/bubble") as Texture2D;
 
         imageProjectile = LoadBullet("Bulle");

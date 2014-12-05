@@ -13,6 +13,7 @@ public class BalloonShooter : WeaponPool
         this.duration = 10;
         this.color = Color.blue;
         this.joueur = true;
+        this.nom = "Balloon";
     }
 
     protected override void Start()
