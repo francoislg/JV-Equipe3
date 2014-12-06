@@ -37,7 +37,7 @@ END
 #   fichier:x:y:z:rotation
 PREFABS_BEGIN
 	Prefabs/Enemies/ZombiSpawner:75:1:4
-	Prefabs/Enemies/BigZombiSpawner:0:1:35
+*	Prefabs/Enemies/BigZombiSpawner:0:1:35
 	
 	Prefabs/Enemies/ZombiSpawner:100:1:50
 	Prefabs/Enemies/BigZombiSpawner:100:1:60
@@ -45,15 +45,15 @@ PREFABS_BEGIN
 	Prefabs/Enemies/ZombiSpawner:140:1:10
 	Prefabs/Enemies/BigZombiSpawner:130:1:20
 	
-	Prefabs/Enemies/ZombiSpawner:170:1:50
-	Prefabs/Enemies/BigZombiSpawner:170:1:80
-	Prefabs/Enemies/BigZombiSpawner:170:1:80
-	Prefabs/Enemies/BigZombiSpawner:160:1:110
+*	Prefabs/Enemies/ZombiSpawner:170:1:50
+*	Prefabs/Enemies/BigZombiSpawner:170:1:80
+*	Prefabs/Enemies/BigZombiSpawner:170:1:80
+*	Prefabs/Enemies/BigZombiSpawner:160:1:110
 	
-	Prefabs/Enemies/FilletteSpawner:120:1:53:40
-	Prefabs/Enemies/FilletteSpawner:160:1:53:10
-	Prefabs/Enemies/FilletteSpawner:9.5:1:53:90
-	Prefabs/Enemies/Helibase:70:1:10
+*	Prefabs/Enemies/FilletteSpawner:120:1:53:40
+*	Prefabs/Enemies/FilletteSpawner:160:1:53:10
+*	Prefabs/Enemies/FilletteSpawner:9.5:1:53:90
+*	Prefabs/Enemies/Helibase:70:1:10
 	
 	Prefabs/Objects/Poubelle:48:3:26
 	

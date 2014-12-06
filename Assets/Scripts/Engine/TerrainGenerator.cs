@@ -24,12 +24,14 @@ public class TerrainGenerator : MonoBehaviour
 
     void Start()
     {
+
+
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
         foreach (string untrimedLine in TerrainData.text.Split(new Char[] { '\n' }))
         {
             string line = untrimedLine.Trim();
-            if (IsData(line) && !isChangeModeLine(line))
+            if (IsData(ref line) && !isChangeModeLine(line))
             {
                 switch (parserMode)
                 {
@@ -49,10 +51,26 @@ public class TerrainGenerator : MonoBehaviour
         }
     }
 
-    private bool IsData(string text)
+    private bool IsData(ref string text)
     {
-        return text.Length > 0 && text[0] != '#';
+		if (text.Length == 0)
+			return false;
+
+		if (!HistoryMenu.hardDifficulty)
+			return text[0] != '#' && text[0] != '*';
+
+		if (text[0] == '*') {
+			text = text.Replace('*', ' ');
+			text = text.TrimStart();
+			return true;
+		} 
+		return text[0] != '#' && text[0] != '*';
     }
+
+	private bool IsData(string text)
+	{
+		return text.Length > 0 && text[0] != '#';
+	}
 
     private bool isChangeModeLine(string line)
     {

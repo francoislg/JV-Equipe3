@@ -3,11 +3,14 @@
 
 public class HistoryMenu : MonoBehaviour
 {
+	static public bool hardDifficulty = false;
+
 	const int buttonWidth = 200;
 	const int buttonHeight = 60;
 	const int margin = 10;
 	
 	Rect playButton;
+	Rect playHardButton;
 	Rect tutoButton;
 	ScreenFader fader;
 	
@@ -17,14 +20,22 @@ public class HistoryMenu : MonoBehaviour
 		fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
 		
 		playButton = new Rect(
-			(Screen.width / 2) - (buttonWidth / 2),
+			(Screen.width / 3) - (buttonWidth / 2),
 			(Screen.height / 4) - (buttonHeight / 4),
 			buttonWidth,
 			buttonHeight
 			);
-		
+
+		playHardButton = new Rect(
+			2*(Screen.width / 3) - (buttonWidth / 2),
+			(Screen.height / 4) - (buttonHeight / 4),
+			buttonWidth,
+			buttonHeight
+			);
+
+
 		tutoButton = new Rect(
-			playButton.xMin,
+			(Screen.width / 2) - (buttonWidth / 2),
 			playButton.yMax + margin,
 			buttonWidth,
 			buttonHeight
@@ -37,6 +48,11 @@ public class HistoryMenu : MonoBehaviour
 		{
 			if (GUI.Button(playButton, "Commencer l'aventure !"))
 			{
+				fader.GotoScene("GameScene");
+			}
+			else if (GUI.Button(playHardButton, "Commencer au mode difficile"))
+			{
+				hardDifficulty = true;
 				fader.GotoScene("GameScene");
 			}
 			else if (GUI.Button(tutoButton, "Commencer au niveau tutoriel"))
