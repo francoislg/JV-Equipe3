@@ -52,8 +52,8 @@ PREFABS_BEGIN
 	
 *	Prefabs/Enemies/FilletteSpawner:120:1:53:40
 *	Prefabs/Enemies/FilletteSpawner:160:1:53:10
-*	Prefabs/Enemies/FilletteSpawner:9.5:1:53:90
-*	Prefabs/Enemies/Helibase:70:1:10
+	Prefabs/Enemies/FilletteSpawner:9.5:1:53:90
+	Prefabs/Enemies/Helibase:70:1:10
 	
 	Prefabs/Objects/Poubelle:48:3:26
 	
