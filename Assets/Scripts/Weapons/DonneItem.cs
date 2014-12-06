@@ -38,6 +38,7 @@ public abstract class DonneItem : MonoBehaviour {
                         bulle.init = false;
                         break;
             }
+
         }
     }
 

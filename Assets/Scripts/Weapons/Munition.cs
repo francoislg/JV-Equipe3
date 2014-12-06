@@ -15,7 +15,15 @@ public abstract class Munition : MonoBehaviour {
 
     protected int CompteurCollision = 0;
     protected Vector3 InitVelocity;
+
     public int NbCollision;
+    public int emissionRate;
+    public int emissionAngle;
+
+    public int contactZone;
+    public float explosionSpeed;
+    public float explosionLifeTime;
+
 
     protected Vector3 target;
 

@@ -49,6 +49,7 @@ MonoBehaviour:
   duration: 0
   joueur: 0
   color: {r: 0, g: 0, b: 0, a: 0}
+  NbCollision: 0
 --- !u!198 &19800000
 ParticleSystem:
   m_ObjectHideFlags: 1

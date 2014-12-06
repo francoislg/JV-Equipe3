@@ -71,6 +71,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   copyUnit: {fileID: 100122, guid: ea256796aec996e4ca56a6dfd65be48b, type: 2}
+  cooldown: 5
+  range: 25
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -86,6 +88,7 @@ MonoBehaviour:
   floatingHealthClass: {fileID: 100004, guid: 4f0ad800f7f53f246983b30b204926b5, type: 2}
   maximumLife: 50
   pointsOnDeath: 20
+  alive: 1
   deathExplosion: {fileID: 100000, guid: 0a77083323e2f40218cf828c52d4a132, type: 2}
 --- !u!136 &13600000
 CapsuleCollider:
@@ -97,9 +100,9 @@ CapsuleCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   m_Radius: .5
-  m_Height: 1
+  m_Height: 4
   m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

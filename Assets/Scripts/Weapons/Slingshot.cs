@@ -13,7 +13,7 @@ public class Slingshot : WeaponPool
         this.duration = 10;
         this.color = Color.red;
         this.joueur = true;
-        this.nbCollision = 3;
+        this.nbCollision = 0;
         this.nom = "Slingshot";
     }
 
@@ -22,6 +22,27 @@ public class Slingshot : WeaponPool
         imageProjectile = LoadBullet("bullet");
         icon = Resources.Load("Sprites/slingshotIcon") as Texture2D;
         base.Start();
+    }
+
+    public override void GiveBonus()
+    {
+        nbCollision = 3;
+    }
+
+    public override void GiveSpeed()
+    {
+        speed = 20;
+    }
+
+    public override void GiveDamage()
+    {
+        damage = 20;
+    }
+
+    public override void ShootAt(Vector3 target)
+    {
+        base.ShootAt(target);
+        base.Fire(target);
     }
 
 }

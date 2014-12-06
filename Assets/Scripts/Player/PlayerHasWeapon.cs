@@ -29,7 +29,7 @@ public class PlayerHasWeapon : MonoBehaviour
         weapons[1].InitWeapon(gameObject, bulletPool);
         weapons[2].InitWeapon(gameObject, bulletPool);
 
-        currentWeapon = 0;
+        currentWeapon = 1;
     }
 
     void Update()
@@ -114,4 +114,20 @@ public class PlayerHasWeapon : MonoBehaviour
     {
         return weapons[currentWeapon].nom;
     }
+
+    public void giveBonusSpecial()
+    {
+        weapons[currentWeapon].GiveBonus();
+    }
+
+    public void giveBonusSpeed()
+    {
+        weapons[currentWeapon].GiveSpeed();
+    }
+
+    public void giveBonusDamage()
+    {
+        weapons[currentWeapon].GiveDamage();
+    }
 }
+

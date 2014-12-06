@@ -16,6 +16,7 @@ public abstract class Weapon : MonoBehaviour
     public Color color { get; set; }
     public bool joueur { get; set; }
     public int nbCollision { get; set; }
+
     public string nom { get; set; }
 
 
@@ -35,6 +36,18 @@ public abstract class Weapon : MonoBehaviour
         this.nbCollision = collision;
         this.color = color;
         this.joueur = joueur;
+    }
+
+    public virtual void GiveBonus()
+    {
+    }
+
+    public virtual void GiveSpeed()
+    {
+    }
+
+    public virtual void GiveDamage()
+    {
     }
 
     public virtual void ShootAt(Vector3 target)
