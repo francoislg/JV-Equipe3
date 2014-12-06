@@ -54,7 +54,7 @@ public class AskPlayerForSomething : TalkToPlayer
 
         if (giveWeaponName.Length > 0)
         {
-            playerWeapons.GiveWeapon(giveWeaponName);
+          //  playerWeapons.GiveWeapon(giveWeaponName);
         }
         if(giveLifeBonus > 0)
         {

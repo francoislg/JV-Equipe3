@@ -12,7 +12,6 @@ public class Bullet : Munition
     {
         if (!Expirer && Actif)
         {        
-            rigidbody.velocity = transform.forward * speed;
         }
 
         if (!Expirer && Time.time - creationTimeStamp > duration)
@@ -24,6 +23,8 @@ public class Bullet : Munition
     public override void Fire(Vector3 target)
     {
         base.Fire(target);
+        InitVelocity = transform.forward * speed;
+        rigidbody.velocity = transform.forward * speed;
         renderer.material.color = color;
         audio.Play();
     }

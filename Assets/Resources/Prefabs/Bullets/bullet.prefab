@@ -88,7 +88,7 @@ AudioSource:
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
-  Mute: 0
+  Mute: 1
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
@@ -152,6 +152,7 @@ MonoBehaviour:
   duration: 0
   joueur: 0
   color: {r: 0, g: 0, b: 0, a: 0}
+  NbCollision: 0
 --- !u!135 &13500000
 SphereCollider:
   m_ObjectHideFlags: 1

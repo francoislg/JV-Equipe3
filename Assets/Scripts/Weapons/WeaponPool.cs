@@ -11,9 +11,10 @@ public abstract class WeaponPool : Weapon
     protected List<GameObject> bulletPoolActive;
     protected int poolSize;
 
-    public override void InitWeapon(GameObject weaponHolder, Transform bulletPool, int poolSize, float CoolDown, int speed, int dmg, int duration, Color color, bool joueur)
+
+    public override void InitWeapon(GameObject weaponHolder, Transform bulletPool, int poolSize, float CoolDown, int speed, int dmg, int duration, int collision, Color color, bool joueur)
     {
-        base.InitWeapon(weaponHolder, bulletPool, poolSize, CoolDown, speed, dmg, duration, color, joueur);
+        base.InitWeapon(weaponHolder, bulletPool, poolSize, CoolDown, speed, dmg, duration, collision, color, joueur);
         this.bulletPool = bulletPool;
         this.poolSize = poolSize;
     }
@@ -70,12 +71,17 @@ public abstract class WeaponPool : Weapon
             activeBullet.speed = this.speed;
             activeBullet.baseDamage = this.damage;
             activeBullet.duration = this.duration;
+            activeBullet.NbCollision = this.nbCollision;
             activeBullet.color = this.color;
             activeBullet.joueur = this.joueur;
             activeBullet.Spawner = this.weaponHolder.transform;
-            activeBullet.Fire(target);
-            bulletPoolReady.RemoveAt(0);
-            bulletPoolActive.Add(projectile);
         }
+    }
+
+    public void Fire(Vector3 target)
+    {       
+        activeBullet.Fire(target);
+        bulletPoolReady.RemoveAt(0);
+        bulletPoolActive.Add(projectile);
     }
 }

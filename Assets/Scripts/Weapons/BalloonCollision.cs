@@ -4,10 +4,12 @@ using System.Collections;
 public class BalloonCollision : Munition
 {
     public GameObject explosion;
+    //private GameObject copieExplosion;
 
     protected override void Start()
     {
         base.Start();
+        //copieExplosion = explosion;
     }
 
     void FixedUpdate()
@@ -34,7 +36,8 @@ public class BalloonCollision : Munition
         base.OnCollisionEnter(other);
         // C'est vraiment comme ça qu'il faut faire...
         ContactPoint contact = other.contacts[0];
-        Collider[] nearObjects = Physics.OverlapSphere(contact.point, 3);
+        Collider[] nearObjects = Physics.OverlapSphere(contact.point, contactZone);
+
         foreach (Collider collide in nearObjects)
         {
             if (joueur)
@@ -56,6 +59,9 @@ public class BalloonCollision : Munition
         }
         TrailRenderer trail = (TrailRenderer)GetComponent(typeof(TrailRenderer));
         trail.enabled = false;
+        explosion.particleSystem.startLifetime = explosionLifeTime;
+        explosion.particleSystem.startSpeed = explosionSpeed;
+        explosion.particleSystem.startColor = this.color;
         Instantiate(explosion, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
     }
 }

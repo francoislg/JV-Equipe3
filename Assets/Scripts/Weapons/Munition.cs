@@ -13,6 +13,18 @@ public abstract class Munition : MonoBehaviour {
     public bool joueur;
     public Color color;
 
+    protected int CompteurCollision = 0;
+    protected Vector3 InitVelocity;
+
+    public int NbCollision;
+    public int emissionRate;
+    public int emissionAngle;
+
+    public int contactZone;
+    public float explosionSpeed;
+    public float explosionLifeTime;
+
+
     protected Vector3 target;
 
     protected double creationTimeStamp;
@@ -38,7 +50,24 @@ public abstract class Munition : MonoBehaviour {
 
     public virtual void OnCollisionEnter(Collision other)
     {
-        Recyle();
+        if (CompteurCollision >= NbCollision)
+        {
+            Recyle();
+        }
+        else
+        {
+            Vector3 arrive = InitVelocity;
+            Vector3 normal = other.contacts[0].normal;
+            Vector3 temp = 2 * Vector3.Dot(arrive, normal) * normal;
+            Vector3 result = arrive - temp;
+            InitVelocity = result;
+            rigidbody.velocity = result;
+            if (arrive != result)
+            {
+                CompteurCollision++;
+            }
+        }
+
     }
 
     public virtual void Fire(Vector3 target)
@@ -58,6 +87,7 @@ public abstract class Munition : MonoBehaviour {
     protected void Recyle()
     {
         Expirer = true;
+        CompteurCollision = 0;
         if (rigidbody)
         {
             rigidbody.isKinematic = true;

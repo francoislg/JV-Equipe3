@@ -32,7 +32,7 @@ public class HelicopterMoving : MonoBehaviour
         obj.transform.position = new Vector3(0, -10, 0);
         bulletPool = obj.transform;
         arme = gameObject.AddComponent("BalloonShooter") as Weapon;
-        arme.InitWeapon(gameObject, bulletPool, 1, 1, 10, 20, 10, Color.yellow, false);
+        arme.InitWeapon(gameObject, bulletPool, 1, 1, 10, 20, 10, 0, Color.yellow, false);
         /**/
 
     }

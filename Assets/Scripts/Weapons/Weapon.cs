@@ -15,6 +15,9 @@ public abstract class Weapon : MonoBehaviour
     public int duration { get; set; }
     public Color color { get; set; }
     public bool joueur { get; set; }
+    public int nbCollision { get; set; }
+
+    public string nom { get; set; }
 
 
     public virtual void InitWeapon(GameObject weaponHolder, Transform bulletPool)
@@ -23,15 +26,28 @@ public abstract class Weapon : MonoBehaviour
         this.weaponHolder = weaponHolder;
     }
 
-    public virtual void InitWeapon(GameObject weaponHolder, Transform bulletPool, int poolSize, float CoolDown, int speed, int dmg, int duration, Color color, bool joueur)
+    public virtual void InitWeapon(GameObject weaponHolder, Transform bulletPool, int poolSize, float CoolDown, int speed, int dmg, int duration, int collision, Color color, bool joueur)
     {
         this.weaponHolder = weaponHolder;
         this.CooldownDuration = CoolDown;
         this.speed = speed;
         this.damage = dmg;
         this.duration = duration;
+        this.nbCollision = collision;
         this.color = color;
         this.joueur = joueur;
+    }
+
+    public virtual void GiveBonus()
+    {
+    }
+
+    public virtual void GiveSpeed()
+    {
+    }
+
+    public virtual void GiveDamage()
+    {
     }
 
     public virtual void ShootAt(Vector3 target)
