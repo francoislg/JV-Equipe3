@@ -7,9 +7,9 @@ public class HudStatus : MonoBehaviour
     const int width = 350;
     const int margin = 10;
 
-	public int playerLevel = 1;
-    public int attackBonus = 1;
-    public int speedBonus = 1;
+	public float playerLevel = 0;
+    public float attackBonus = 0;
+    public float speedBonus = 0;
 	
 	Rect statusZone;
 

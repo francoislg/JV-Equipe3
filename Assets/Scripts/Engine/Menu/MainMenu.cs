@@ -41,7 +41,7 @@ public class MainMenu : MonoBehaviour
             {
 				AudioSource.PlayClipAtPoint(newGameVoice, Camera.main.transform.position);
 				System.Threading.Thread.Sleep(2000);
-				fader.GotoScene("GameScene");
+				fader.GotoScene("HistoryScene");
                 
             }
             else if (GUI.Button(helpButton, "A propos ..."))
