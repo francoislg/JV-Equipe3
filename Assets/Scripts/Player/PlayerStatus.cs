@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class PlayerStatus : MonoBehaviour
 {
-	int score = 0;
+	static public int score = 0;
 	int level = 1;
 	private float attackBonus;
 	public float attack {
@@ -65,4 +65,5 @@ public class PlayerStatus : MonoBehaviour
         score += points;
         hudScore.playerScore = score;
 	}
+	
 }

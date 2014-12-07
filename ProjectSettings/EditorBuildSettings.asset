@@ -15,3 +15,5 @@ EditorBuildSettings:
     path: Assets/HistoryScene.unity
   - enabled: 1
     path: Assets/tutorialScene.unity
+  - enabled: 1
+    path: Assets/EndGameScene.unity

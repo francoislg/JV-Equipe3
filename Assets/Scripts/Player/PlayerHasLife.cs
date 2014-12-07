@@ -17,9 +17,12 @@ public class PlayerHasLife : MonoBehaviour, HasLife
     Rect hudLifeBarPosition;
     float hudLifeBarMaxHeight;
 
+	ScreenFader fader;
+
 	void Start(){
 		life = maximumLife;
 		ConfigureLifeBar();
+		fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
 	}
 
 	void ConfigureLifeBar()
@@ -69,7 +72,10 @@ public class PlayerHasLife : MonoBehaviour, HasLife
     {
 		AudioSource.PlayClipAtPoint(sndOnDeath, Camera.main.transform.position);
 		System.Threading.Thread.Sleep(1300);
-        GameObject.FindObjectOfType<Restarter>().RestartGame();
+        
+		//GameObject.FindObjectOfType<Restarter>().RestartGame();
+		EndGameMenu.finalScore = PlayerStatus.score;
+		fader.GotoScene("EndGameScene");
     }
 
     void OnCollisionEnter(Collision other)
