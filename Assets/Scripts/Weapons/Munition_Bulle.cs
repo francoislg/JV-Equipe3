@@ -49,5 +49,6 @@ public class Munition_Bulle : Munition {
 			HasLife enemyWithLife = other.gameObject.GetComponent("HasLife") as HasLife;
                enemyWithLife.ReceiveDamage(baseDamage);
            }
+
     }
 }
