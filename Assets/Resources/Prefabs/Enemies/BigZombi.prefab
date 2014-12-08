@@ -1807,7 +1807,7 @@ MonoBehaviour:
   playerLife: {fileID: 0}
   state: 0
   attackStartTime: 10
-  attackAnimationSpeed: 1.04999995
+  attackAnimationSpeed: .300000012
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

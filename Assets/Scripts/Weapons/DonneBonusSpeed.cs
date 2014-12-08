@@ -1,7 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DonneBonusSpeed : MonoBehaviour {
+public class DonneBonusSpeed : MessageDrawer {
+
+    protected override void Start()
+    {
+        base.Start();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+    }
 
     public void OnTriggerEnter(Collider other)
     {
@@ -9,7 +19,19 @@ public class DonneBonusSpeed : MonoBehaviour {
         {
             PlayerHasWeapon joueur = other.gameObject.GetComponent("PlayerHasWeapon") as PlayerHasWeapon;
             joueur.giveBonusSpeed();
-            Destroy(gameObject);
+            ShowMessage("VITESSE+!");
+            if (renderer)
+            {
+                renderer.enabled = false;
+            }
+            else
+            {
+                Renderer childRend = GetComponentInChildren<Renderer>() as Renderer;
+                if (childRend)
+                {
+                    childRend.enabled = false;
+                }
+            }
         }
     }
 }

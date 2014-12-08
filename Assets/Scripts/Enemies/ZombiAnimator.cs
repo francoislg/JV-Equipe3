@@ -11,11 +11,16 @@ public class ZombiAnimator : DealsDamageToPlayerOnHit
     };
 
     public State state;
-	public float attackStartTime = 10;
-	public float attackAnimationSpeed = 1.05f;
+    public float attackStartTime;
+    public float attackAnimationSpeed;
 
     void Start()
     {
+        Animation test = (Animation)GetComponent(typeof(Animation));
+        test["attack01"].speed = 3.0f;
+        attackStartTime = 10;
+        attackAnimationSpeed = 0.4f;
+
         state = State.Walking;
     }
 
@@ -27,6 +32,7 @@ public class ZombiAnimator : DealsDamageToPlayerOnHit
         }
         else if (state == State.Attacking)
         {
+
             transform.animation.Play("attack01");
         }
         else if (state == State.Dying)

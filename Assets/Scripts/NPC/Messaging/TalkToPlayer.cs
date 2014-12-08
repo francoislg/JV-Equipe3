@@ -7,6 +7,7 @@ public abstract class TalkToPlayer : MessageDrawer
 
     GameObject player;
     bool isTalking = false;
+    public string message;
 
     protected override void Start()
     {

@@ -1,7 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DonneBonusDamage : MonoBehaviour {
+public class DonneBonusDamage : MessageDrawer
+{
+
+    protected override void Start()
+    {
+        base.Start();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+    }
 
     public void OnTriggerEnter(Collider other)
     {
@@ -9,7 +20,19 @@ public class DonneBonusDamage : MonoBehaviour {
         {
             PlayerHasWeapon joueur = other.gameObject.GetComponent("PlayerHasWeapon") as PlayerHasWeapon;
             joueur.giveBonusDamage();
-            Destroy(gameObject);
+            ShowMessage("DEGAT+!");
+            if (renderer)
+            {
+                renderer.enabled = false;
+            }
+            else
+            {
+                Renderer childRend = GetComponentInChildren<Renderer>() as Renderer;
+                if (childRend)
+                {
+                    childRend.enabled = false;
+                }
+            }
         }
     }
 }

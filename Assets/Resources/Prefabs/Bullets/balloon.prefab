@@ -195,6 +195,11 @@ MonoBehaviour:
   joueur: 0
   color: {r: 0, g: 0, b: 0, a: 0}
   NbCollision: 0
+  emissionRate: 0
+  emissionAngle: 0
+  contactZone: 0
+  explosionSpeed: 0
+  explosionLifeTime: 0
   explosion: {fileID: 100000, guid: 2b58a90b6a12e1f44a613a8008ccb743, type: 2}
 --- !u!135 &13500000
 SphereCollider:
