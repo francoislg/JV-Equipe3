@@ -12,6 +12,20 @@ public class FilletteAI : EnemyHasLife {
 		animator = GetComponentInChildren<Animator>();
 		target = GameObject.FindGameObjectWithTag("Player");
 		rigidbody.velocity = Vector3.zero;
+
+        GameObject[] spawners = GameObject.FindGameObjectsWithTag("Spawner");
+        foreach (GameObject p in spawners)
+        {
+            Collider pc = p.GetComponent<Collider>();
+            if (pc)
+            {
+                if (collider)
+                {
+                    Physics.IgnoreCollision(pc, collider);
+                }
+            }
+        }
+
 	}
 	
 	// Update is called once per frame

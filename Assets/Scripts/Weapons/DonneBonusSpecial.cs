@@ -1,7 +1,17 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DonneBonusSpecial : MonoBehaviour {
+public class DonneBonusSpecial : MessageDrawer {
+
+    protected override void Start()
+    {
+        base.Start();
+    }
+
+    protected override void Update()
+    {
+        base.Update();
+    }
 
     public void OnTriggerEnter(Collider other)
     {
@@ -9,7 +19,19 @@ public class DonneBonusSpecial : MonoBehaviour {
         {
             PlayerHasWeapon joueur = other.gameObject.GetComponent("PlayerHasWeapon") as PlayerHasWeapon;
             joueur.giveBonusSpecial();
-            Destroy(gameObject);
+            ShowMessage("SPECIAL!");
+            if (renderer)
+            {
+                renderer.enabled = false;
+            }
+            else
+            {
+                Renderer childRend = GetComponentInChildren<Renderer>() as Renderer;
+                if (childRend)
+                {
+                    childRend.enabled = false;
+                }
+            }
         }
     }
 }

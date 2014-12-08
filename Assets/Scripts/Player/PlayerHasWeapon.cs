@@ -29,7 +29,7 @@ public class PlayerHasWeapon : MonoBehaviour
         weapons[1].InitWeapon(gameObject, bulletPool);
         weapons[2].InitWeapon(gameObject, bulletPool);
 
-        currentWeapon = 1;
+        currentWeapon = 0;
     }
 
     void Update()

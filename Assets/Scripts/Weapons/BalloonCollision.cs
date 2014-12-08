@@ -40,28 +40,32 @@ public class BalloonCollision : Munition
 
         foreach (Collider collide in nearObjects)
         {
-            if (joueur)
+            if (Actif)
             {
-                if (collide.gameObject.tag == "Enemy" || collide.gameObject.tag == "Spawner")
+                if (joueur)
                 {
-                    HasLife enemyWithLife = collide.gameObject.GetComponent("HasLife") as HasLife;
-                    enemyWithLife.ReceiveDamage(baseDamage);
+                    if (collide.gameObject.tag == "Enemy" || collide.gameObject.tag == "Spawner")
+                    {
+                        HasLife enemyWithLife = collide.gameObject.GetComponent("HasLife") as HasLife;
+                        enemyWithLife.ReceiveDamage(baseDamage);
+                    }
                 }
-            }
-            else
-            {
-                if (collide.gameObject.tag == "Player")
+                else
                 {
-					HasLife playerWithLife = collide.gameObject.GetComponent("HasLife") as HasLife;
-                    playerWithLife.ReceiveDamage(baseDamage);
+                    if (collide.gameObject.tag == "Player")
+                    {
+                        HasLife playerWithLife = collide.gameObject.GetComponent("HasLife") as HasLife;
+                        playerWithLife.ReceiveDamage(baseDamage);
+                    }
                 }
+            
+            TrailRenderer trail = (TrailRenderer)GetComponent(typeof(TrailRenderer));
+            trail.enabled = false;
+            explosion.particleSystem.startLifetime = explosionLifeTime;
+            explosion.particleSystem.startSpeed = explosionSpeed;
+            explosion.particleSystem.startColor = this.color;
+            Instantiate(explosion, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
             }
         }
-        TrailRenderer trail = (TrailRenderer)GetComponent(typeof(TrailRenderer));
-        trail.enabled = false;
-        explosion.particleSystem.startLifetime = explosionLifeTime;
-        explosion.particleSystem.startSpeed = explosionSpeed;
-        explosion.particleSystem.startColor = this.color;
-        Instantiate(explosion, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
     }
 }
