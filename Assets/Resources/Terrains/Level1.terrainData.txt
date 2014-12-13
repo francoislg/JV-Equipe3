@@ -58,6 +58,11 @@ PREFABS_BEGIN
 	Prefabs/Objects/Poubelle:48:3:26
 	
 	Prefabs/Objects/Coffre:0:1:-3
+	Prefabs/Objects/FireHydrant:8:0:20:90
+	Prefabs/Objects/FireHydrant:90:0:32:180
+	Prefabs/Objects/FireHydrant:150:0:88
+	Prefabs/Objects/FireHydrant:50:0:72:180
+	Prefabs/Objects/FireHydrant:170:0:32:180
 	
 	Prefabs/NPC/SpeakerNPC:0:1:10
 	Prefabs/NPC/QuestWalletNPC:40:1:27
