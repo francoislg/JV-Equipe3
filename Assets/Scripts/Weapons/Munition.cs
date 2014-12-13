@@ -50,6 +50,8 @@ public abstract class Munition : MonoBehaviour {
 
     public virtual void OnCollisionEnter(Collision other)
     {
+        if (other.collider.tag == "Hydrant")
+            Recyle();
         if (CompteurCollision >= NbCollision)
         {
             Recyle();
