@@ -393,10 +393,7 @@ GUIText:
   m_Text: "<b>Jamais son mon lait</b> est un jeu d'action style Gauntlet.\r\n\r\nIl
     a \xE9t\xE9 cr\xE9e par les \xE9tudiant de l'Universit\xE9 Laval :\r\n- Patrick
     Belzile\r\n- Alexandre Cou\xEBt\r\n- Fran\xE7ois Guillemette\r\n- Arthur Le Moigne\r\n-
-    Fr\xE9d\xE9rik Taleb\r\n\r\nCette version <i>alpha</i> comprend d\xE9j\xE0 la
-    plupart de\r\nnos m\xE9caniques de jeu. A savoir :\r\n- D\xE9placement\r\n- Plusieurs
-    types d'ennemis\r\n- Plusieurs types d'armes\r\n- G\xE9n\xE9ration de terrain
-    sous forme de tileset 3D\r\n- Animation des personnages\r\n- etc."
+    Fr\xE9d\xE9rik Taleb\r"
   m_Anchor: 3
   m_Alignment: 0
   m_PixelOffset: {x: 20, y: 0}

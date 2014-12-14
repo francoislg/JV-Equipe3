@@ -7,19 +7,19 @@ public class HudStatus : MonoBehaviour
     const int Width = 250;
     const int Margin = 10;
 
-	public float playerLevel = 0;
+    public float playerLevel = 0;
     public float speedBonus = 0;
-	
-	Rect _statusZone;
 
-    void Start()
-    {		
-		_statusZone = new Rect(Screen.width - Margin - Width, Margin, Width, Height);
+    Rect _statusZone;
+
+    private void Start()
+    {
+        _statusZone = new Rect(Screen.width - Margin - Width, Margin, Width, Height);
     }
 
     void OnGUI()
     {
-		GUI.Label(_statusZone, "Level : " + playerLevel +  "  Speed : " + speedBonus);
+        GUI.Label(_statusZone, "Level : " + playerLevel + "  Speed : " + speedBonus);
     }
 
 }
