@@ -1,64 +1,64 @@
 ﻿using UnityEngine;
 
-
 public class HistoryMenu : MonoBehaviour
 {
-	static public bool hardDifficulty = false;
+    static public bool hardDifficulty = false;
 
-	const int buttonWidth = 200;
-	const int buttonHeight = 60;
-	const int margin = 10;
-	
-	Rect playButton;
-	Rect playHardButton;
-	Rect tutoButton;
-	ScreenFader fader;
-	
-	void Start()
-	{
-		
-		fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
-		
-		playButton = new Rect(
-			(Screen.width / 3) - (buttonWidth / 2),
-			(Screen.height / 4) - (buttonHeight / 4),
-			buttonWidth,
-			buttonHeight
-			);
+    const int ButtonWidth = 200;
+    const int ButtonHeight = 60;
+    const int Margin = 10;
 
-		playHardButton = new Rect(
-			2*(Screen.width / 3) - (buttonWidth / 2),
-			(Screen.height / 4) - (buttonHeight / 4),
-			buttonWidth,
-			buttonHeight
-			);
+    Rect _playButton;
+    Rect _playHardButton;
+    Rect _tutoButton;
+    ScreenFader _fader;
+
+    void Start()
+    {
+        _fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
+    }
+
+    void Update()
+    {
+        _playButton = new Rect(
+            (Screen.width / 3) - (ButtonWidth / 2),
+            (Screen.height / 4) - (ButtonHeight / 4),
+            ButtonWidth,
+            ButtonHeight
+            );
+
+        _playHardButton = new Rect(
+            2 * (Screen.width / 3) - (ButtonWidth / 2),
+            (Screen.height / 4) - (ButtonHeight / 4),
+            ButtonWidth,
+            ButtonHeight
+            );
 
 
-		tutoButton = new Rect(
-			(Screen.width / 2) - (buttonWidth / 2),
-			playButton.yMax + margin,
-			buttonWidth,
-			buttonHeight
-			);
-	}
-	
-	void OnGUI()
-	{
-		if (!fader.SceneEnding && !fader.SceneStarting)
-		{
-			if (GUI.Button(playButton, "Commencer l'aventure !"))
-			{
-				fader.GotoScene("GameScene");
-			}
-			else if (GUI.Button(playHardButton, "Commencer au mode difficile"))
-			{
-				hardDifficulty = true;
-				fader.GotoScene("GameScene");
-			}
-			else if (GUI.Button(tutoButton, "Commencer au niveau tutoriel"))
-			{
-				fader.GotoScene("tutorialScene");
-			}
-		}
-	}	
+        _tutoButton = new Rect(
+            (Screen.width / 2) - (ButtonWidth / 2),
+            _playButton.yMax + Margin,
+            ButtonWidth,
+            ButtonHeight
+            );
+    }
+
+    void OnGUI()
+    {
+        if (_fader.SceneEnding || _fader.SceneStarting) return;
+
+        if (GUI.Button(_playButton, "Commencer l'aventure !"))
+        {
+            _fader.GotoScene("GameScene");
+        }
+        else if (GUI.Button(_playHardButton, "Commencer au mode difficile"))
+        {
+            hardDifficulty = true;
+            _fader.GotoScene("GameScene");
+        }
+        else if (GUI.Button(_tutoButton, "Commencer au niveau tutoriel"))
+        {
+            _fader.GotoScene("tutorialScene");
+        }
+    }
 }

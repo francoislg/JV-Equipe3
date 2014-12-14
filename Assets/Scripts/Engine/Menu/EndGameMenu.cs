@@ -1,45 +1,45 @@
 ﻿using UnityEngine;
 
-
 public class EndGameMenu : MonoBehaviour
 {
-	static public int finalScore = 0;
-	
-	const int buttonWidth = 200;
-	const int buttonHeight = 60;
-	const int scoreZoneWidth = 250;
-	const int scoreZoneHeight = 25;
-	const int margin = 10;
+    static public int finalScore = 0;
 
-	Rect statusZone;
-	Rect menuButton;
-	ScreenFader fader;
-	
-	void Start()
-	{		
-		fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
+    const int ButtonWidth = 200;
+    const int ButtonHeight = 60;
+    const int ScoreZoneWidth = 250;
+    const int ScoreZoneHeight = 25;
+    const int Margin = 10;
 
-		statusZone = new Rect(Screen.width/2 - scoreZoneWidth/2, (Screen.height / 2) - (buttonHeight / 2), scoreZoneWidth, scoreZoneHeight);
+    Rect _statusZone;
+    Rect _menuButton;
+    ScreenFader _fader;
 
-		menuButton = new Rect(
-			(Screen.width / 2) - (buttonWidth / 2),
-			(Screen.height / 4) - (buttonHeight / 4),
-			buttonWidth,
-			buttonHeight
-			);
+    void Start()
+    {
+        _fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
+    }
 
-	}
-	
-	void OnGUI()
-	{
-		GUI.TextArea(statusZone, "Final score : " + finalScore);
+    void Update()
+    {
+        _statusZone = new Rect(Screen.width / 2 - ScoreZoneWidth / 2, (Screen.height / 2) - (ButtonHeight / 2), ScoreZoneWidth, ScoreZoneHeight);
 
-		if (!fader.SceneEnding && !fader.SceneStarting)
-		{
-			if (GUI.Button(menuButton, "Retour au menu principal"))
-			{
-				fader.GotoScene("MenuScene");
-			}
-		}
-	}	
+        _menuButton = new Rect(
+            (Screen.width / 2) - (ButtonWidth / 2),
+            Screen.height - ButtonHeight - Margin,
+            ButtonWidth,
+            ButtonHeight
+            );
+    }
+
+    void OnGUI()
+    {
+        if (_fader.SceneEnding || _fader.SceneStarting) return;
+
+        GUI.TextArea(_statusZone, "Final score : " + finalScore);
+
+        if (GUI.Button(_menuButton, "Retour au menu principal"))
+        {
+            _fader.GotoScene("MenuScene");
+        }
+    }
 }

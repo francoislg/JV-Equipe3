@@ -430,7 +430,7 @@ GameObject:
   - 4: {fileID: 682421729}
   - 212: {fileID: 682421730}
   m_Layer: 0
-  m_Name: homeScreen
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -480,7 +480,7 @@ GameObject:
   - 4: {fileID: 1005510234}
   - 132: {fileID: 1005510233}
   m_Layer: 0
-  m_Name: GUI Text
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
