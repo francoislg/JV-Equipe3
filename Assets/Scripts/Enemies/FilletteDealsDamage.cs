@@ -3,14 +3,8 @@ using System.Collections;
 
 public class FilletteDealsDamage : DealsDamageToPlayerOnHit
 {
-    protected override void OnCollisionEnter(Collision other)
+    protected override void OnCollisionWithPlayer()
     {
-        base.OnCollisionEnter(other);
-        if (isActive && other.gameObject.tag == "Player")
-        {
-            Debug.Log("TEST");
-            DealDamage();
-        }
+		DealDamage();
     }
-
 }

@@ -11,21 +11,23 @@ public class DealsDamageToPlayerOnHit : MonoBehaviour
     void Start()
     {
         enemyObject = GetComponent<EnemyHasLife>() as EnemyHasLife;
+		playerLife = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHasLife>() as PlayerHasLife;
+		Debug.Log (playerLife);
     }
 
-    protected virtual void OnCollisionEnter(Collision other)
+	protected virtual void OnCollisionEnter(Collision other)
     {
 		if(enemyObject != null){
 			if(!enemyObject.isAlive()){
 				isActive = false;
 			}
 		}
-		if (isActive && other.gameObject.tag == "Player")
-        {
-            playerLife = other.gameObject.GetComponent<PlayerHasLife>() as PlayerHasLife;
-            //DealDamage();
-        }
+		if(isActive && other.gameObject.tag == "Player"){
+			OnCollisionWithPlayer();
+		}
     }
+
+	protected virtual void OnCollisionWithPlayer() {}
 
     public void DealDamage ()
     {
