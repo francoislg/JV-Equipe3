@@ -438,7 +438,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   copyUnit: {fileID: 100122, guid: 7454bae9bc2964f438c21dcc49bdd855, type: 2}
   cooldown: 5
-  range: 25
+  range: 5
+  initNumber: 5
 --- !u!114 &11400002
 MonoBehaviour:
   m_ObjectHideFlags: 1
