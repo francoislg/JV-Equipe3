@@ -9,6 +9,8 @@ public class PlayerHasLife : MonoBehaviour, HasLife
 	protected float life;
 	public float maximumLife = 10;
 
+	private bool isAlive = true;
+
 	public AudioClip sndOnDeath;
 
     Texture2D hudLifeBackground;
@@ -50,22 +52,27 @@ public class PlayerHasLife : MonoBehaviour, HasLife
 
     public void ReceiveDamage(float damage)
     {
-		life -= damage;
-		if (life <= 0)
-		{
-			OnDeath();
+		if(isAlive){
+			life -= damage;
+			if (life <= 0)
+			{
+				isAlive = false;
+				OnDeath();
+			}
+	        UpdateLifeBar(life / maximumLife);
 		}
-        UpdateLifeBar(life / maximumLife);
     }
 
     public void ReceiveBonus(float bonus)
     {
-        life += bonus;
-        if (life > maximumLife)
-        {
-            life = maximumLife;
-        }
-        UpdateLifeBar(life / maximumLife);
+		if(isAlive){
+	        life += bonus;
+	        if (life > maximumLife)
+	        {
+	            life = maximumLife;
+	        }
+	        UpdateLifeBar(life / maximumLife);
+		}
     }
 
     public void OnDeath()
