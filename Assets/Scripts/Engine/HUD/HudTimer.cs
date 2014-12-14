@@ -3,22 +3,22 @@ using System.Collections;
 
 public class HudTimer : MonoBehaviour
 {
+    const int Height = 25;
+    const int Width = 120;
+    const int TopMargin = 10;
 
-	int height = 25;
-	int width = 120;
-	int leftRightMargin = (Screen.width / 2) - 60;
-	int topMargin = 10;
+    readonly int _leftRightMargin = (Screen.width / 2) - 60;
 
-	Rect timerZone;
+    Rect _timerZone;
 
     void Start()
     {
-		timerZone = new Rect(leftRightMargin, topMargin, width, height);
+		_timerZone = new Rect(_leftRightMargin, TopMargin, Width, Height);
     }
 
 	void OnGUI()
 	{
-		GUI.TextArea(timerZone, "Time : " + Mathf.Round(Time.timeSinceLevelLoad));
+		GUI.Label(_timerZone, "Time : " + Mathf.Round(Time.timeSinceLevelLoad));
 	}
 
 }
