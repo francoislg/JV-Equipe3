@@ -370,6 +370,7 @@ MonoBehaviour:
   copyUnit: {fileID: 100070, guid: 19338c73a022f7d49804504c946bdbbe, type: 2}
   cooldown: 10
   range: 1
+  initNumber: 0
 --- !u!114 &11400004
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -3,13 +3,17 @@ using System.Collections;
 
 public class HelicopterMoving : MonoBehaviour
 {
+	enum State{
+		Waiting, Attacking, Retreating
+	}
+	State state;
     float speed = 8.0f;
 
-	public bool isAttacking = true;
 	float height = 10f;
 	float distanceToHit = 12f;
 
 	float safeDistanceFromTarget = 50f;
+	float visibilityRange = 25;
 	Vector3 retreatDirection;
 
 	//GameObject projectile;
@@ -38,10 +42,12 @@ public class HelicopterMoving : MonoBehaviour
     }
 
     void Update() {
-        if (isAttacking) {
+		if (state == State.Attacking) {
 			attack();
-		} else {
+		} else if(state == State.Retreating){
 			retreat ();
+		}else if(state == State.Waiting){
+			wait ();
 		}
     }
 
@@ -52,7 +58,7 @@ public class HelicopterMoving : MonoBehaviour
 		if (calculateDistanceFromTarget() < distanceToHit) {
 			dropBomb();
 			calculateRetreatDirection();
-			isAttacking = false;
+			state = State.Retreating;
 		}
 	}
 
@@ -61,19 +67,18 @@ public class HelicopterMoving : MonoBehaviour
 		transform.position += transform.forward * speed * Time.deltaTime;
 		
 		if (calculateDistanceFromTarget() > safeDistanceFromTarget) {
-			isAttacking = true;
+			state = State.Attacking;
+		}
+	}
+
+	void wait(){
+		if(calculateDistanceFromTarget() < visibilityRange){
+			state = State.Attacking;
 		}
 	}
 
 	void dropBomb() {
-
         arme.ShootAt(target.transform.position);
-        /*
-		GameObject newProjectile = (GameObject)MonoBehaviour.Instantiate(projectile, transform.position, Quaternion.identity);
-		newProjectile.transform.LookAt(target.transform.position);
-		newProjectile.renderer.material.color = Color.yellow;
-		newProjectile.rigidbody.velocity = (newProjectile.transform.forward * bombSpeed);
-        */
 	}
 
 	float calculateDistanceFromTarget() {

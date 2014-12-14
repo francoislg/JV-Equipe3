@@ -12,8 +12,6 @@ public class GhostAI : MonoBehaviour {
 
 	public GameObject QuestItemMalus;
 
-	private PlayerHasInventory inventory;
-
 	void Start ()
 	{
 		myObject = Resources.Load(pathToRandom + randomJelly()) as GameObject;
@@ -21,7 +19,6 @@ public class GhostAI : MonoBehaviour {
 		ghost.transform.parent = transform;
 		originalY = transform.position.y;
 		target = GameObject.FindGameObjectWithTag("Player");
-		inventory = target.GetComponent<PlayerHasInventory>() as PlayerHasInventory;
 	}
 
 	private string randomJelly() {
