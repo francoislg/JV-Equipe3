@@ -10,9 +10,6 @@ public class Bullet : Munition
 
     void FixedUpdate()
     {
-        if (!Expirer && Actif)
-        {        
-        }
 
         if (!Expirer && Time.time - creationTimeStamp > duration)
         {
