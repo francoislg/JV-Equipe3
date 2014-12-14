@@ -46,7 +46,7 @@ public abstract class MessageDrawer : MonoBehaviour
     {
         if (messageShowAt > 0)
         {
-            GUI.TextArea(messagePosition, message);
+            GUI.Label(messagePosition, message);
         }
     }
 }

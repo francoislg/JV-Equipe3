@@ -35,7 +35,7 @@ public class EndGameMenu : MonoBehaviour
     {
         if (_fader.SceneEnding || _fader.SceneStarting) return;
 
-        GUI.TextArea(_statusZone, "Final score : " + finalScore);
+        GUI.Label(_statusZone, "Final score : " + finalScore);
 
         if (GUI.Button(_menuButton, "Retour au menu principal"))
         {

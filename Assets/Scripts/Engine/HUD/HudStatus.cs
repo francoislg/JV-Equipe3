@@ -3,25 +3,23 @@ using System.Collections;
 
 public class HudStatus : MonoBehaviour
 {
-    const int height = 25;
-    const int width = 350;
-    const int margin = 10;
+    const int Height = 25;
+    const int Width = 250;
+    const int Margin = 10;
 
 	public float playerLevel = 0;
-    public float attackBonus = 0;
     public float speedBonus = 0;
 	
-	Rect statusZone;
+	Rect _statusZone;
 
     void Start()
     {		
-		statusZone = new Rect(Screen.width - margin - width, margin, width, height);
+		_statusZone = new Rect(Screen.width - Margin - Width, Margin, Width, Height);
     }
 
     void OnGUI()
     {
-		//GUI.TextArea(statusZone, "Level : " + playerLevel + "  Attack : " + attackBonus + "  Speed : " + speedBonus);
-		GUI.TextArea(statusZone, "Level : " + playerLevel +  "  Speed : " + speedBonus);
+		GUI.Label(_statusZone, "Level : " + playerLevel +  "  Speed : " + speedBonus);
     }
 
 }

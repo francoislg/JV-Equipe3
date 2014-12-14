@@ -42,7 +42,6 @@ public class PlayerStatus : MonoBehaviour
 		if (score > 100 * level) {
 			levelUp();
 			hudStatus.playerLevel = level;
-			hudStatus.attackBonus = attackBonus;
 			hudStatus.speedBonus = speedBonus;
 		}
 		

@@ -5,20 +5,20 @@ public class HudScore : MonoBehaviour
 {
 	public int playerScore = 0;
 
-	const int height = 25;
-	const int width = 200;
-	const int margin = 10;
+	const int Height = 25;
+	const int Width = 200;
+	const int Margin = 10;
 
-	Rect scoreZone;
+	Rect _scoreZone;
 
     void Start()
     {
-		scoreZone = new Rect(margin, margin, width, height);
+		_scoreZone = new Rect(Margin, Margin, Width, Height);
     }
 
 	void OnGUI()
 	{
-		GUI.TextArea(scoreZone, "Score : " + playerScore);
+		GUI.Label(_scoreZone, "Score : " + playerScore);
 	}
 
 }
