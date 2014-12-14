@@ -1,55 +1,55 @@
 ﻿using UnityEngine;
 
-
 public class MainMenu : MonoBehaviour
 {
-    const int buttonWidth = 200;
-    const int buttonHeight = 60;
-    const int margin = 10;
+    const int ButtonWidth = 200;
+    const int ButtonHeight = 60;
+    const int Margin = 10;
 
-	public AudioClip newGameVoice;
+    public AudioClip NewGameVoice;
 
-    Rect playButton;
-    Rect helpButton;
-    ScreenFader fader;
+    Rect _playButton;
+    Rect _helpButton;
+    ScreenFader _fader;
 
     void Start()
     {
+        _fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
+    }
 
-        fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
-
-        playButton = new Rect(
-            (Screen.width / 2) - (buttonWidth / 2),
-            (Screen.height / 2) - (buttonHeight / 2),
-            buttonWidth,
-            buttonHeight
+    void Update()
+    {
+        _playButton = new Rect(
+            (Screen.width / 2) - (ButtonWidth / 2),
+            (Screen.height / 2) - (ButtonHeight / 2),
+            ButtonWidth,
+            ButtonHeight
         );
 
-        helpButton = new Rect(
-            playButton.xMin,
-            playButton.yMax + margin,
-            buttonWidth,
-            buttonHeight
+        _helpButton = new Rect(
+            _playButton.xMin,
+            _playButton.yMax + Margin,
+            ButtonWidth,
+            ButtonHeight
         );
     }
 
     void OnGUI()
     {
-        if (!fader.SceneEnding && !fader.SceneStarting)
+        if (_fader.SceneEnding || _fader.SceneStarting) return;
+
+        if (GUI.Button(_playButton, "Jouer !"))
         {
-            if (GUI.Button(playButton, "Jouer !"))
-            {
-				AudioSource.PlayClipAtPoint(newGameVoice, Camera.main.transform.position);
-				System.Threading.Thread.Sleep(2000);
-				fader.GotoScene("HistoryScene");
-                
-            }
-            else if (GUI.Button(helpButton, "A propos ..."))
-            {
-                fader.GotoScene("AboutScene");
-            }
+            AudioSource.PlayClipAtPoint(NewGameVoice, Camera.main.transform.position);
+            System.Threading.Thread.Sleep(2000);
+            _fader.GotoScene("HistoryScene");
+
         }
-    }	
+        else if (GUI.Button(_helpButton, "A propos ..."))
+        {
+            _fader.GotoScene("AboutScene");
+        }
+    }
 }
-	
+
 

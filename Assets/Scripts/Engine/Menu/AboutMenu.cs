@@ -1,35 +1,36 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class AboutMenu : MonoBehaviour
 {
-    const int buttonWidth = 350;
-    const int buttonHeight = 60;
-    const int margin = 10;
+    const int ButtonWidth = 350;
+    const int ButtonHeight = 60;
+    const int Margin = 10;
 
-    Rect backButton;
-    ScreenFader fader;
+    Rect _backButton;
+    ScreenFader _fader;
 
     void Start()
     {
-        fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
+        _fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
+    }
 
-        backButton = new Rect(
-            (Screen.width / 2) - (buttonWidth / 2),
-            Screen.height - buttonHeight - margin,
-            buttonWidth,
-            buttonHeight
-        );
+    void Update()
+    {
+        _backButton = new Rect(
+                (Screen.width / 2) - (ButtonWidth / 2),
+                Screen.height - ButtonHeight - Margin,
+                ButtonWidth,
+                ButtonHeight
+            );
     }
 
     void OnGUI()
     {
-        if (!fader.SceneEnding && !fader.SceneStarting)
+        if (_fader.SceneEnding || _fader.SceneStarting) return;
+
+        if (GUI.Button(_backButton, "Retour au menu principal"))
         {
-            if (GUI.Button(backButton, "Retour au menu principal"))
-            {
-                fader.GotoScene("MenuScene");
-            }
+            _fader.GotoScene("MenuScene");
         }
     }
 }
