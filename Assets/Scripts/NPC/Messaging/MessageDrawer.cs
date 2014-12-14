@@ -3,50 +3,50 @@ using System.Collections;
 
 public abstract class MessageDrawer : MonoBehaviour
 {
-    const float messageDuration = 5;
-    const float messageHeight = 100f;
-    const float messageMargin = 100f;
-	const float messageBottomMargin = 20f;
+    const float MessageDuration = 5;
+    const float MessageHeight = 175f;
+    const float MessageMargin = 100f;
+    const float MessageBottomMargin = 20f;
 
-    Rect messagePosition;
-    string message;
+    Rect _messagePosition;
+    string _message;
 
-    float messageShowAt = 0;
+    float _messageShowAt = 0;
 
     protected virtual void Start()
     {
-        messagePosition = new Rect(
-            messageMargin,
-			Screen.height - messageHeight - messageBottomMargin,
-            Screen.width - 2 * messageMargin,
-            messageHeight);
+        _messagePosition = new Rect(
+            MessageMargin,
+            Screen.height - MessageHeight - MessageBottomMargin,
+            Screen.width - 2 * MessageMargin,
+            MessageHeight);
     }
 
     protected virtual void Update()
     {
-        if (messageShowAt > 0 &&
-            messageShowAt + messageDuration < Time.time)
+        if (_messageShowAt > 0 &&
+            _messageShowAt + MessageDuration < Time.time)
         {
-            messageShowAt = 0;
+            _messageShowAt = 0;
         }
     }
 
     protected void ShowMessage(string message)
     {
-        this.message = message.ToUpper();
-        messageShowAt = Time.time;
+        this._message = message.ToUpper();
+        _messageShowAt = Time.time;
     }
 
     protected bool IsMessageVisible()
     {
-        return messageShowAt > 0;
+        return _messageShowAt > 0;
     }
 
     void OnGUI()
     {
-        if (messageShowAt > 0)
+        if (_messageShowAt > 0)
         {
-            GUI.Label(messagePosition, message);
+            GUI.Label(_messagePosition, _message);
         }
     }
 }
