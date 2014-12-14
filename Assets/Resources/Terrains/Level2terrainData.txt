@@ -66,6 +66,8 @@ PREFABS_BEGIN
 	Prefabs/Enemies/ZombiSpawner:140:1:120
 	Prefabs/Enemies/ZombiSpawner:160:1:120
 
+	Prefabs/Enemies/Helibase:50:1:60
+
 	Prefabs/Quest/ItemBallon:100:1:58
 
 	Prefabs/NPC/SpeakerDemandeObjetParc:150:1:45:90
