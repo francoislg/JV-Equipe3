@@ -24,6 +24,7 @@ public class PlayerHasLife : MonoBehaviour, HasLife
     void Start()
     {
         Life = maximumLife;
+
         ConfigureLifeBar();
         _fader = GameObject.FindGameObjectWithTag("Fader").GetComponent<ScreenFader>();
     }
