@@ -2,7 +2,7 @@
 
 public class EndGameMenu : MonoBehaviour
 {
-    static public int finalScore = 0;
+    static public int FinalScore = 0;
 
     const int ButtonWidth = 200;
     const int ButtonHeight = 60;
@@ -35,7 +35,7 @@ public class EndGameMenu : MonoBehaviour
     {
         if (_fader.SceneEnding || _fader.SceneStarting) return;
 
-        GUI.Label(_statusZone, "Final score : " + finalScore);
+        GUI.Label(_statusZone, "Final score : " + FinalScore);
 
         if (GUI.Button(_menuButton, "Retour au menu principal"))
         {

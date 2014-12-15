@@ -7,46 +7,43 @@ public class TerrainGenerator : MonoBehaviour
 {
     enum SectionType
     {
-        NONE,
-        CONFIG,
-        DATA,
-        PREFABS
+        None,
+        Config,
+        Data,
+        Prefabs
     }
 
     public TextAsset TerrainData;
 
-    Transform player;
-    GameObject[] Tileset = new GameObject[0];
-
-    int offset = 0;
-    SectionType parserMode = SectionType.NONE;
-    int currentLineNumber = 0;
+    Transform _player;
+    GameObject[] _tileset = new GameObject[0];
+    int _offset = 0;
+    SectionType _parserMode = SectionType.None;
+    int _currentLineNumber = 0;
 
     void Start()
     {
-
-
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
 
         foreach (string untrimedLine in TerrainData.text.Split(new Char[] { '\n' }))
         {
             string line = untrimedLine.Trim();
             if (IsData(ref line) && !isChangeModeLine(line))
             {
-                switch (parserMode)
+                switch (_parserMode)
                 {
-                    case SectionType.CONFIG:
+                    case SectionType.Config:
                         ParseConfigLine(line);
                         break;
-                    case SectionType.DATA:
+                    case SectionType.Data:
                         ParseDataLine(line);
                         break;
-                    case SectionType.PREFABS:
+                    case SectionType.Prefabs:
                         ParsePrefabLine(line);
                         break;
                 }
 
-                currentLineNumber++;
+                _currentLineNumber++;
             }
         }
     }
@@ -56,7 +53,7 @@ public class TerrainGenerator : MonoBehaviour
 		if (text.Length == 0)
 			return false;
 
-		if (!HistoryMenu.hardDifficulty)
+		if (!HistoryMenu.HardDifficulty)
 			return text[0] != '#' && text[0] != '*';
 
 		if (text[0] == '*') {
@@ -77,20 +74,20 @@ public class TerrainGenerator : MonoBehaviour
         switch (line)
         {
             case "CONFIG_BEGIN":
-                currentLineNumber = 0;
-                parserMode = SectionType.CONFIG;
+                _currentLineNumber = 0;
+                _parserMode = SectionType.Config;
                 return true;
             case "DATA_BEGIN":
-                currentLineNumber = 0;
-                parserMode = SectionType.DATA;
+                _currentLineNumber = 0;
+                _parserMode = SectionType.Data;
                 return true;
             case "PREFABS_BEGIN":
-                currentLineNumber = 0;
-                parserMode = SectionType.PREFABS;
+                _currentLineNumber = 0;
+                _parserMode = SectionType.Prefabs;
                 return true;
             case "END":
-                currentLineNumber = 0;
-                parserMode = SectionType.NONE;
+                _currentLineNumber = 0;
+                _parserMode = SectionType.None;
                 return true;
         }
         return false;
@@ -98,19 +95,19 @@ public class TerrainGenerator : MonoBehaviour
 
     private void ParseConfigLine(string line)
     {
-        if (currentLineNumber == 0)
+        if (_currentLineNumber == 0)
         {
             LoadTileset(int.Parse(line));
         }
-        else if (currentLineNumber == 1)
+        else if (_currentLineNumber == 1)
         {
-            offset = int.Parse(line);
+            _offset = int.Parse(line);
         }
     }
 
     private void ParseDataLine(string line)
     {
-        BuildTerrainLine(line, currentLineNumber);
+        BuildTerrainLine(line, _currentLineNumber);
     }
 
     private void ParsePrefabLine(string line)
@@ -138,10 +135,10 @@ public class TerrainGenerator : MonoBehaviour
 
     private void LoadTileset(int tilesetSize)
     {
-        Tileset = new GameObject[tilesetSize];
+        _tileset = new GameObject[tilesetSize];
         for (int i = 0; i < tilesetSize; i++)
         {
-            Tileset[i] = Resources.Load<GameObject>("Prefabs/Tiles/T" + i);
+            _tileset[i] = Resources.Load<GameObject>("Prefabs/Tiles/T" + i);
         }
     }
 
@@ -164,13 +161,13 @@ public class TerrainGenerator : MonoBehaviour
 
     private void BuildTile(int tileID, int xPos, int zPos)
     {
-        if (tileID < Tileset.Length)
+        if (tileID < _tileset.Length)
         {
-            GameObject tile = Instantiate(Tileset[tileID],
+            GameObject tile = Instantiate(_tileset[tileID],
                 new Vector3(
-                    player.position.x + (xPos * offset),
+                    _player.position.x + (xPos * _offset),
                     0.0f,
-                    player.position.z + (zPos * offset)),
+                    _player.position.z + (zPos * _offset)),
                 Quaternion.identity) as GameObject;
             tile.transform.parent = transform;
         }

@@ -3,26 +3,29 @@ using System.Collections;
 
 public class fireHydrantOnHit : MonoBehaviour
 {
-
     public ParticleSystem emitter;
-    private bool isReady;
-    
+
+    bool _isReady;
+
     void Start()
     {
-        isReady = true;
+        _isReady = true;
     }
+
     void OnCollisionEnter(Collision other)
     {
-        if (other.gameObject.tag == "Bullet" && isReady)
+        if (other.gameObject.tag == "Bullet" && _isReady)
         {
-            //Debug.Log("hit from bullet");
-            
             emitter.Play();
-            isReady = false;
+            _isReady = false;
 
-            Transform hydrantDmgCollider = transform.Find("HydrantDmgCollider");
-            fireHydrantWaterDmgFeild feild = hydrantDmgCollider.gameObject.GetComponent("fireHydrantWaterDmgFeild") as fireHydrantWaterDmgFeild;
-            feild.ActivateFeild();
+            var hydrantDmgCollider = transform.Find("HydrantDmgCollider");
+            var feild = hydrantDmgCollider.gameObject.GetComponent("fireHydrantWaterDmgFeild") as fireHydrantWaterDmgFeild;
+
+            if (feild != null)
+            {
+                feild.ActivateFeild();
+            }
         }
     }
 }

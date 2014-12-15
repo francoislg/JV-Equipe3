@@ -76,7 +76,7 @@ public class PlayerHasLife : MonoBehaviour, HasLife
         AudioSource.PlayClipAtPoint(sndOnDeath, Camera.main.transform.position);
         System.Threading.Thread.Sleep(1300);
 
-        EndGameMenu.finalScore = PlayerStatus.Score;
+        EndGameMenu.FinalScore = PlayerStatus.Score;
         _fader.GotoScene("EndGameScene");
     }
 
