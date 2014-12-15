@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
 
         if (IsNearLevelEnd())
         {
-            EndGameMenu.finalScore = PlayerStatus.Score;
+            EndGameMenu.FinalScore = PlayerStatus.Score;
             Application.LoadLevel(_sceneConfiguration.NextScene);
         }
     }
