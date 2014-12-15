@@ -9,8 +9,8 @@ public class PlayerStatus : MonoBehaviour
     static public int Score = 0;
 
     public float Level = 1;
-    public float attack;
-    public float speed
+    public float Attack;
+    public float Speed
     {
         get { return _speed + (_inventory ? _inventory.speed : 0); }
         protected set { _speed = value; }
@@ -42,8 +42,8 @@ public class PlayerStatus : MonoBehaviour
     public void LevelUp()
     {
         Level++;
-        attack += 0.5f;
-        speed += 0.1f;
+        Attack += 0.5f;
+        Speed += 0.1f;
     }
 
     public void AddPointsToScore(int points)
@@ -54,6 +54,6 @@ public class PlayerStatus : MonoBehaviour
 
     void OnGUI()
     {
-        GUI.Label(_statusZone, "Level : " + Level + "  Speed : " + speed);
+        GUI.Label(_statusZone, "Level : " + Level + "  Speed : " + Speed);
     }
 }

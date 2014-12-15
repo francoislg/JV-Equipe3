@@ -16,7 +16,7 @@ public class PlayerController : MonoBehaviour
     {
         _levelEnd = GameObject.FindGameObjectWithTag("levelEnd");
         _gameEnd = GameObject.FindGameObjectWithTag("gameEnd");
-        _status = GetComponent<PlayerStatus>() as PlayerStatus;
+        _status = GetComponent<PlayerStatus>();
         _playerModel = GameObject.FindGameObjectWithTag("PlayerModel");
     }
 
@@ -44,19 +44,12 @@ public class PlayerController : MonoBehaviour
 
     void Move()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        var moveHorizontal = Input.GetAxis("Horizontal");
+        var moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-        rigidbody.velocity = movement * (constantSpeed + _status.speed);
-        if (movement.magnitude > 0)
-        {
-            _playerModel.animation.Play("run");
-        }
-        else
-        {
-            _playerModel.animation.Play("Idle");
-        }
+        var movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        rigidbody.velocity = movement * (constantSpeed + _status.Speed);
+        _playerModel.animation.Play(movement.magnitude > 0 ? "run" : "Idle");
     }
 
     void Turn()
@@ -74,8 +67,7 @@ public class PlayerController : MonoBehaviour
 
             // rester en y
             playerToMouse.y = 0f;
-            Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
-            _playerRigidbody.MoveRotation(newRotation);
+            _playerRigidbody.MoveRotation(Quaternion.LookRotation(playerToMouse));
         }
     }
 
