@@ -68,6 +68,8 @@ PREFABS_BEGIN
 
 	Prefabs/Enemies/Helibase:50:1:60
 
+	Prefabs/Objects/Coffre:1:1:71
+
 	Prefabs/Quest/ItemBallon:100:1:58
 
 	Prefabs/NPC/SpeakerDemandeObjetParc:150:1:45:90
