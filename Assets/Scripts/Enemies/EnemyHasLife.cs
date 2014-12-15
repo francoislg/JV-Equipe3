@@ -53,7 +53,8 @@ public class EnemyHasLife : MonoBehaviour, HasLife
 
     private void Die()
     {
-        FindObjectOfType<PlayerStatus>().AddPointsToScore(pointsOnDeath);
+        PlayerStatus.Score += pointsOnDeath;
+
         Destroy(floatingHealthObject);
         alive = false;
         OnDeath();

@@ -44,7 +44,7 @@ public class AskPlayerForSomething : TalkToPlayer
     protected void OnQuestCompleted()
     {
         _questCompleted = true;
-        FindObjectOfType<PlayerStatus>().AddPointsToScore(PointsForCompletedQuest);
+        PlayerStatus.Score += PointsForCompletedQuest;
         _playerInventory.Remove(requestItem);
 
         if (giveWeapon > -1)

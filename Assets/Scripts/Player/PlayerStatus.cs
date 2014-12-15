@@ -16,22 +16,22 @@ public class PlayerStatus : MonoBehaviour
         protected set { _speed = value; }
     }
     
-    HudScore _hudScore;
     PlayerHasInventory _inventory;
     private float _speed;
     Rect _statusZone;
+    Rect _scoreZone;
 
     void Start()
     {
         Level = 1;
-        Attack = 1;
+        Attack = 0;
         Speed = 0;
+        Score = 0;
 
-        var go = GameObject.Find("GameController");
-        _hudScore = (HudScore)go.GetComponent(typeof(HudScore));
         _inventory = GetComponent<PlayerHasInventory>();
 
         _statusZone = new Rect(Screen.width - Margin - Width, Margin, Width, Height);
+        _scoreZone = new Rect(Margin, Margin, Width, Height);
     }
 
     void Update()
@@ -45,18 +45,13 @@ public class PlayerStatus : MonoBehaviour
     public void LevelUp()
     {
         Level++;
-        Attack += 0.5f;
-        Speed += 0.1f;
-    }
-
-    public void AddPointsToScore(int points)
-    {
-        Score += points;
-        _hudScore.PlayerScore = Score;
+        Attack += 1.5f;
+        Speed += 1f;
     }
 
     void OnGUI()
     {
         GUI.Label(_statusZone, "Level : " + Level + "  Speed : " + Speed);
+        GUI.Label(_scoreZone, "Score : " + Score);
     }
 }
