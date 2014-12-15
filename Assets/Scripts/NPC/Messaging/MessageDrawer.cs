@@ -10,10 +10,12 @@ public abstract class MessageDrawer : MonoBehaviour
 
     Rect _messagePosition;
     string _message;
-    float _messageShowAt = 0;
+    float _messageShowAt;
 
     protected virtual void Start()
     {
+        _message = "";
+        _messageShowAt = 0;
         _messagePosition = new Rect(
             left: MessageMargin,
             top: Screen.height - MessageHeight - MessageBottomMargin,

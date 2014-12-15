@@ -14,6 +14,11 @@ public class PlayerHasInventory : MonoBehaviour
     Rect _windowRect = new Rect(50, 50, Screen.width - 100, Screen.height - 100);
     bool _isWindowVisible;
 
+    void Start()
+    {
+        _isWindowVisible = false;
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
