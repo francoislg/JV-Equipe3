@@ -17,7 +17,7 @@ public class DealsDamageToPlayerOnHit : MonoBehaviour
 	protected virtual void OnCollisionEnter(Collision other)
     {
 		if(enemyObject != null){
-			if(!enemyObject.isAlive()){
+			if(!enemyObject.alive){
 				isActive = false;
 			}
 		}

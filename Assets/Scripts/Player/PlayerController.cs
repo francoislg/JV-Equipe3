@@ -1,28 +1,28 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class PlayerController : MonoBehaviour
 {
+    const float CamRayLength = 100f;
+
     public float constantSpeed;
 
-    float camRayLength = 100f;
-    Rigidbody playerRigidbody;
-	GameObject levelEnd;
-	GameObject gameEnd;
-	PlayerStatus status;
-    GameObject playerModel;
-	ScreenFader fader;
+    Rigidbody _playerRigidbody;
+    GameObject _levelEnd;
+    GameObject _gameEnd;
+    PlayerStatus _status;
+    GameObject _playerModel;
 
-	void Start() {
-		levelEnd = GameObject.FindGameObjectWithTag("levelEnd");
-		gameEnd = GameObject.FindGameObjectWithTag("gameEnd");
-		status = GetComponent<PlayerStatus>() as PlayerStatus;
-        playerModel = GameObject.FindGameObjectWithTag("PlayerModel");
-	}
+    void Start()
+    {
+        _levelEnd = GameObject.FindGameObjectWithTag("levelEnd");
+        _gameEnd = GameObject.FindGameObjectWithTag("gameEnd");
+        _status = GetComponent<PlayerStatus>();
+        _playerModel = GameObject.FindGameObjectWithTag("PlayerModel");
+    }
 
     void Awake()
     {
-        playerRigidbody = GetComponent<Rigidbody>();
+        _playerRigidbody = GetComponent<Rigidbody>();
     }
 
     void FixedUpdate()
@@ -30,28 +30,26 @@ public class PlayerController : MonoBehaviour
         Move();
         Turn();
 
-		if (levelFinished()) {
-			Application.LoadLevel("GameScene");
-		}
+        if (IsLevelFinished())
+        {
+            Application.LoadLevel("GameScene");
+        }
 
-		if (gameFinished()) {
-			EndGameMenu.finalScore = PlayerStatus.score;
-			Application.LoadLevel("EndGameScene");
-		}
-
+        if (IsGameFinished())
+        {
+            EndGameMenu.finalScore = PlayerStatus.Score;
+            Application.LoadLevel("EndGameScene");
+        }
     }
 
     void Move()
     {
-        float moveHorizontal = Input.GetAxis("Horizontal");
-        float moveVertical = Input.GetAxis("Vertical");
+        var moveHorizontal = Input.GetAxis("Horizontal");
+        var moveVertical = Input.GetAxis("Vertical");
 
-        Vector3 movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
-		rigidbody.velocity = movement * (constantSpeed + status.speed);
-        if (movement.magnitude > 0)
-            playerModel.animation.Play("run");
-        else
-            playerModel.animation.Play("Idle");
+        var movement = new Vector3(moveHorizontal, 0.0f, moveVertical);
+        rigidbody.velocity = movement * (constantSpeed + _status.Speed);
+        _playerModel.animation.Play(movement.magnitude > 0 ? "run" : "Idle");
     }
 
     void Turn()
@@ -62,23 +60,24 @@ public class PlayerController : MonoBehaviour
         RaycastHit floorHit;
 
         // si le raycast atteint qqchose
-        if (Physics.Raycast(camRay, out floorHit, camRayLength))
+        if (Physics.Raycast(camRay, out floorHit, CamRayLength))
         {
             // vecteur de player au point du plancher frappé par le raycast
             Vector3 playerToMouse = floorHit.point - transform.position;
 
             // rester en y
             playerToMouse.y = 0f;
-            Quaternion newRotation = Quaternion.LookRotation(playerToMouse);
-            playerRigidbody.MoveRotation(newRotation);
+            _playerRigidbody.MoveRotation(Quaternion.LookRotation(playerToMouse));
         }
     }
 
-	bool levelFinished() {
-		return( (playerRigidbody.transform.position - levelEnd.transform.position).magnitude < 2.0 );
-	}
+    bool IsLevelFinished()
+    {
+        return ((_playerRigidbody.transform.position - _levelEnd.transform.position).magnitude < 2.0);
+    }
 
-	bool gameFinished() {
-		return( (playerRigidbody.transform.position - gameEnd.transform.position).magnitude < 2.0 );
-	}
+    bool IsGameFinished()
+    {
+        return ((_playerRigidbody.transform.position - _gameEnd.transform.position).magnitude < 2.0);
+    }
 }

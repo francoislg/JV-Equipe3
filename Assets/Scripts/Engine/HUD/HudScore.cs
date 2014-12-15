@@ -3,7 +3,7 @@ using System.Collections;
 
 public class HudScore : MonoBehaviour
 {
-	public int playerScore = 0;
+	public int PlayerScore = 0;
 
 	const int Height = 25;
 	const int Width = 200;
@@ -18,7 +18,7 @@ public class HudScore : MonoBehaviour
 
 	void OnGUI()
 	{
-		GUI.Label(_scoreZone, "Score : " + playerScore);
+		GUI.Label(_scoreZone, "Score : " + PlayerScore);
 	}
 
 }

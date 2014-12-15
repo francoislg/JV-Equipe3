@@ -38,7 +38,7 @@ public class QuestItem : MessageDrawer
 
     void PickObject()
     {
-        OnPickup();
+        InstanciatePickupSpawn();
 
         _playerInventory.Add(this);
         ShowMessage("Vous avez trouve : " + friendlyName + "\n" + pickUpMessage);
@@ -47,7 +47,7 @@ public class QuestItem : MessageDrawer
         DisableRenderer();
     }
 
-    void OnPickup()
+    void InstanciatePickupSpawn()
     {
         if (!spawnOnPickup) return;
 

@@ -1,13 +1,11 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class AskPlayerForSomething : TalkToPlayer
 {
+    const int PointsForCompletedQuest = 25;
+
     public QuestItem requestItem;
-
     public string questMessage;
-	int pointsForCompletedQuest = 25;
-
     public string firstThanksMessage;
     public string thanksMessage;
 
@@ -16,59 +14,55 @@ public class AskPlayerForSomething : TalkToPlayer
     public GameObject doorToOpen;
     public int giveArmeBonus = -1;
 
-    PlayerHasLife playerLife;
-    PlayerHasInventory playerInventory;
-    PlayerHasWeapon playerWeapons;
-
-    bool questCompleted = false;
+    PlayerHasLife _playerLife;
+    PlayerHasInventory _playerInventory;
+    PlayerHasWeapon _playerWeapons;
+    bool _questCompleted;
 
     protected override void Start()
     {
         base.Start();
-        playerLife = GameObject.FindObjectOfType<PlayerHasLife>();
-        playerInventory = GameObject.FindObjectOfType<PlayerHasInventory>();
-        playerWeapons = GameObject.FindObjectOfType<PlayerHasWeapon>();
+        _playerLife = FindObjectOfType<PlayerHasLife>();
+        _playerInventory = FindObjectOfType<PlayerHasInventory>();
+        _playerWeapons = FindObjectOfType<PlayerHasWeapon>();
     }
 
     protected override string InteractWithPlayer()
     {
-        if (questCompleted)
+        if (_questCompleted)
         {
             return thanksMessage;
         }
-        else if (playerInventory.Have(requestItem))
+        else if (_playerInventory.Have(requestItem))
         {
             OnQuestCompleted();
             return firstThanksMessage;
         }
-        else
-        {
-            return questMessage;
-        }
+        return questMessage;
     }
 
     protected void OnQuestCompleted()
     {
-        questCompleted = true;
-		GameObject.FindObjectOfType<PlayerStatus>().addPointsToScore(pointsForCompletedQuest);
-        playerInventory.Remove(requestItem);
+        _questCompleted = true;
+        FindObjectOfType<PlayerStatus>().AddPointsToScore(PointsForCompletedQuest);
+        _playerInventory.Remove(requestItem);
 
         if (giveWeapon > -1)
         {
-            playerWeapons.GiveWeapon(giveWeapon);
+            _playerWeapons.GiveWeapon(giveWeapon);
         }
-        if(giveLifeBonus > 0)
+        if (giveLifeBonus > 0)
         {
-            playerLife.ReceiveBonus(giveLifeBonus);
+            _playerLife.ReceiveBonus(giveLifeBonus);
         }
 
-        if (giveArmeBonus> 0)
+        if (giveArmeBonus > 0)
         {
             switch (giveArmeBonus)
             {
-                case 1: playerWeapons.giveBonusDamage(); break;
-                case 2: playerWeapons.giveBonusSpeed(); break;
-                case 3: playerWeapons.giveBonusSpecial(); break;
+                case 1: _playerWeapons.giveBonusDamage(); break;
+                case 2: _playerWeapons.giveBonusSpeed(); break;
+                case 3: _playerWeapons.giveBonusSpecial(); break;
                 default: Debug.Log("Ce choix d'arme n'existe pas"); break;
             }
         }
@@ -78,13 +72,9 @@ public class AskPlayerForSomething : TalkToPlayer
             GameObject[] doors = GameObject.FindGameObjectsWithTag("Door");
             foreach (GameObject door in doors)
             {
-                 door.transform.Rotate(new Vector3(0, 90, 0));
-                 door.transform.Translate(new Vector3(-10, 0, 10));
+                door.transform.Rotate(new Vector3(0, 90, 0));
+                door.transform.Translate(new Vector3(-10, 0, 10));
             }
         }
-
-
-
     }
-
 }
