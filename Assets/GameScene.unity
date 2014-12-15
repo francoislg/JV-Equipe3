@@ -1170,11 +1170,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 788141535}
-  - 114: {fileID: 788141534}
   - 114: {fileID: 788141537}
   - 82: {fileID: 788141538}
   - 114: {fileID: 788141536}
   - 114: {fileID: 788141539}
+  - 114: {fileID: 788141534}
   m_Layer: 0
   m_Name: GameController
   m_TagString: GameController
@@ -1190,9 +1190,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 788141533}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5d23d75e82e21bb41b8de9d95ba24d6e, type: 3}
+  m_Script: {fileID: 11500000, guid: d26c7d27d040abf4e9d2f9e264b8cd60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  NextScene: EndGameScene
 --- !u!4 &788141535
 Transform:
   m_ObjectHideFlags: 0
@@ -1216,7 +1217,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a176301cdc794d8fbe63a8177a0f644, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerScore: 0
+  PlayerScore: 0
 --- !u!114 &788141537
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3164,6 +3165,7 @@ MonoBehaviour:
     m_FixedHeight: 0
     m_StretchWidth: 1
     m_StretchHeight: 0
+  SpeedBonus: 0
 --- !u!114 &2062626184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3177,7 +3179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Level: 1
-  attack: 0
+  Attack: 0
 --- !u!1 &2102336089
 GameObject:
   m_ObjectHideFlags: 0

@@ -16,7 +16,6 @@ public class PlayerStatus : MonoBehaviour
         protected set { _speed = value; }
     }
     
-    GameObject _go;
     HudScore _hudScore;
     PlayerHasInventory _inventory;
     private float _speed;
@@ -24,8 +23,8 @@ public class PlayerStatus : MonoBehaviour
 
     void Start()
     {
-        _go = GameObject.Find("GameController");
-        _hudScore = (HudScore)_go.GetComponent(typeof(HudScore));
+        var go = GameObject.Find("GameController");
+        _hudScore = (HudScore)go.GetComponent(typeof(HudScore));
         _inventory = GetComponent<PlayerHasInventory>() as PlayerHasInventory;
 
         _statusZone = new Rect(Screen.width - Margin - Width, Margin, Width, Height);

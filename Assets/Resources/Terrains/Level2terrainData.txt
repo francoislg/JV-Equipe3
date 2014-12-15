@@ -99,6 +99,5 @@ PREFABS_BEGIN
 #	Prefabs/NPC/QuestWalletNPC:40:1:27
 #	Prefabs/Quest/Wallet:22:1:113
 
-	Prefabs/FX/gameEnd:170:1:60
-	Prefabs/FX/levelEnd:-1000:1:-1000
+	Prefabs/FX/levelEnd:170:1:60
 END

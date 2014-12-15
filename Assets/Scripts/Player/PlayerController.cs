@@ -7,17 +7,17 @@ public class PlayerController : MonoBehaviour
     public float constantSpeed;
 
     Rigidbody _playerRigidbody;
-    GameObject _levelEnd;
-    GameObject _gameEnd;
     PlayerStatus _status;
     GameObject _playerModel;
+    SceneConfiguration _sceneConfiguration;
+    GameObject _levelEnd;
 
     void Start()
     {
-        _levelEnd = GameObject.FindGameObjectWithTag("levelEnd");
-        _gameEnd = GameObject.FindGameObjectWithTag("gameEnd");
         _status = GetComponent<PlayerStatus>();
+        _sceneConfiguration = FindObjectOfType<SceneConfiguration>();
         _playerModel = GameObject.FindGameObjectWithTag("PlayerModel");
+        _levelEnd = GameObject.FindGameObjectWithTag("levelEnd");
     }
 
     void Awake()
@@ -30,15 +30,10 @@ public class PlayerController : MonoBehaviour
         Move();
         Turn();
 
-        if (IsLevelFinished())
-        {
-            Application.LoadLevel("GameScene");
-        }
-
-        if (IsGameFinished())
+        if (IsNearLevelEnd())
         {
             EndGameMenu.finalScore = PlayerStatus.Score;
-            Application.LoadLevel("EndGameScene");
+            Application.LoadLevel(_sceneConfiguration.NextScene);
         }
     }
 
@@ -71,13 +66,9 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    bool IsLevelFinished()
+    bool IsNearLevelEnd()
     {
         return ((_playerRigidbody.transform.position - _levelEnd.transform.position).magnitude < 2.0);
     }
 
-    bool IsGameFinished()
-    {
-        return ((_playerRigidbody.transform.position - _gameEnd.transform.position).magnitude < 2.0);
-    }
 }
