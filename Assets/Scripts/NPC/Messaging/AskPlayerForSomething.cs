@@ -8,7 +8,6 @@ public class AskPlayerForSomething : TalkToPlayer
     public string questMessage;
     public string firstThanksMessage;
     public string thanksMessage;
-
     public int giveWeapon = -1;
     public int giveLifeBonus = 0;
     public GameObject doorToOpen;
