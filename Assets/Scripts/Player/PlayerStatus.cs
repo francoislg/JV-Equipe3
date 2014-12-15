@@ -1,68 +1,59 @@
 ﻿using UnityEngine;
-using System.Collections;
-using System.Collections.Generic;
 
 public class PlayerStatus : MonoBehaviour
 {
-	static public int score = 0;
-	int level = 1;
-	private float attackBonus;
-	public float attack {
-		get{
-			return attackBonus;
-		}
-		protected set{
-			attackBonus = value;
-		}
-	}
-	private float speedBonus;
-	public float speed {
-		get{
-			return speedBonus + getInventorySpeed();
-		}
-		protected set{
-			speedBonus = value;
-		}
-	}
+    const int Height = 25;
+    const int Width = 250;
+    const int Margin = 10;
 
-	GameObject go;
-	HudStatus hudStatus;
-	HudScore hudScore;
-	PlayerHasInventory inventory;
+    static public int Score = 0;
 
-	void Start() {
-		go = GameObject.Find("GameController");
-		hudStatus = (HudStatus) go.GetComponent(typeof(HudStatus));
-		hudScore = (HudScore) go.GetComponent(typeof(HudScore));
-		inventory = GetComponent<PlayerHasInventory>() as PlayerHasInventory;
-	}
+    public float Level = 1;
+    public float attack;
+    public float speed
+    {
+        get { return _speed + (_inventory ? _inventory.speed : 0); }
+        protected set { _speed = value; }
+    }
+    
+    GameObject _go;
+    HudScore _hudScore;
+    PlayerHasInventory _inventory;
+    private float _speed;
+    Rect _statusZone;
 
-	void Update()
-	{
-		if (score > 100 * level) {
-			levelUp();
-			hudStatus.playerLevel = level;
-			hudStatus.speedBonus = speedBonus;
-		}
-		
-	}
+    void Start()
+    {
+        _go = GameObject.Find("GameController");
+        _hudScore = (HudScore)_go.GetComponent(typeof(HudScore));
+        _inventory = GetComponent<PlayerHasInventory>() as PlayerHasInventory;
 
-	private float getInventorySpeed(){
-		if(inventory){
-			return inventory.speed;
-		}
-		return 0;
-	}
+        _statusZone = new Rect(Screen.width - Margin - Width, Margin, Width, Height);
+    }
 
-	public void levelUp() {
-		level++;
-		attackBonus += 0.5f;
-		speedBonus += 0.1f;
-	}
+    void Update()
+    {
+        if (Score > 100 * Level)
+        {
+            LevelUp();
+        }
+    }
 
-	public void addPointsToScore(int points) {
-        score += points;
-        hudScore.playerScore = score;
-	}
-	
+    public void LevelUp()
+    {
+        Level++;
+        attack += 0.5f;
+        speed += 0.1f;
+    }
+
+    public void AddPointsToScore(int points)
+    {
+        Score += points;
+        _hudScore.PlayerScore = Score;
+    }
+
+    void OnGUI()
+    {
+        GUI.Label(_statusZone, "Level : " + Level + "  Speed : " + speed);
+    }
 }

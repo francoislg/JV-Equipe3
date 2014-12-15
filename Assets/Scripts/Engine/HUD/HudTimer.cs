@@ -7,18 +7,21 @@ public class HudTimer : MonoBehaviour
     const int Width = 120;
     const int TopMargin = 10;
 
-    readonly int _leftRightMargin = (Screen.width / 2) - 60;
-
     Rect _timerZone;
 
     void Start()
     {
-		_timerZone = new Rect(_leftRightMargin, TopMargin, Width, Height);
+        _timerZone = new Rect(
+            left: (Screen.width / 2) - 60,
+            top: TopMargin,
+            width: Width,
+            height: Height
+            );
     }
 
-	void OnGUI()
-	{
-		GUI.Label(_timerZone, "Time : " + Mathf.Round(Time.timeSinceLevelLoad));
-	}
+    void OnGUI()
+    {
+        GUI.Label(_timerZone, "Time : " + Mathf.Round(Time.timeSinceLevelLoad));
+    }
 
 }
