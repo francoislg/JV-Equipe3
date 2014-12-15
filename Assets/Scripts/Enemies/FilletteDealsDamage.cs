@@ -5,6 +5,6 @@ public class FilletteDealsDamage : DealsDamageToPlayerOnHit
 {
     protected override void OnCollisionWithPlayer()
     {
-		DealDamage();
+        DealDamage();
     }
 }

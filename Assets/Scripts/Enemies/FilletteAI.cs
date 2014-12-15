@@ -1,46 +1,51 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class FilletteAI : EnemyHasLife {
-	protected Animator animator;
-	protected GameObject target;
-	protected int range = 15;
-	protected float acceleration = 0.3f;
+public class FilletteAI : EnemyHasLife
+{
+    protected Animator Animator;
+    protected GameObject Target;
+    protected int Range;
+    protected float Acceleration;
 
-	// Use this for initialization
-	protected override void OnStart () {
-		animator = GetComponentInChildren<Animator>();
-		target = GameObject.FindGameObjectWithTag("Player");
-		rigidbody.velocity = Vector3.zero;
-	}
-	
-	// Update is called once per frame
-	protected override void OnUpdate () {
-		base.OnUpdate();
-		transform.LookAt(target.transform.position);
+    protected override void OnStart()
+    {
+        Range = 15;
+        Acceleration = 0.3f;
+        Animator = GetComponentInChildren<Animator>();
+        Target = GameObject.FindGameObjectWithTag("Player");
+        rigidbody.velocity = Vector3.zero;
+    }
 
-		if(animator){
-			if(animator.GetBool("IsInRange")){
-				rigidbody.velocity += transform.forward * acceleration;
-			}else{
-				float distance = Vector3.Distance(transform.position, target.transform.position);
-				if(distance < range){
-					animator.SetBool("IsInRange", true);
-				}
-			}
-		}
-	}
+    protected override void OnUpdate()
+    {
+        base.OnUpdate();
+        transform.LookAt(Target.transform.position);
 
-	void OnCollisionEnter(Collision other){
-		if(other.collider.tag != "Player"){
-			Physics.IgnoreCollision(other.collider, collider);
-		}
-		rigidbody.velocity = Vector3.zero;
-	}
+        if (!Animator) return;
 
-	protected override void OnDeath ()
-	{
-		base.OnDeath ();
-		Destroy(gameObject);
-	}
+        if (Animator.GetBool("IsInRange"))
+        {
+            rigidbody.velocity += transform.forward * Acceleration;
+        }
+        else if (Vector3.Distance(transform.position, Target.transform.position) < Range)
+        {
+            Animator.SetBool("IsInRange", true);
+        }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.collider.tag != "Player")
+        {
+            Physics.IgnoreCollision(other.collider, collider);
+        }
+        rigidbody.velocity = Vector3.zero;
+    }
+
+    protected override void OnDeath()
+    {
+        base.OnDeath();
+        Destroy(gameObject);
+    }
 }

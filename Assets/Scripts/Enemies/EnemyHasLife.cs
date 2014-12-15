@@ -5,21 +5,21 @@ public class EnemyHasLife : MonoBehaviour, HasLife
 {
     public GameObject floatingTextClass;
     public GameObject floatingHealthClass;
-    protected GameObject floatingHealthObject;
-    protected FloatingHealth floatingHealthScript;
-    
     public float maximumLife = 10;
     public int pointsOnDeath = 5;
     public bool alive = true;
 
     public float Life { get; private set; }
 
+    protected GameObject FloatingHealthObject;
+    protected FloatingHealth FloatingHealthScript;
+
     void Start()
     {
         Life = maximumLife;
-        floatingHealthObject = Instantiate(floatingHealthClass, transform.position, Quaternion.identity) as GameObject;
-        floatingHealthScript = floatingHealthObject.GetComponent<FloatingHealth>() as FloatingHealth;
-        floatingHealthScript.target = this.gameObject;
+        FloatingHealthObject = Instantiate(floatingHealthClass, transform.position, Quaternion.identity) as GameObject;
+        FloatingHealthScript = FloatingHealthObject.GetComponent<FloatingHealth>();
+        FloatingHealthScript.target = gameObject;
         OnStart();
     }
 
@@ -33,29 +33,31 @@ public class EnemyHasLife : MonoBehaviour, HasLife
 
     public void ReceiveDamage(float damage)
     {
-        if (alive)
+        if (!alive) return;
+
+        Life -= damage;
+        FloatingHealthScript.setPctLife(Life / maximumLife);
+        CreateFloatingText(damage.ToString());
+        if (Life <= 0)
         {
-            Life -= damage;
-            floatingHealthScript.setPctLife(Life / maximumLife);
-            createFloatingText(damage.ToString());
-            if (Life <= 0)
-            {
-                Die();
-            }
+            Die();
         }
     }
 
-    private void createFloatingText(string text)
+    private void CreateFloatingText(string text)
     {
-        GameObject floatingText = Instantiate(floatingTextClass, transform.position, Quaternion.identity) as GameObject;
-        floatingText.guiText.text = text;
+        var floatingText = Instantiate(floatingTextClass, transform.position, Quaternion.identity) as GameObject;
+        if (floatingText != null)
+        {
+            floatingText.guiText.text = text;
+        }
     }
 
     private void Die()
     {
         PlayerStatus.Score += pointsOnDeath;
 
-        Destroy(floatingHealthObject);
+        Destroy(FloatingHealthObject);
         alive = false;
         OnDeath();
     }

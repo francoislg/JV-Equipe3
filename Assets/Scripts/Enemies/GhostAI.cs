@@ -1,46 +1,56 @@
-﻿using UnityEngine;
+﻿using System.Runtime.InteropServices;
+using UnityEngine;
 using System.Collections;
 
-public class GhostAI : MonoBehaviour {
+public class GhostAI : MonoBehaviour
+{
+    private const string PathToRandom = "JellyMonsters/Prefabs/";
 
-	private string pathToRandom = "JellyMonsters/Prefabs/";
-	GameObject myObject;
-	private GameObject target;
-	private float velY = 0.1f;
-	private float originalY;
-	public float speed = 1f;
+    public float speed = 1f;
+    public GameObject QuestItemMalus;
 
-	public GameObject QuestItemMalus;
+    GameObject _target;
+    float _velY;
+    float _originalY;
 
-	void Start ()
-	{
-		myObject = Resources.Load(pathToRandom + randomJelly()) as GameObject;
-		GameObject ghost = Instantiate(myObject, transform.position, Quaternion.identity) as GameObject;
-		ghost.transform.parent = transform;
-		originalY = transform.position.y;
-		target = GameObject.FindGameObjectWithTag("Player");
-	}
+    void Start()
+    {
+        _target = GameObject.FindGameObjectWithTag("Player");
+        _velY = 0.1f;
+        _originalY = transform.position.y;
 
-	private string randomJelly() {
-		ArrayList names = new ArrayList(){"Blue","Red","Orange","Purple","Red"};
-		return names[Random.Range(0,5)] + "Jelly";
-	}
+        var prefab = Resources.Load(PathToRandom + RandomJelly()) as GameObject;
+        var ghost = Instantiate(prefab, transform.position, Quaternion.identity) as GameObject;
+        if (ghost != null)
+        {
+            ghost.transform.parent = transform;
+        }
+    }
 
-	void Update(){
-		transform.LookAt(target.transform.position);
-		transform.position += new Vector3(0, velY, 0);
-		transform.position += transform.forward * speed * Time.deltaTime;
-		if(Mathf.Abs(originalY - transform.position.y) > 1){
-			velY = -velY;
-		}
-	}
+    public string RandomJelly()
+    {
+        var names = new ArrayList() { "Blue", "Red", "Orange", "Purple", "Red" };
+        return names[Random.Range(0, 5)] + "Jelly";
+    }
 
-	void OnCollisionEnter(Collision other)
-	{
-		if (other.gameObject.tag == "Player")
-		{
-			GameObject.Instantiate(QuestItemMalus, transform.position, Quaternion.identity);
-			Destroy(gameObject);
-		}
-	}
+    void Update()
+    {
+        transform.LookAt(_target.transform.position);
+
+        transform.position += new Vector3(0, _velY, 0);
+        transform.position += transform.forward * speed * Time.deltaTime;
+        if (Mathf.Abs(_originalY - transform.position.y) > 1)
+        {
+            _velY = -_velY;
+        }
+    }
+
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "Player")
+        {
+            Instantiate(QuestItemMalus, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
 }
