@@ -25,6 +25,7 @@ public class AskPlayerForSomething : TalkToPlayer
         _playerLife = FindObjectOfType<PlayerHasLife>();
         _playerInventory = FindObjectOfType<PlayerHasInventory>();
         _playerWeapons = FindObjectOfType<PlayerHasWeapon>();
+        _questCompleted = false;
     }
 
     protected override string InteractWithPlayer()
