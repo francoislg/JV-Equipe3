@@ -3,17 +3,17 @@ using System.Collections;
 
 public class CameraBindToPlayer : MonoBehaviour
 {
-    Transform target;
-    float initialOffset = 30f;
+    Transform _target;
+    float _initialOffset = 30f;
 
     void Start()
     {
-        initialOffset = transform.position.y;
-        target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
+        _initialOffset = transform.position.y;
+        _target = GameObject.FindGameObjectWithTag("Player").GetComponent<Transform>();
     }
 
     void LateUpdate()
     {
-        transform.position = new Vector3(target.position.x, target.position.y + initialOffset, target.position.z);
+        transform.position = new Vector3(_target.position.x, _target.position.y + _initialOffset, _target.position.z);
     }
 }

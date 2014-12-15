@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
         if (IsGameFinished())
         {
-            EndGameMenu.finalScore = PlayerStatus.Score;
+            EndGameMenu.FinalScore = PlayerStatus.Score;
             Application.LoadLevel("EndGameScene");
         }
     }

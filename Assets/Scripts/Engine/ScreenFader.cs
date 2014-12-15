@@ -8,7 +8,7 @@ public class ScreenFader : MonoBehaviour
     public bool SceneStarting { get; private set; }
     public bool SceneEnding { get; private set; }
 
-    string destinationSceneName;
+    string _destinationSceneName;
 
     void Awake()
     {
@@ -37,7 +37,7 @@ public class ScreenFader : MonoBehaviour
     {
         SceneStarting = false;
         SceneEnding = true;
-        destinationSceneName = sceneName;
+        _destinationSceneName = sceneName;
     }
 
     void StartScene()
@@ -61,7 +61,7 @@ public class ScreenFader : MonoBehaviour
 
         if (guiTexture.color.a >= 0.85f)
         {
-            Application.LoadLevel(destinationSceneName);
+            Application.LoadLevel(_destinationSceneName);
         }
     }
 

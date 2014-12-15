@@ -2,7 +2,7 @@
 
 public class HistoryMenu : MonoBehaviour
 {
-    static public bool hardDifficulty = false;
+    static public bool HardDifficulty = false;
 
     const int ButtonWidth = 200;
     const int ButtonHeight = 60;
@@ -53,7 +53,7 @@ public class HistoryMenu : MonoBehaviour
         }
         else if (GUI.Button(_playHardButton, "Commencer au mode difficile"))
         {
-            hardDifficulty = true;
+            HardDifficulty = true;
             _fader.GotoScene("GameScene");
         }
         else if (GUI.Button(_tutoButton, "Commencer au niveau tutoriel"))
