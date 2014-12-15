@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using System.Collections;
 
 public class QuestItem : MessageDrawer
 {
@@ -39,17 +38,21 @@ public class QuestItem : MessageDrawer
 
     void PickObject()
     {
-        if (spawnOnPickup)
-        {
-            float angle = Random.Range(0.0f, Mathf.PI * 2);
-            Instantiate(spawnOnPickup, transform.position + (new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)) * 20), Quaternion.identity);
-        }
+        OnPickup();
 
         _playerInventory.Add(this);
         ShowMessage("Vous avez trouve : " + friendlyName + "\n" + pickUpMessage);
-
         _pickedUp = true;
+
         DisableRenderer();
+    }
+
+    void OnPickup()
+    {
+        if (!spawnOnPickup) return;
+
+        var angle = Random.Range(0.0f, Mathf.PI * 2);
+        Instantiate(spawnOnPickup, transform.position + (new Vector3(Mathf.Sin(angle), 0, Mathf.Cos(angle)) * 20), Quaternion.identity);
     }
 
     void DisableRenderer()
