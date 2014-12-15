@@ -14,13 +14,15 @@ public class ZombiAnimator : DealsDamageToPlayerOnHit
     public float attackStartTime;
     public float attackAnimationSpeed;
 
-    void Start()
+    protected override void Start()
     {
-        Animation test = (Animation)GetComponent(typeof(Animation));
-        test["attack01"].speed = 3.0f;
+        base.Start();
+
+        var annimationComponent = GetComponent<Animation>();
+        annimationComponent["attack01"].speed = 3.0f;
+
         attackStartTime = 10;
         attackAnimationSpeed = 0.4f;
-
         state = State.Walking;
     }
 
@@ -32,45 +34,45 @@ public class ZombiAnimator : DealsDamageToPlayerOnHit
         }
         else if (state == State.Attacking)
         {
-
             transform.animation.Play("attack01");
         }
         else if (state == State.Dying)
         {
             transform.animation.Play("death");
-            BoxCollider collider = (BoxCollider) GetComponent(typeof (BoxCollider));
-            collider.enabled = false;
+            var boxCollider = GetComponent<BoxCollider>();
+            boxCollider.enabled = false;
             Destroy(gameObject, 1.6f);
         }
     }
 
-	protected override void OnCollisionEnter(Collision other)
-	{
+    protected override void OnCollisionEnter(Collision other)
+    {
         base.OnCollisionEnter(other);
-		if (other.gameObject.tag == "Player" &&
-		    state != ZombiAnimator.State.Dying)
-		{
-			state = ZombiAnimator.State.Attacking;
-			attackStartTime = Time.time;
-		}
-	}
-	
-	void OnCollisionStay(Collision other)
-	{
-		if (other.gameObject.tag == "Player" &&
-		    state != ZombiAnimator.State.Dying &&
+
+        if (other.gameObject.tag == "Player" &&
+            state != State.Dying)
+        {
+            state = State.Attacking;
+            attackStartTime = Time.time;
+        }
+    }
+
+    void OnCollisionStay(Collision other)
+    {
+        if (other.gameObject.tag == "Player" &&
+            state != State.Dying &&
             Time.time - attackStartTime > attackAnimationSpeed)
-		{
+        {
             base.DealDamage();
-			attackStartTime = Time.time;
-		}
-	}
-	
-	void OnCollisionExit(Collision other)
-	{
-		if (state != ZombiAnimator.State.Dying)
-		{
-			state = ZombiAnimator.State.Walking;
-		}
-	}
+            attackStartTime = Time.time;
+        }
+    }
+
+    void OnCollisionExit(Collision other)
+    {
+        if (state != State.Dying)
+        {
+            state = State.Walking;
+        }
+    }
 }

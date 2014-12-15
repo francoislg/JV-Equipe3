@@ -10,16 +10,15 @@ public abstract class MessageDrawer : MonoBehaviour
 
     Rect _messagePosition;
     string _message;
-
     float _messageShowAt = 0;
 
     protected virtual void Start()
     {
         _messagePosition = new Rect(
-            MessageMargin,
-            Screen.height - MessageHeight - MessageBottomMargin,
-            Screen.width - 2 * MessageMargin,
-            MessageHeight);
+            left: MessageMargin,
+            top: Screen.height - MessageHeight - MessageBottomMargin,
+            width: Screen.width - 2 * MessageMargin,
+            height: MessageHeight);
     }
 
     protected virtual void Update()
@@ -33,7 +32,7 @@ public abstract class MessageDrawer : MonoBehaviour
 
     protected void ShowMessage(string message)
     {
-        this._message = message.ToUpper();
+        _message = message.ToUpper();
         _messageShowAt = Time.time;
     }
 

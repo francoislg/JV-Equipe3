@@ -4,33 +4,35 @@ using System.Collections;
 public class DealsDamageToPlayerOnHit : MonoBehaviour
 {
     public int damageCount = 10;
-	protected EnemyHasLife enemyObject;
-	protected bool isActive = true;
-    public PlayerHasLife playerLife;
 
-    void Start()
+    protected EnemyHasLife Enemy;
+    protected bool IsActive;
+    protected PlayerHasLife Player;
+
+    protected virtual void Start()
     {
-        enemyObject = GetComponent<EnemyHasLife>() as EnemyHasLife;
-		playerLife = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHasLife>();
+        IsActive = true;
+        Enemy = GetComponent<EnemyHasLife>();
+        Player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHasLife>();
     }
 
-	protected virtual void OnCollisionEnter(Collision other)
+    protected virtual void OnCollisionEnter(Collision other)
     {
-		if(enemyObject != null){
-			if(!enemyObject.alive){
-				isActive = false;
-			}
-		}
-		if(isActive && other.gameObject.tag == "Player"){
-			OnCollisionWithPlayer();
-		}
+        if (Enemy != null && !Enemy.alive)
+        {
+            IsActive = false;
+        }
+        if (IsActive && other.gameObject.tag == "Player")
+        {
+            OnCollisionWithPlayer();
+        }
     }
 
-	protected virtual void OnCollisionWithPlayer() {}
-
-    public void DealDamage ()
+    public void DealDamage()
     {
-		playerLife.ReceiveDamage(damageCount);
-		playerLife.PushFromSource(transform.position, damageCount);
+        Player.ReceiveDamage(damageCount);
+        Player.PushFromSource(transform.position, damageCount);
     }
+
+    protected virtual void OnCollisionWithPlayer() { }
 }

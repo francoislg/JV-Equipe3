@@ -4,15 +4,16 @@ using System.Collections;
 public abstract class TalkToPlayer : MessageDrawer
 {
     protected abstract string InteractWithPlayer();
-
-    GameObject player;
-    bool isTalking = false;
+    
     public string message;
+
+    GameObject _player;
+    bool _isTalking;
 
     protected override void Start()
     {
         base.Start();
-        player = GameObject.FindGameObjectWithTag("Player");
+        _player = GameObject.FindGameObjectWithTag("Player");
     }
 
     protected override void Update()
@@ -23,17 +24,17 @@ public abstract class TalkToPlayer : MessageDrawer
         // - il n'y a pas de message visible
         // - le joueur n'a pas deja parlé
         if (!IsMessageVisible() &&
-            !isTalking &&
-            Vector3.Distance(player.transform.position, transform.position) < 3)
+            !_isTalking &&
+            Vector3.Distance(_player.transform.position, transform.position) < 3)
         {
             // Alors on intéragit avec le joueur
-            isTalking = true;
+            _isTalking = true;
             ShowMessage(InteractWithPlayer());
         }
 
-        if (Vector3.Distance(player.transform.position, transform.position) >= 3)
+        if (Vector3.Distance(_player.transform.position, transform.position) >= 3)
         {
-            isTalking = false;
+            _isTalking = false;
         }
     }
 }

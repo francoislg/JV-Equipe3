@@ -3,90 +3,110 @@ using System.Collections;
 
 public class HelicopterMoving : MonoBehaviour
 {
-	enum State{
-		Waiting, Attacking, Retreating
-	}
-	State state;
-    float speed = 8.0f;
+    private const float Speed = 8.0f;
+    private const float Height = 10f;
+    private const float DistanceToHit = 12f;
+    private const float SafeDistanceFromTarget = 50f;
+    private const float VisibilityRange = 25;
 
-	float height = 10f;
-	float distanceToHit = 12f;
+    enum State
+    {
+        Waiting, Attacking, Retreating
+    }
 
-	float safeDistanceFromTarget = 50f;
-	float visibilityRange = 25;
-	Vector3 retreatDirection;
+    State _state;
+    Vector3 _retreatDirection;
+    GameObject _target;
+    Weapon _arme;
+    Transform _bulletPool;
 
-	//GameObject projectile;
-    //float bombSpeed = 20f;
+    void Start()
+    {
+        _state = State.Waiting;
+        _retreatDirection = new Vector3(0, 0, 0);
+        _target = GameObject.FindGameObjectWithTag("Player");
 
-    GameObject target;
+        InitBulletPool();
+        InitArme();
+    }
 
-    /* CHANGEMENT */
-    Weapon arme;
-    Transform bulletPool;
-    /**/
-
-    void Start() {
-		retreatDirection = new Vector3 (0, 0, 0);
-        target = GameObject.FindGameObjectWithTag("Player");
-		//projectile = Resources.Load("Prefabs/Bullets/ennemyBullet") as GameObject;
-
-        /*CHANGEMENT*/
-        GameObject obj = new GameObject("MunitionPool");
+    void InitBulletPool()
+    {
+        var obj = new GameObject("MunitionPool");
         obj.transform.position = new Vector3(0, -10, 0);
-        bulletPool = obj.transform;
-        arme = gameObject.AddComponent("BalloonShooter") as Weapon;
-        arme.InitWeapon(gameObject, bulletPool, 1, 1, 10, 20, 10, 0, Color.yellow, false);
-        /**/
-
+        _bulletPool = obj.transform;
     }
 
-    void Update() {
-		if (state == State.Attacking) {
-			attack();
-		} else if(state == State.Retreating){
-			retreat ();
-		}else if(state == State.Waiting){
-			wait ();
-		}
+    void InitArme()
+    {
+        _arme = gameObject.AddComponent("BalloonShooter") as Weapon;
+        if (_arme != null)
+        {
+            _arme.InitWeapon(gameObject, _bulletPool, 1, 1, 10, 20, 10, 0, Color.yellow, false);
+        }
     }
 
-	void attack() {
-		transform.LookAt (target.transform.position + new Vector3 (0, height, 0));
-		transform.position += transform.forward * speed * Time.deltaTime;
-		
-		if (calculateDistanceFromTarget() < distanceToHit) {
-			dropBomb();
-			calculateRetreatDirection();
-			state = State.Retreating;
-		}
-	}
+    void Update()
+    {
+        switch (_state)
+        {
+            case State.Attacking:
+                Attack();
+                break;
+            case State.Retreating:
+                Retreat();
+                break;
+            case State.Waiting:
+                Wait();
+                break;
+        }
+    }
 
-	void retreat() {
-		transform.LookAt (retreatDirection);
-		transform.position += transform.forward * speed * Time.deltaTime;
-		
-		if (calculateDistanceFromTarget() > safeDistanceFromTarget) {
-			state = State.Attacking;
-		}
-	}
+    void Attack()
+    {
+        transform.LookAt(_target.transform.position + new Vector3(0, Height, 0));
+        transform.position += transform.forward * Speed * Time.deltaTime;
 
-	void wait(){
-		if(calculateDistanceFromTarget() < visibilityRange){
-			state = State.Attacking;
-		}
-	}
+        if (CalculateDistanceFromTarget() < DistanceToHit)
+        {
+            DropBomb();
+            CalculateRetreatDirection();
+            _state = State.Retreating;
+        }
+    }
 
-	void dropBomb() {
-        arme.ShootAt(target.transform.position);
-	}
+    void Retreat()
+    {
+        transform.LookAt(_retreatDirection);
+        transform.position += transform.forward * Speed * Time.deltaTime;
 
-	float calculateDistanceFromTarget() {
-		return (target.transform.position - transform.position).magnitude;
-	}
+        if (CalculateDistanceFromTarget() > SafeDistanceFromTarget)
+        {
+            _state = State.Attacking;
+        }
+    }
 
-	void calculateRetreatDirection() {
-		retreatDirection = transform.position + new Vector3 (Random.Range (-1000f, 1000f), 0, Random.Range (-1000f, 1000f));
-	}
+    void Wait()
+    {
+        if (CalculateDistanceFromTarget() < VisibilityRange)
+        {
+            _state = State.Attacking;
+        }
+    }
+
+    void DropBomb()
+    {
+        _arme.ShootAt(_target.transform.position);
+    }
+
+    float CalculateDistanceFromTarget()
+    {
+        return (_target.transform.position - transform.position).magnitude;
+    }
+
+    void CalculateRetreatDirection()
+    {
+        _retreatDirection = transform.position + new Vector3(Random.Range(-1000f, 1000f), 0, Random.Range(-1000f, 1000f));
+    }
 
 }
