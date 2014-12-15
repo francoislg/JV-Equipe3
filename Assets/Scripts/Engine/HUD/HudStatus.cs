@@ -14,6 +14,7 @@ public class HudStatus : MonoBehaviour
 
     private void Start()
     {
+		speedBonus = 0;
         _statusZone = new Rect(Screen.width - Margin - Width, Margin, Width, Height);
     }
 

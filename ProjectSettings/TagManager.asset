@@ -15,11 +15,13 @@ TagManager:
   - PlayerModel
   - Hydrant
   - Bullet
+  - gameEnd
   - 
   - 
   - 
   - 
   - 
+  - helicopter
   - 
   Builtin Layer 0: Default
   Builtin Layer 1: TransparentFX

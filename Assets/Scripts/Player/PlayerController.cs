@@ -8,11 +8,14 @@ public class PlayerController : MonoBehaviour
     float camRayLength = 100f;
     Rigidbody playerRigidbody;
 	GameObject levelEnd;
+	GameObject gameEnd;
 	PlayerStatus status;
     GameObject playerModel;
+	ScreenFader fader;
 
 	void Start() {
 		levelEnd = GameObject.FindGameObjectWithTag("levelEnd");
+		gameEnd = GameObject.FindGameObjectWithTag("gameEnd");
 		status = GetComponent<PlayerStatus>() as PlayerStatus;
         playerModel = GameObject.FindGameObjectWithTag("PlayerModel");
 	}
@@ -28,8 +31,12 @@ public class PlayerController : MonoBehaviour
         Turn();
 
 		if (levelFinished()) {
-			// comportement à coder quand le niveau de boss sera prêt (passer en paramètre le prochain niveau à loader).
 			Application.LoadLevel("GameScene");
+		}
+
+		if (gameFinished()) {
+			EndGameMenu.finalScore = PlayerStatus.score;
+			Application.LoadLevel("EndGameScene");
 		}
 
     }
@@ -68,7 +75,10 @@ public class PlayerController : MonoBehaviour
     }
 
 	bool levelFinished() {
-		return( (playerRigidbody.transform.position - levelEnd.transform.position).magnitude < 1.0 );
+		return( (playerRigidbody.transform.position - levelEnd.transform.position).magnitude < 2.0 );
 	}
 
+	bool gameFinished() {
+		return( (playerRigidbody.transform.position - gameEnd.transform.position).magnitude < 2.0 );
+	}
 }

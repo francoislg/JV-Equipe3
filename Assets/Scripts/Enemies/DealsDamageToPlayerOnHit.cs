@@ -12,7 +12,6 @@ public class DealsDamageToPlayerOnHit : MonoBehaviour
     {
         enemyObject = GetComponent<EnemyHasLife>() as EnemyHasLife;
 		playerLife = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerHasLife>() as PlayerHasLife;
-		Debug.Log (playerLife);
     }
 
 	protected virtual void OnCollisionEnter(Collision other)
