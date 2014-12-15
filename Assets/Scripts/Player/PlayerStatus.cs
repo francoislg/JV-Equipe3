@@ -8,7 +8,7 @@ public class PlayerStatus : MonoBehaviour
 
     static public int Score = 0;
 
-    public float Level = 1;
+    public float Level;
     public float Attack;
     public float Speed
     {
@@ -23,9 +23,13 @@ public class PlayerStatus : MonoBehaviour
 
     void Start()
     {
+        Level = 1;
+        Attack = 1;
+        Speed = 0;
+
         var go = GameObject.Find("GameController");
         _hudScore = (HudScore)go.GetComponent(typeof(HudScore));
-        _inventory = GetComponent<PlayerHasInventory>() as PlayerHasInventory;
+        _inventory = GetComponent<PlayerHasInventory>();
 
         _statusZone = new Rect(Screen.width - Margin - Width, Margin, Width, Height);
     }
