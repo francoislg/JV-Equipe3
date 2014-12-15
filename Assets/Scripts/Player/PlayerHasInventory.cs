@@ -8,14 +8,18 @@ public class PlayerHasInventory : MonoBehaviour
     const float ItemHeight = 50;
 
     public GUIStyle itemStyle;
-    public float SpeedBonus = 0;
 
-    readonly List<QuestItem> bag = new List<QuestItem>();
-    Rect _windowRect = new Rect(50, 50, Screen.width - 100, Screen.height - 100);
+    public float SpeedBonus;
+
+    List<QuestItem> _bag;
+    Rect _windowRect;
     bool _isWindowVisible;
 
     void Start()
     {
+        SpeedBonus = 0;
+        _bag = new List<QuestItem>();
+        _windowRect = new Rect(50, 50, Screen.width - 100, Screen.height - 100);
         _isWindowVisible = false;
     }
 
@@ -38,9 +42,9 @@ public class PlayerHasInventory : MonoBehaviour
 
     void DrawInventoryWindow(int windowID)
     {
-        for (var i = 0; i < bag.Count; i++)
+        for (var i = 0; i < _bag.Count; i++)
         {
-            var item = bag[i];
+            var item = _bag[i];
             var itemRect = new Rect(ItemMargin, 25 + i * ItemHeight, _windowRect.width - 2 * ItemMargin, ItemHeight);
 
             GUI.Box(itemRect, "<b>" + item.friendlyName + "</b>:\n" + item.description, itemStyle);
@@ -51,7 +55,7 @@ public class PlayerHasInventory : MonoBehaviour
     {
         if (item == null) return;
 
-        bag.Add(item);
+        _bag.Add(item);
         SpeedBonus += item.speedBonus;
     }
 
@@ -59,12 +63,12 @@ public class PlayerHasInventory : MonoBehaviour
     {
         if (item == null) return;
 
-        bag.Remove(item);
+        _bag.Remove(item);
         SpeedBonus -= item.speedBonus;
     }
 
     public bool Have(QuestItem item)
     {
-        return item != null && bag.Contains(item);
+        return item != null && _bag.Contains(item);
     }
 }

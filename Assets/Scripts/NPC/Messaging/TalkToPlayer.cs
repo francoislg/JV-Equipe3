@@ -13,6 +13,7 @@ public abstract class TalkToPlayer : MessageDrawer
     protected override void Start()
     {
         base.Start();
+        message = "";
         _isTalking = false;
         _player = GameObject.FindGameObjectWithTag("Player");
     }

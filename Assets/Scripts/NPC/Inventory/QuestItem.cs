@@ -18,6 +18,7 @@ public class QuestItem : MessageDrawer
         base.Start();
         _player = GameObject.FindGameObjectWithTag("Player");
         _playerInventory = FindObjectOfType<PlayerHasInventory>();
+        _pickedUp = false;
     }
 
     protected override void Update()

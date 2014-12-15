@@ -19,6 +19,7 @@ public class ScreenFader : MonoBehaviour
     {
         SceneStarting = true;
         SceneEnding = false;
+        _destinationSceneName = "";
     }
 
     void Update()
