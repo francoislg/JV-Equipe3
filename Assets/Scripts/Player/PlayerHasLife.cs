@@ -33,10 +33,10 @@ public class PlayerHasLife : MonoBehaviour, HasLife
         // Load and positionate hud life background
         _hudLifeBackground = (Texture2D)Resources.Load("Sprites/hudLifeEmpty");
         _hudLifeBackgroundPosition = new Rect(
-            Screen.width - IconSize - ScreenMargin,   // LEFT
-            Screen.height - IconSize - ScreenMargin,  // TOP
-            _hudLifeBackground.width,                    // WIDTH
-            _hudLifeBackground.height                    // HEIGHT
+            left: Screen.width - IconSize - ScreenMargin,
+            top: Screen.height - IconSize - ScreenMargin,
+            width: _hudLifeBackground.width,
+            height: _hudLifeBackground.height
         );
 
         // Load and positionate hud life progress bar
@@ -78,14 +78,6 @@ public class PlayerHasLife : MonoBehaviour, HasLife
 
         EndGameMenu.FinalScore = PlayerStatus.Score;
         _fader.GotoScene("EndGameScene");
-    }
-
-    void OnCollisionEnter(Collision other)
-    {
-        if (other.gameObject.tag == "EndPoint")
-        {
-            FindObjectOfType<Restarter>().RestartGame();
-        }
     }
 
     public void UpdateLifeBar(float pctLife)
