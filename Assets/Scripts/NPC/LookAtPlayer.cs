@@ -3,15 +3,15 @@ using System.Collections;
 
 public class LookAtPlayer : MonoBehaviour
 {
-    GameObject player;
+    GameObject _player;
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        _player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void Update()
     {
-        transform.LookAt(player.transform);
+        transform.LookAt(_player.transform);
     }
 }

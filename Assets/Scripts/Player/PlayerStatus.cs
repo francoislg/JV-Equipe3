@@ -12,7 +12,7 @@ public class PlayerStatus : MonoBehaviour
     public float Attack;
     public float Speed
     {
-        get { return _speed + (_inventory ? _inventory.speed : 0); }
+        get { return _speed + (_inventory ? _inventory.SpeedBonus : 0); }
         protected set { _speed = value; }
     }
     

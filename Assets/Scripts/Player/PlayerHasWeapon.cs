@@ -3,8 +3,8 @@ using System.Collections;
 
 public class PlayerHasWeapon : MonoBehaviour
 {
-    const int iconSize = 70;
-    const int screenMargin = 20;
+    const int IconSize = 70;
+    const int ScreenMargin = 20;
 
     Weapon[] weapons = new Weapon[3];
     Rect[] weaponRects = new Rect[1];
@@ -59,10 +59,10 @@ public class PlayerHasWeapon : MonoBehaviour
        // for (int i = 0; i < weapons.Length; i++)
        // {
             weaponRects[0] = new Rect(
-                screenMargin + 0 * (iconSize + screenMargin),
-                Screen.height - (iconSize + screenMargin),
-                iconSize,
-                iconSize);
+                ScreenMargin + 0 * (IconSize + ScreenMargin),
+                Screen.height - (IconSize + ScreenMargin),
+                IconSize,
+                IconSize);
         //}
     }
 
