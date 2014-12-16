@@ -70,6 +70,11 @@ PREFABS_BEGIN
 
 	Prefabs/Objects/Coffre:1:1:71
 
+	Prefabs/Objects/FireHydrant:0:0:30:270
+	Prefabs/Objects/FireHydrant:0:0:90:270
+	Prefabs/Objects/FireHydrant:0:0:110:270
+
+
 	Prefabs/Quest/ItemBallon:100:1:58
 
 	Prefabs/NPC/SpeakerDemandeObjetParc:150:1:45:90
@@ -98,6 +103,8 @@ PREFABS_BEGIN
 #	Prefabs/NPC/SpeakerNPC:0:1:10
 #	Prefabs/NPC/QuestWalletNPC:40:1:27
 #	Prefabs/Quest/Wallet:22:1:113
+
+
 
 	Prefabs/FX/levelEnd:170:1:60
 END

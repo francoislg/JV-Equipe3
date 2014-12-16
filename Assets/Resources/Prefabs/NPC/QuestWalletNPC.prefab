@@ -722,14 +722,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 965361ee248675d4386f0a0c7e28dc1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  message: 
   requestItem: {fileID: 11400000, guid: 07e6e79d2a7996949b5cc9454b8e32b1, type: 2}
   questMessage: "J'ai perdu mon porte feuille ! Pourrais-tu m'aider \xE0 le retrouver
     ?"
-  firstThanksMessage: Merci beaucoup ! Je n'arrete pas de le perdre. Voici quelques
-    ballons, ne t'amuse pas a les lancer sur les gens plein d'eau !
+  firstThanksMessage: "Merci beaucoup ! Je n'arrete pas de le perdre ces temps-ci.
+    Voil\xE0 un lance-bulle en recompense !"
   thanksMessage: Merci beaucoup
-  giveWeaponName: BalloonShooter
+  giveWeapon: 2
   giveLifeBonus: 50
+  doorToOpen: {fileID: 0}
+  giveArmeBonus: -1
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
