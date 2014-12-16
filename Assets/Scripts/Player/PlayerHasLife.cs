@@ -34,10 +34,10 @@ public class PlayerHasLife : MonoBehaviour, HasLife
         // Load and positionate hud life background
         _hudLifeBackground = (Texture2D)Resources.Load("Sprites/hudLifeEmpty");
         _hudLifeBackgroundPosition = new Rect(
-            left: Screen.width - IconSize - ScreenMargin,
-            top: Screen.height - IconSize - ScreenMargin,
-            width: _hudLifeBackground.width,
-            height: _hudLifeBackground.height
+            Screen.width - IconSize - ScreenMargin,
+            Screen.height - IconSize - ScreenMargin,
+            _hudLifeBackground.width,
+            _hudLifeBackground.height
         );
 
         // Load and positionate hud life progress bar

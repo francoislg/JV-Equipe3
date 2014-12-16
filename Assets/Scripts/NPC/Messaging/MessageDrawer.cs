@@ -17,10 +17,10 @@ public abstract class MessageDrawer : MonoBehaviour
         _message = "";
         _messageShowAt = 0;
         _messagePosition = new Rect(
-            left: MessageMargin,
-            top: Screen.height - MessageHeight - MessageBottomMargin,
-            width: Screen.width - 2 * MessageMargin,
-            height: MessageHeight);
+            MessageMargin,
+            Screen.height - MessageHeight - MessageBottomMargin,
+            Screen.width - 2 * MessageMargin,
+            MessageHeight);
     }
 
     protected virtual void Update()

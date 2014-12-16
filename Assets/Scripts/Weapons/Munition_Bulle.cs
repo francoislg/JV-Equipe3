@@ -1,6 +1,5 @@
 ﻿using UnityEngine;
 using System.Collections;
-using UnityEditor;
 
 public class Munition_Bulle : Munition {
 
@@ -21,11 +20,6 @@ public class Munition_Bulle : Munition {
             {
                 particule.startSpeed = speed;
                 particule.emissionRate = emissionRate;
-
-                SerializedObject so = new SerializedObject(GetComponent<ParticleSystem>());
-                so.FindProperty("ShapeModule.angle").floatValue = emissionAngle;
-                so.ApplyModifiedProperties();
-
                 particule.enableEmission = true;
             }
             fire = false;

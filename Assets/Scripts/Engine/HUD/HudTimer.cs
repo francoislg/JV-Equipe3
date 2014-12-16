@@ -12,10 +12,10 @@ public class HudTimer : MonoBehaviour
     void Start()
     {
         _timerZone = new Rect(
-            left: (Screen.width / 2) - 60,
-            top: TopMargin,
-            width: Width,
-            height: Height
+            (Screen.width / 2) - 60,
+            TopMargin,
+            Width,
+            Height
             );
     }
 
